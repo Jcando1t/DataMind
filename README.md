@@ -138,5 +138,5 @@ cd frontend && npm test && npm run build
 
 ## 许可
 
-- **代码**：暂未选择开源许可证，保留所有权利；如需使用请联系作者
+- **代码**：[MIT License](LICENSE)——可自由使用、修改、商用，只需保留版权声明
 - **数据集**：Olist 公开数据集，[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)，请勿商用；数据文件不包含在本仓库中
