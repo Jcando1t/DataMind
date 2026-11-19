@@ -1,0 +1,71 @@
+{
+  "current_user": "datamind_ro@localhost",
+  "grants": [
+    "GRANT USAGE ON *.* TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_category_rank` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_gmv_overview` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_gmv_trend` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_top_sellers` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_dws`.`dws_category_summary` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_dws`.`dws_daily_active_users` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_dws`.`dws_daily_trade` TO `datamind_ro`@`localhost`"
+  ],
+  "overview": {
+    "total_gmv": 15735527.03,
+    "total_orders": 98207,
+    "avg_order_value": 160.23,
+    "total_customers": 94990,
+    "data_period_start": "2016-09-04",
+    "data_period_end": "2018-09-03"
+  },
+  "trend": {
+    "n": 25,
+    "gmv_sum": 15735527.03,
+    "order_sum": 98207.0,
+    "mn": "2016-09",
+    "mx": "2018-09",
+    "zero_months": 1.0
+  },
+  "category": {
+    "n": 72,
+    "gmv_sum": 15735527.03,
+    "order_sum": 99002.0,
+    "ratio_sum": 99.99
+  },
+  "top3": [
+    {
+      "rank": 1,
+      "category_english": "health_beauty",
+      "total_gmv": 1437665.78,
+      "gmv_ratio": 9.14
+    },
+    {
+      "rank": 2,
+      "category_english": "watches_gifts",
+      "total_gmv": 1298292.47,
+      "gmv_ratio": 8.25
+    },
+    {
+      "rank": 3,
+      "category_english": "bed_bath_table",
+      "total_gmv": 1240386.13,
+      "gmv_ratio": 7.88
+    }
+  ],
+  "sellers": {
+    "n": 20,
+    "gmv_sum": 3292633.06
+  },
+  "daily_active_users": {
+    "n": 614,
+    "daily_sum": 97277.0,
+    "mn": "2016-09-04",
+    "mx": "2018-09-03"
+  },
+  "daily_trade": {
+    "n": 18927
+  },
+  "category_summary": {
+    "n": 72
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "report": "docs/最后一轮定向修复报告-2026-11-17.md",
+  "date": "2026-11-17",
+  "scope": "回答事实约束定向修复：卖家合计、末月完整月份；保留已通过实现，不全量覆盖",
+  "basis": [
+    "docs/回退修复独立复验报告-2026-11-17.md",
+    "docs/回退修复独立复验-2026-11-17.json",
+    "docs/WorkBuddy-集中返修清单-2026-11-17.md"
+  ],
+  "truth_source": {
+    "mode": "real_execution",
+    "note": "所有 48+12 项单元测试为本地断言；真实模型联调调用运行中后端 http://localhost:8000/api/chat；数据库对账用只读账号 datamind_ro@localhost 直连（脱敏，无凭据输出）"
+  },
+  "changed_files": {
+    "modified_existing": ["agent/nodes/response.py"],
+    "new_files": ["agent/test_answer_facts.py"],
+    "note": "仅 response.py 为改动的既有文件；其余 10 个核心文件 SHA-256 与修复前基线逐一相同，未发生覆盖"
+  },
+  "hashes": {
+    "baseline_file": "docs/evidence_final_2026-11-17/hashes_before.txt",
+    "final_file": "docs/evidence_final_2026-11-17/hashes_after.txt",
+    "response_py_before": "37b0737d6f95e6f7e08748df23462e66d829baa59f5691dd20492114ca01c97f",
+    "response_py_after": "38e3484f29d8fc2f45ece4ae266eb09a230567f71ec1b06c50c00b8de8a7dfd5",
+    "other_core_files_unchanged": true,
+    "verified_after_tests_and_live": true
+  },
+  "fixes": [
+    {
+      "id": "F1-seller-total",
+      "issue": "卖家 Top20 文字总结错误估算合计 GMV≈3,344,000、订单≈20,000",
+      "root_cause": "_summarize 让模型基于结果行自由汇总/估算；仅提示词约束不足以形成确定性",
+      "behavior": [
+        "新增 _compute_verified_facts：用 Decimal 精确计算 GMV 合计与订单逐行合计",
+        "_build_fact_prompt_block 注入精确值作为唯一可引用数字来源；订单“非全局去重”口径仅对排行类注入",
+        "_postcheck_answer 排行类：删除模型模糊估算句（_VAGUE_TOTAL_RE），并由程序确定性附加精确核算与口径（不依赖模型是否主动提及）",
+        "AGGREGATION_RULE 要求不得自行汇总/估算，也不得复述规则条文"
+      ],
+      "verified_values": {"gmv_total": 3292633.06, "orders_row_sum": 18908, "caliber": "跨卖家可能重复，非全局去重订单数"}
+    },
+    {
+      "id": "F2-latest-month",
+      "issue": "最新月份回答把仅覆盖至 2018-09-03 的 2018-09 称为“最后一个完整月份”",
+      "root_cause": "模型自行补充时间结论；全局字符串替换曾把规则复述拼成病句",
+      "behavior": [
+        "新增 _deterministic_latest_answer：单行最新月份查询由程序直接生成回答，杜绝模型脑补与病句",
+        "回答固定含“最后有记录月份 2018-09”“1 单”“数据仅覆盖至 2018-09-03（当月仅 3 天）”“不完整/不能判断整体趋势”",
+        "_postcheck_answer 末月纠正改为精准替换，趋势类附加“末月覆盖不足”说明",
+        "data_period_end 优先取结果行真实值，缺失时用数据集常量 2018-09-03 兜底"
+      ],
+      "verified_values": {"last_month": "2018-09", "orders": 1, "period_end": "2018-09-03"}
+    }
+  ],
+  "tests": {
+    "interpreter": "D:/python3.12.10/python.exe",
+    "env": "PYTHONIOENCODING=utf-8",
+    "command_pattern": "python <file>",
+    "files": [
+      {"file": "agent/test_fixes.py", "exit_code": 0},
+      {"file": "agent/test_remediation.py", "exit_code": 0},
+      {"file": "agent/test_concentrated.py", "exit_code": 0},
+      {"file": "backend/test_chat_router.py", "exit_code": 0},
+      {"file": "backend/test_chat_validation.py", "exit_code": 0},
+      {"file": "agent/test_rollback_regression.py", "exit_code": 0},
+      {"file": "agent/test_answer_facts.py", "exit_code": 0, "new": true, "test_count": 12}
+    ],
+    "totals": {"files": 7, "failed": 0, "prior_suite_tests": 48, "new_tests": 12},
+    "detail_log": "docs/evidence_final_2026-11-17/test_results.txt"
+  },
+  "live_recheck": {
+    "mode": "real_model",
+    "runs": 2,
+    "runs_evidence": "docs/evidence_final_2026-11-17/live_recheck.json",
+    "both_runs_passed": true,
+    "note": "连续两次真实调用全部通过，证明修复稳定，非靠反复重试偶尔答对",
+    "cases": [
+      {"key": "sellers", "question": "卖家销售额排行前20", "http": 200, "assertions": "9/9", "answer_facts": "合计GMV R$ 3,292,633.06；订单18,908标注非全局去重；图表单一BRL轴"},
+      {"key": "latest", "question": "数据集中最后一个月的订单数是多少？", "http": 200, "assertions": "7/7", "answer_facts": "最后有记录月份2018-09、1单、覆盖至2018-09-03（仅3天）、不称完整月份、无病句"},
+      {"key": "trend", "question": "GMV按月的趋势怎么样？", "http": 200, "assertions": "6/6", "answer_facts": "25行；末月覆盖不足说明；图表line/monthly_gmv/BRL"},
+      {"key": "category_follow", "question": "哪个品类销售额最高？ -> 那前三名呢？", "http": 200, "assertions": "4/4", "answer_facts": "health_beauty R$ 1,437,665.78；柱状图"},
+      {"key": "orders_follow", "question": "GMV按月的趋势怎么样？ -> 那订单数按月呢？", "http": 200, "assertions": "4/4", "answer_facts": "25行；末月1单带覆盖说明；图表line/monthly_orders/orders"}
+    ]
+  },
+  "baseline_reconciliation": {
+    "source": "docs/回退修复独立复验-2026-11-17.json（上一轮独立验收，本轮未改业务数据故沿用并抽查）",
+    "gmv": "15735527.03 BRL",
+    "orders": 98207,
+    "distinct_customers": 94990,
+    "aov": 160.23,
+    "data_period": "2016-09-04 至 2018-09-03",
+    "trend_months": 25,
+    "last_month": "2018-09: GMV 166.46 / 1 单",
+    "daily_active_sum": 97277,
+    "top3_gmv_ratio_sum_percent": 25.27,
+    "note": "本轮真实复测的 answer/SQL/rows/chart 与上表一致；未改业务数据、未重跑 ETL"
+  },
+  "fault_injection_and_static": {
+    "mode": "mixed",
+    "note": "以下沿用上一轮独立验收已通过的结论；本轮未改相关代码（哈希一致），未重复执行",
+    "items": [
+      "9 类危险 SQL 连接前拦截（静态/解析，未执行破坏性探测）",
+      "合法 CTE/子查询/UNION 只读执行",
+      "LIMIT/OFFSET/最大行数截断",
+      "5 个 PYTHONHASHSEED 独立进程 Schema 检索稳定",
+      "缺失密码/模型超时/截断/会话设置失败/递归脱敏（模拟故障注入）"
+    ],
+    "re_executed_this_round": false
+  },
+  "not_verified": [
+    "ETL 空库重建 / 全量重跑（按范围约束未执行）",
+    "前端图表最终渲染（范围外，仅核对 chart_config）",
+    "其他模型服务组合下的自然语言表述（本轮结论针对当前 deepseek-chat 配置）",
+    "历史文件覆盖来源仍未查明（本轮未涉及）"
+  ],
+  "security": {
+    "credentials_output": false,
+    "synthetic_only": true,
+    "note": "证据与报告不含真实密码、API Key 或完整连接串；seller_id 为公开业务标识"
+  }
+}

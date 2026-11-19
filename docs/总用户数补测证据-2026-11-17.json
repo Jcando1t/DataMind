@@ -1,0 +1,22 @@
+{
+  "http": 200,
+  "question": "总用户数是多少？",
+  "body": {
+    "code": 200,
+    "message": "success",
+    "data": {
+      "answer": "未找到相关数据，无法确定总用户数。",
+      "response_type": "text",
+      "chart_config": null,
+      "sql": "SELECT '未找到相关数据' AS `message` LIMIT 1000",
+      "rows": [
+        {
+          "message": "未找到相关数据"
+        }
+      ],
+      "row_count": 1,
+      "result_truncated": false,
+      "error_category": null
+    }
+  }
+}

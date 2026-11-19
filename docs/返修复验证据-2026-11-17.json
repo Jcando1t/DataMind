@@ -1,0 +1,3788 @@
+{
+  "checks": [
+    {
+      "name": "query account has only USAGE and SELECT",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "query account grants exactly seven tables",
+      "pass": true,
+      "actual": 7,
+      "expected": 7
+    },
+    {
+      "name": "database denies unauthorized ODS table",
+      "pass": true,
+      "actual": 1142,
+      "expected": 1142
+    },
+    {
+      "name": "GMV unchanged",
+      "pass": true,
+      "actual": "15735527.03",
+      "expected": "15735527.03"
+    },
+    {
+      "name": "orders unchanged",
+      "pass": true,
+      "actual": 98207,
+      "expected": 98207
+    },
+    {
+      "name": "customers unchanged",
+      "pass": true,
+      "actual": 94990,
+      "expected": 94990
+    },
+    {
+      "name": "monthly sum matches overview",
+      "pass": true,
+      "actual": "15735527.03",
+      "expected": "15735527.03"
+    },
+    {
+      "name": "monthly orders match overview",
+      "pass": true,
+      "actual": 98207,
+      "expected": 98207
+    },
+    {
+      "name": "category sum matches overview",
+      "pass": true,
+      "actual": "15735527.03",
+      "expected": "15735527.03"
+    },
+    {
+      "name": "month count",
+      "pass": true,
+      "actual": 25,
+      "expected": 25
+    },
+    {
+      "name": "seller count",
+      "pass": true,
+      "actual": 20,
+      "expected": 20
+    },
+    {
+      "name": "live metric status overview",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live metric code overview",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live metric data overview",
+      "pass": true,
+      "actual": {
+        "total_gmv": 15735527.03,
+        "total_orders": 98207,
+        "avg_order_value": 160.23,
+        "total_customers": 94990,
+        "data_period_start": "2016-09-04",
+        "data_period_end": "2018-09-03"
+      },
+      "expected": {
+        "total_gmv": 15735527.03,
+        "total_orders": 98207,
+        "avg_order_value": 160.23,
+        "total_customers": 94990,
+        "data_period_start": "2016-09-04",
+        "data_period_end": "2018-09-03"
+      }
+    },
+    {
+      "name": "live metric status trend",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live metric code trend",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live metric data trend",
+      "pass": true,
+      "actual": [
+        {
+          "year_month": "2016-09",
+          "monthly_gmv": 279.69,
+          "monthly_orders": 2,
+          "mom_growth_rate": null
+        },
+        {
+          "year_month": "2016-10",
+          "monthly_gmv": 51354.52,
+          "monthly_orders": 293,
+          "mom_growth_rate": 18261.23
+        },
+        {
+          "year_month": "2016-11",
+          "monthly_gmv": 0.0,
+          "monthly_orders": 0,
+          "mom_growth_rate": -100.0
+        },
+        {
+          "year_month": "2016-12",
+          "monthly_gmv": 19.62,
+          "monthly_orders": 1,
+          "mom_growth_rate": null
+        },
+        {
+          "year_month": "2017-01",
+          "monthly_gmv": 136943.46,
+          "monthly_orders": 787,
+          "mom_growth_rate": 697878.9
+        },
+        {
+          "year_month": "2017-02",
+          "monthly_gmv": 283561.69,
+          "monthly_orders": 1718,
+          "mom_growth_rate": 107.06
+        },
+        {
+          "year_month": "2017-03",
+          "monthly_gmv": 425617.96,
+          "monthly_orders": 2617,
+          "mom_growth_rate": 50.1
+        },
+        {
+          "year_month": "2017-04",
+          "monthly_gmv": 405848.61,
+          "monthly_orders": 2377,
+          "mom_growth_rate": -4.64
+        },
+        {
+          "year_month": "2017-05",
+          "monthly_gmv": 582710.83,
+          "monthly_orders": 3640,
+          "mom_growth_rate": 43.58
+        },
+        {
+          "year_month": "2017-06",
+          "monthly_gmv": 499652.24,
+          "monthly_orders": 3205,
+          "mom_growth_rate": -14.25
+        },
+        {
+          "year_month": "2017-07",
+          "monthly_gmv": 578753.73,
+          "monthly_orders": 3946,
+          "mom_growth_rate": 15.83
+        },
+        {
+          "year_month": "2017-08",
+          "monthly_gmv": 661903.52,
+          "monthly_orders": 4272,
+          "mom_growth_rate": 14.37
+        },
+        {
+          "year_month": "2017-09",
+          "monthly_gmv": 717102.72,
+          "monthly_orders": 4227,
+          "mom_growth_rate": 8.34
+        },
+        {
+          "year_month": "2017-10",
+          "monthly_gmv": 764756.03,
+          "monthly_orders": 4547,
+          "mom_growth_rate": 6.65
+        },
+        {
+          "year_month": "2017-11",
+          "monthly_gmv": 1172191.68,
+          "monthly_orders": 7423,
+          "mom_growth_rate": 53.28
+        },
+        {
+          "year_month": "2017-12",
+          "monthly_gmv": 861526.77,
+          "monthly_orders": 5620,
+          "mom_growth_rate": -26.5
+        },
+        {
+          "year_month": "2018-01",
+          "monthly_gmv": 1101920.01,
+          "monthly_orders": 7187,
+          "mom_growth_rate": 27.9
+        },
+        {
+          "year_month": "2018-02",
+          "monthly_gmv": 979486.16,
+          "monthly_orders": 6625,
+          "mom_growth_rate": -11.11
+        },
+        {
+          "year_month": "2018-03",
+          "monthly_gmv": 1152656.99,
+          "monthly_orders": 7168,
+          "mom_growth_rate": 17.68
+        },
+        {
+          "year_month": "2018-04",
+          "monthly_gmv": 1156248.89,
+          "monthly_orders": 6919,
+          "mom_growth_rate": 0.31
+        },
+        {
+          "year_month": "2018-05",
+          "monthly_gmv": 1145686.46,
+          "monthly_orders": 6833,
+          "mom_growth_rate": -0.91
+        },
+        {
+          "year_month": "2018-06",
+          "monthly_gmv": 1020381.9,
+          "monthly_orders": 6145,
+          "mom_growth_rate": -10.94
+        },
+        {
+          "year_month": "2018-07",
+          "monthly_gmv": 1039783.58,
+          "monthly_orders": 6233,
+          "mom_growth_rate": 1.9
+        },
+        {
+          "year_month": "2018-08",
+          "monthly_gmv": 996973.51,
+          "monthly_orders": 6421,
+          "mom_growth_rate": -4.12
+        },
+        {
+          "year_month": "2018-09",
+          "monthly_gmv": 166.46,
+          "monthly_orders": 1,
+          "mom_growth_rate": -99.98
+        }
+      ],
+      "expected": [
+        {
+          "year_month": "2016-09",
+          "monthly_gmv": 279.69,
+          "monthly_orders": 2,
+          "mom_growth_rate": null
+        },
+        {
+          "year_month": "2016-10",
+          "monthly_gmv": 51354.52,
+          "monthly_orders": 293,
+          "mom_growth_rate": 18261.23
+        },
+        {
+          "year_month": "2016-11",
+          "monthly_gmv": 0.0,
+          "monthly_orders": 0,
+          "mom_growth_rate": -100.0
+        },
+        {
+          "year_month": "2016-12",
+          "monthly_gmv": 19.62,
+          "monthly_orders": 1,
+          "mom_growth_rate": null
+        },
+        {
+          "year_month": "2017-01",
+          "monthly_gmv": 136943.46,
+          "monthly_orders": 787,
+          "mom_growth_rate": 697878.9
+        },
+        {
+          "year_month": "2017-02",
+          "monthly_gmv": 283561.69,
+          "monthly_orders": 1718,
+          "mom_growth_rate": 107.06
+        },
+        {
+          "year_month": "2017-03",
+          "monthly_gmv": 425617.96,
+          "monthly_orders": 2617,
+          "mom_growth_rate": 50.1
+        },
+        {
+          "year_month": "2017-04",
+          "monthly_gmv": 405848.61,
+          "monthly_orders": 2377,
+          "mom_growth_rate": -4.64
+        },
+        {
+          "year_month": "2017-05",
+          "monthly_gmv": 582710.83,
+          "monthly_orders": 3640,
+          "mom_growth_rate": 43.58
+        },
+        {
+          "year_month": "2017-06",
+          "monthly_gmv": 499652.24,
+          "monthly_orders": 3205,
+          "mom_growth_rate": -14.25
+        },
+        {
+          "year_month": "2017-07",
+          "monthly_gmv": 578753.73,
+          "monthly_orders": 3946,
+          "mom_growth_rate": 15.83
+        },
+        {
+          "year_month": "2017-08",
+          "monthly_gmv": 661903.52,
+          "monthly_orders": 4272,
+          "mom_growth_rate": 14.37
+        },
+        {
+          "year_month": "2017-09",
+          "monthly_gmv": 717102.72,
+          "monthly_orders": 4227,
+          "mom_growth_rate": 8.34
+        },
+        {
+          "year_month": "2017-10",
+          "monthly_gmv": 764756.03,
+          "monthly_orders": 4547,
+          "mom_growth_rate": 6.65
+        },
+        {
+          "year_month": "2017-11",
+          "monthly_gmv": 1172191.68,
+          "monthly_orders": 7423,
+          "mom_growth_rate": 53.28
+        },
+        {
+          "year_month": "2017-12",
+          "monthly_gmv": 861526.77,
+          "monthly_orders": 5620,
+          "mom_growth_rate": -26.5
+        },
+        {
+          "year_month": "2018-01",
+          "monthly_gmv": 1101920.01,
+          "monthly_orders": 7187,
+          "mom_growth_rate": 27.9
+        },
+        {
+          "year_month": "2018-02",
+          "monthly_gmv": 979486.16,
+          "monthly_orders": 6625,
+          "mom_growth_rate": -11.11
+        },
+        {
+          "year_month": "2018-03",
+          "monthly_gmv": 1152656.99,
+          "monthly_orders": 7168,
+          "mom_growth_rate": 17.68
+        },
+        {
+          "year_month": "2018-04",
+          "monthly_gmv": 1156248.89,
+          "monthly_orders": 6919,
+          "mom_growth_rate": 0.31
+        },
+        {
+          "year_month": "2018-05",
+          "monthly_gmv": 1145686.46,
+          "monthly_orders": 6833,
+          "mom_growth_rate": -0.91
+        },
+        {
+          "year_month": "2018-06",
+          "monthly_gmv": 1020381.9,
+          "monthly_orders": 6145,
+          "mom_growth_rate": -10.94
+        },
+        {
+          "year_month": "2018-07",
+          "monthly_gmv": 1039783.58,
+          "monthly_orders": 6233,
+          "mom_growth_rate": 1.9
+        },
+        {
+          "year_month": "2018-08",
+          "monthly_gmv": 996973.51,
+          "monthly_orders": 6421,
+          "mom_growth_rate": -4.12
+        },
+        {
+          "year_month": "2018-09",
+          "monthly_gmv": 166.46,
+          "monthly_orders": 1,
+          "mom_growth_rate": -99.98
+        }
+      ]
+    },
+    {
+      "name": "live metric status category-rank",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live metric code category-rank",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live metric data category-rank",
+      "pass": true,
+      "actual": [
+        {
+          "rank": 1,
+          "category_english": "health_beauty",
+          "total_gmv": 1437665.78,
+          "total_orders": 8800,
+          "gmv_ratio": 9.14
+        },
+        {
+          "rank": 2,
+          "category_english": "watches_gifts",
+          "total_gmv": 1298292.47,
+          "total_orders": 5604,
+          "gmv_ratio": 8.25
+        },
+        {
+          "rank": 3,
+          "category_english": "bed_bath_table",
+          "total_gmv": 1240386.13,
+          "total_orders": 9399,
+          "gmv_ratio": 7.88
+        },
+        {
+          "rank": 4,
+          "category_english": "sports_leisure",
+          "total_gmv": 1147244.63,
+          "total_orders": 7673,
+          "gmv_ratio": 7.29
+        },
+        {
+          "rank": 5,
+          "category_english": "computers_accessories",
+          "total_gmv": 1050941.58,
+          "total_orders": 6654,
+          "gmv_ratio": 6.68
+        },
+        {
+          "rank": 6,
+          "category_english": "furniture_decor",
+          "total_gmv": 899626.04,
+          "total_orders": 6425,
+          "gmv_ratio": 5.72
+        },
+        {
+          "rank": 7,
+          "category_english": "housewares",
+          "total_gmv": 772035.14,
+          "total_orders": 5847,
+          "gmv_ratio": 4.91
+        },
+        {
+          "rank": 8,
+          "category_english": "cool_stuff",
+          "total_gmv": 704086.24,
+          "total_orders": 3616,
+          "gmv_ratio": 4.47
+        },
+        {
+          "rank": 9,
+          "category_english": "auto",
+          "total_gmv": 678606.64,
+          "total_orders": 3872,
+          "gmv_ratio": 4.31
+        },
+        {
+          "rank": 10,
+          "category_english": "garden_tools",
+          "total_gmv": 579525.2,
+          "total_orders": 3505,
+          "gmv_ratio": 3.68
+        },
+        {
+          "rank": 11,
+          "category_english": "toys",
+          "total_gmv": 556783.29,
+          "total_orders": 3855,
+          "gmv_ratio": 3.54
+        },
+        {
+          "rank": 12,
+          "category_english": "baby",
+          "total_gmv": 478320.0,
+          "total_orders": 2868,
+          "gmv_ratio": 3.04
+        },
+        {
+          "rank": 13,
+          "category_english": "perfumery",
+          "total_gmv": 450580.47,
+          "total_orders": 3146,
+          "gmv_ratio": 2.86
+        },
+        {
+          "rank": 14,
+          "category_english": "telephony",
+          "total_gmv": 393306.02,
+          "total_orders": 4183,
+          "gmv_ratio": 2.5
+        },
+        {
+          "rank": 15,
+          "category_english": "office_furniture",
+          "total_gmv": 342073.02,
+          "total_orders": 1272,
+          "gmv_ratio": 2.17
+        },
+        {
+          "rank": 16,
+          "category_english": "stationery",
+          "total_gmv": 276152.18,
+          "total_orders": 2299,
+          "gmv_ratio": 1.75
+        },
+        {
+          "rank": 17,
+          "category_english": "pet_shop",
+          "total_gmv": 253176.96,
+          "total_orders": 1706,
+          "gmv_ratio": 1.61
+        },
+        {
+          "rank": 18,
+          "category_english": "computers",
+          "total_gmv": 232799.43,
+          "total_orders": 181,
+          "gmv_ratio": 1.48
+        },
+        {
+          "rank": 19,
+          "category_english": "unknown",
+          "total_gmv": 212182.44,
+          "total_orders": 1457,
+          "gmv_ratio": 1.35
+        },
+        {
+          "rank": 20,
+          "category_english": "musical_instruments",
+          "total_gmv": 206021.32,
+          "total_orders": 620,
+          "gmv_ratio": 1.31
+        },
+        {
+          "rank": 21,
+          "category_english": "small_appliances",
+          "total_gmv": 203731.5,
+          "total_orders": 622,
+          "gmv_ratio": 1.29
+        },
+        {
+          "rank": 22,
+          "category_english": "electronics",
+          "total_gmv": 203416.77,
+          "total_orders": 2543,
+          "gmv_ratio": 1.29
+        },
+        {
+          "rank": 23,
+          "category_english": "fashion_bags_accessories",
+          "total_gmv": 182934.76,
+          "total_orders": 1858,
+          "gmv_ratio": 1.16
+        },
+        {
+          "rank": 24,
+          "category_english": "consoles_games",
+          "total_gmv": 174639.6,
+          "total_orders": 1054,
+          "gmv_ratio": 1.11
+        },
+        {
+          "rank": 25,
+          "category_english": "luggage_accessories",
+          "total_gmv": 170504.09,
+          "total_orders": 1030,
+          "gmv_ratio": 1.08
+        },
+        {
+          "rank": 26,
+          "category_english": "construction_tools_construction",
+          "total_gmv": 165179.69,
+          "total_orders": 746,
+          "gmv_ratio": 1.05
+        },
+        {
+          "rank": 27,
+          "category_english": "home_appliances_2",
+          "total_gmv": 121055.52,
+          "total_orders": 231,
+          "gmv_ratio": 0.77
+        },
+        {
+          "rank": 28,
+          "category_english": "home_construction",
+          "total_gmv": 96833.62,
+          "total_orders": 489,
+          "gmv_ratio": 0.62
+        },
+        {
+          "rank": 29,
+          "category_english": "home_appliances",
+          "total_gmv": 94771.3,
+          "total_orders": 762,
+          "gmv_ratio": 0.6
+        },
+        {
+          "rank": 30,
+          "category_english": "furniture_living_room",
+          "total_gmv": 86557.3,
+          "total_orders": 420,
+          "gmv_ratio": 0.55
+        },
+        {
+          "rank": 31,
+          "category_english": "agro_industry_and_commerce",
+          "total_gmv": 78374.07,
+          "total_orders": 182,
+          "gmv_ratio": 0.5
+        },
+        {
+          "rank": 32,
+          "category_english": "home_confort",
+          "total_gmv": 67073.27,
+          "total_orders": 397,
+          "gmv_ratio": 0.43
+        },
+        {
+          "rank": 33,
+          "category_english": "fixed_telephony",
+          "total_gmv": 62414.05,
+          "total_orders": 214,
+          "gmv_ratio": 0.4
+        },
+        {
+          "rank": 34,
+          "category_english": "air_conditioning",
+          "total_gmv": 61436.57,
+          "total_orders": 251,
+          "gmv_ratio": 0.39
+        },
+        {
+          "rank": 35,
+          "category_english": "kitchen_dining_laundry_garden_furniture",
+          "total_gmv": 57905.76,
+          "total_orders": 246,
+          "gmv_ratio": 0.37
+        },
+        {
+          "rank": 36,
+          "category_english": "audio",
+          "total_gmv": 56371.26,
+          "total_orders": 349,
+          "gmv_ratio": 0.36
+        },
+        {
+          "rank": 37,
+          "category_english": "books_general_interest",
+          "total_gmv": 54658.69,
+          "total_orders": 505,
+          "gmv_ratio": 0.35
+        },
+        {
+          "rank": 38,
+          "category_english": "small_appliances_home_oven_and_coffee",
+          "total_gmv": 50193.57,
+          "total_orders": 75,
+          "gmv_ratio": 0.32
+        },
+        {
+          "rank": 39,
+          "category_english": "industry_commerce_and_business",
+          "total_gmv": 47554.29,
+          "total_orders": 235,
+          "gmv_ratio": 0.3
+        },
+        {
+          "rank": 40,
+          "category_english": "construction_tools_lights",
+          "total_gmv": 47511.18,
+          "total_orders": 243,
+          "gmv_ratio": 0.3
+        },
+        {
+          "rank": 41,
+          "category_english": "construction_tools_safety",
+          "total_gmv": 43420.59,
+          "total_orders": 165,
+          "gmv_ratio": 0.28
+        },
+        {
+          "rank": 42,
+          "category_english": "food",
+          "total_gmv": 36496.78,
+          "total_orders": 449,
+          "gmv_ratio": 0.23
+        },
+        {
+          "rank": 43,
+          "category_english": "market_place",
+          "total_gmv": 33694.53,
+          "total_orders": 279,
+          "gmv_ratio": 0.21
+        },
+        {
+          "rank": 44,
+          "category_english": "costruction_tools_garden",
+          "total_gmv": 30781.89,
+          "total_orders": 192,
+          "gmv_ratio": 0.2
+        },
+        {
+          "rank": 45,
+          "category_english": "fashion_shoes",
+          "total_gmv": 28248.41,
+          "total_orders": 238,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 46,
+          "category_english": "art",
+          "total_gmv": 28196.21,
+          "total_orders": 201,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 47,
+          "category_english": "drinks",
+          "total_gmv": 28100.75,
+          "total_orders": 296,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 48,
+          "category_english": "signaling_and_security",
+          "total_gmv": 28017.05,
+          "total_orders": 140,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 49,
+          "category_english": "furniture_bedroom",
+          "total_gmv": 24661.01,
+          "total_orders": 95,
+          "gmv_ratio": 0.16
+        },
+        {
+          "rank": 50,
+          "category_english": "books_technical",
+          "total_gmv": 23379.12,
+          "total_orders": 260,
+          "gmv_ratio": 0.15
+        },
+        {
+          "rank": 51,
+          "category_english": "food_drink",
+          "total_gmv": 19608.1,
+          "total_orders": 225,
+          "gmv_ratio": 0.12
+        },
+        {
+          "rank": 52,
+          "category_english": "costruction_tools_tools",
+          "total_gmv": 17934.17,
+          "total_orders": 97,
+          "gmv_ratio": 0.11
+        },
+        {
+          "rank": 53,
+          "category_english": "fashion_male_clothing",
+          "total_gmv": 12893.45,
+          "total_orders": 111,
+          "gmv_ratio": 0.08
+        },
+        {
+          "rank": 54,
+          "category_english": "christmas_supplies",
+          "total_gmv": 12009.19,
+          "total_orders": 127,
+          "gmv_ratio": 0.08
+        },
+        {
+          "rank": 55,
+          "category_english": "fashion_underwear_beach",
+          "total_gmv": 11457.74,
+          "total_orders": 121,
+          "gmv_ratio": 0.07
+        },
+        {
+          "rank": 56,
+          "category_english": "tablets_printing_image",
+          "total_gmv": 8754.61,
+          "total_orders": 79,
+          "gmv_ratio": 0.06
+        },
+        {
+          "rank": 57,
+          "category_english": "cine_photo",
+          "total_gmv": 8189.66,
+          "total_orders": 65,
+          "gmv_ratio": 0.05
+        },
+        {
+          "rank": 58,
+          "category_english": "music",
+          "total_gmv": 6724.86,
+          "total_orders": 38,
+          "gmv_ratio": 0.04
+        },
+        {
+          "rank": 59,
+          "category_english": "furniture_mattress_and_upholstery",
+          "total_gmv": 5998.54,
+          "total_orders": 38,
+          "gmv_ratio": 0.04
+        },
+        {
+          "rank": 60,
+          "category_english": "dvds_blu_ray",
+          "total_gmv": 5804.37,
+          "total_orders": 57,
+          "gmv_ratio": 0.04
+        },
+        {
+          "rank": 61,
+          "category_english": "books_imported",
+          "total_gmv": 5409.7,
+          "total_orders": 53,
+          "gmv_ratio": 0.03
+        },
+        {
+          "rank": 62,
+          "category_english": "party_supplies",
+          "total_gmv": 5313.15,
+          "total_orders": 39,
+          "gmv_ratio": 0.03
+        },
+        {
+          "rank": 63,
+          "category_english": "fashio_female_clothing",
+          "total_gmv": 3425.39,
+          "total_orders": 39,
+          "gmv_ratio": 0.02
+        },
+        {
+          "rank": 64,
+          "category_english": "fashion_sport",
+          "total_gmv": 2697.64,
+          "total_orders": 27,
+          "gmv_ratio": 0.02
+        },
+        {
+          "rank": 65,
+          "category_english": "la_cuisine",
+          "total_gmv": 2388.54,
+          "total_orders": 13,
+          "gmv_ratio": 0.02
+        },
+        {
+          "rank": 66,
+          "category_english": "arts_and_craftmanship",
+          "total_gmv": 2184.14,
+          "total_orders": 23,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 67,
+          "category_english": "diapers_and_hygiene",
+          "total_gmv": 2101.25,
+          "total_orders": 26,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 68,
+          "category_english": "flowers",
+          "total_gmv": 1598.91,
+          "total_orders": 29,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 69,
+          "category_english": "home_comfort_2",
+          "total_gmv": 1170.58,
+          "total_orders": 24,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 70,
+          "category_english": "cds_dvds_musicals",
+          "total_gmv": 954.99,
+          "total_orders": 12,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 71,
+          "category_english": "fashion_childrens_clothes",
+          "total_gmv": 665.36,
+          "total_orders": 8,
+          "gmv_ratio": 0.0
+        },
+        {
+          "rank": 72,
+          "category_english": "security_and_services",
+          "total_gmv": 324.51,
+          "total_orders": 2,
+          "gmv_ratio": 0.0
+        }
+      ],
+      "expected": [
+        {
+          "rank": 1,
+          "category_english": "health_beauty",
+          "total_gmv": 1437665.78,
+          "total_orders": 8800,
+          "gmv_ratio": 9.14
+        },
+        {
+          "rank": 2,
+          "category_english": "watches_gifts",
+          "total_gmv": 1298292.47,
+          "total_orders": 5604,
+          "gmv_ratio": 8.25
+        },
+        {
+          "rank": 3,
+          "category_english": "bed_bath_table",
+          "total_gmv": 1240386.13,
+          "total_orders": 9399,
+          "gmv_ratio": 7.88
+        },
+        {
+          "rank": 4,
+          "category_english": "sports_leisure",
+          "total_gmv": 1147244.63,
+          "total_orders": 7673,
+          "gmv_ratio": 7.29
+        },
+        {
+          "rank": 5,
+          "category_english": "computers_accessories",
+          "total_gmv": 1050941.58,
+          "total_orders": 6654,
+          "gmv_ratio": 6.68
+        },
+        {
+          "rank": 6,
+          "category_english": "furniture_decor",
+          "total_gmv": 899626.04,
+          "total_orders": 6425,
+          "gmv_ratio": 5.72
+        },
+        {
+          "rank": 7,
+          "category_english": "housewares",
+          "total_gmv": 772035.14,
+          "total_orders": 5847,
+          "gmv_ratio": 4.91
+        },
+        {
+          "rank": 8,
+          "category_english": "cool_stuff",
+          "total_gmv": 704086.24,
+          "total_orders": 3616,
+          "gmv_ratio": 4.47
+        },
+        {
+          "rank": 9,
+          "category_english": "auto",
+          "total_gmv": 678606.64,
+          "total_orders": 3872,
+          "gmv_ratio": 4.31
+        },
+        {
+          "rank": 10,
+          "category_english": "garden_tools",
+          "total_gmv": 579525.2,
+          "total_orders": 3505,
+          "gmv_ratio": 3.68
+        },
+        {
+          "rank": 11,
+          "category_english": "toys",
+          "total_gmv": 556783.29,
+          "total_orders": 3855,
+          "gmv_ratio": 3.54
+        },
+        {
+          "rank": 12,
+          "category_english": "baby",
+          "total_gmv": 478320.0,
+          "total_orders": 2868,
+          "gmv_ratio": 3.04
+        },
+        {
+          "rank": 13,
+          "category_english": "perfumery",
+          "total_gmv": 450580.47,
+          "total_orders": 3146,
+          "gmv_ratio": 2.86
+        },
+        {
+          "rank": 14,
+          "category_english": "telephony",
+          "total_gmv": 393306.02,
+          "total_orders": 4183,
+          "gmv_ratio": 2.5
+        },
+        {
+          "rank": 15,
+          "category_english": "office_furniture",
+          "total_gmv": 342073.02,
+          "total_orders": 1272,
+          "gmv_ratio": 2.17
+        },
+        {
+          "rank": 16,
+          "category_english": "stationery",
+          "total_gmv": 276152.18,
+          "total_orders": 2299,
+          "gmv_ratio": 1.75
+        },
+        {
+          "rank": 17,
+          "category_english": "pet_shop",
+          "total_gmv": 253176.96,
+          "total_orders": 1706,
+          "gmv_ratio": 1.61
+        },
+        {
+          "rank": 18,
+          "category_english": "computers",
+          "total_gmv": 232799.43,
+          "total_orders": 181,
+          "gmv_ratio": 1.48
+        },
+        {
+          "rank": 19,
+          "category_english": "unknown",
+          "total_gmv": 212182.44,
+          "total_orders": 1457,
+          "gmv_ratio": 1.35
+        },
+        {
+          "rank": 20,
+          "category_english": "musical_instruments",
+          "total_gmv": 206021.32,
+          "total_orders": 620,
+          "gmv_ratio": 1.31
+        },
+        {
+          "rank": 21,
+          "category_english": "small_appliances",
+          "total_gmv": 203731.5,
+          "total_orders": 622,
+          "gmv_ratio": 1.29
+        },
+        {
+          "rank": 22,
+          "category_english": "electronics",
+          "total_gmv": 203416.77,
+          "total_orders": 2543,
+          "gmv_ratio": 1.29
+        },
+        {
+          "rank": 23,
+          "category_english": "fashion_bags_accessories",
+          "total_gmv": 182934.76,
+          "total_orders": 1858,
+          "gmv_ratio": 1.16
+        },
+        {
+          "rank": 24,
+          "category_english": "consoles_games",
+          "total_gmv": 174639.6,
+          "total_orders": 1054,
+          "gmv_ratio": 1.11
+        },
+        {
+          "rank": 25,
+          "category_english": "luggage_accessories",
+          "total_gmv": 170504.09,
+          "total_orders": 1030,
+          "gmv_ratio": 1.08
+        },
+        {
+          "rank": 26,
+          "category_english": "construction_tools_construction",
+          "total_gmv": 165179.69,
+          "total_orders": 746,
+          "gmv_ratio": 1.05
+        },
+        {
+          "rank": 27,
+          "category_english": "home_appliances_2",
+          "total_gmv": 121055.52,
+          "total_orders": 231,
+          "gmv_ratio": 0.77
+        },
+        {
+          "rank": 28,
+          "category_english": "home_construction",
+          "total_gmv": 96833.62,
+          "total_orders": 489,
+          "gmv_ratio": 0.62
+        },
+        {
+          "rank": 29,
+          "category_english": "home_appliances",
+          "total_gmv": 94771.3,
+          "total_orders": 762,
+          "gmv_ratio": 0.6
+        },
+        {
+          "rank": 30,
+          "category_english": "furniture_living_room",
+          "total_gmv": 86557.3,
+          "total_orders": 420,
+          "gmv_ratio": 0.55
+        },
+        {
+          "rank": 31,
+          "category_english": "agro_industry_and_commerce",
+          "total_gmv": 78374.07,
+          "total_orders": 182,
+          "gmv_ratio": 0.5
+        },
+        {
+          "rank": 32,
+          "category_english": "home_confort",
+          "total_gmv": 67073.27,
+          "total_orders": 397,
+          "gmv_ratio": 0.43
+        },
+        {
+          "rank": 33,
+          "category_english": "fixed_telephony",
+          "total_gmv": 62414.05,
+          "total_orders": 214,
+          "gmv_ratio": 0.4
+        },
+        {
+          "rank": 34,
+          "category_english": "air_conditioning",
+          "total_gmv": 61436.57,
+          "total_orders": 251,
+          "gmv_ratio": 0.39
+        },
+        {
+          "rank": 35,
+          "category_english": "kitchen_dining_laundry_garden_furniture",
+          "total_gmv": 57905.76,
+          "total_orders": 246,
+          "gmv_ratio": 0.37
+        },
+        {
+          "rank": 36,
+          "category_english": "audio",
+          "total_gmv": 56371.26,
+          "total_orders": 349,
+          "gmv_ratio": 0.36
+        },
+        {
+          "rank": 37,
+          "category_english": "books_general_interest",
+          "total_gmv": 54658.69,
+          "total_orders": 505,
+          "gmv_ratio": 0.35
+        },
+        {
+          "rank": 38,
+          "category_english": "small_appliances_home_oven_and_coffee",
+          "total_gmv": 50193.57,
+          "total_orders": 75,
+          "gmv_ratio": 0.32
+        },
+        {
+          "rank": 39,
+          "category_english": "industry_commerce_and_business",
+          "total_gmv": 47554.29,
+          "total_orders": 235,
+          "gmv_ratio": 0.3
+        },
+        {
+          "rank": 40,
+          "category_english": "construction_tools_lights",
+          "total_gmv": 47511.18,
+          "total_orders": 243,
+          "gmv_ratio": 0.3
+        },
+        {
+          "rank": 41,
+          "category_english": "construction_tools_safety",
+          "total_gmv": 43420.59,
+          "total_orders": 165,
+          "gmv_ratio": 0.28
+        },
+        {
+          "rank": 42,
+          "category_english": "food",
+          "total_gmv": 36496.78,
+          "total_orders": 449,
+          "gmv_ratio": 0.23
+        },
+        {
+          "rank": 43,
+          "category_english": "market_place",
+          "total_gmv": 33694.53,
+          "total_orders": 279,
+          "gmv_ratio": 0.21
+        },
+        {
+          "rank": 44,
+          "category_english": "costruction_tools_garden",
+          "total_gmv": 30781.89,
+          "total_orders": 192,
+          "gmv_ratio": 0.2
+        },
+        {
+          "rank": 45,
+          "category_english": "fashion_shoes",
+          "total_gmv": 28248.41,
+          "total_orders": 238,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 46,
+          "category_english": "art",
+          "total_gmv": 28196.21,
+          "total_orders": 201,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 47,
+          "category_english": "drinks",
+          "total_gmv": 28100.75,
+          "total_orders": 296,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 48,
+          "category_english": "signaling_and_security",
+          "total_gmv": 28017.05,
+          "total_orders": 140,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 49,
+          "category_english": "furniture_bedroom",
+          "total_gmv": 24661.01,
+          "total_orders": 95,
+          "gmv_ratio": 0.16
+        },
+        {
+          "rank": 50,
+          "category_english": "books_technical",
+          "total_gmv": 23379.12,
+          "total_orders": 260,
+          "gmv_ratio": 0.15
+        },
+        {
+          "rank": 51,
+          "category_english": "food_drink",
+          "total_gmv": 19608.1,
+          "total_orders": 225,
+          "gmv_ratio": 0.12
+        },
+        {
+          "rank": 52,
+          "category_english": "costruction_tools_tools",
+          "total_gmv": 17934.17,
+          "total_orders": 97,
+          "gmv_ratio": 0.11
+        },
+        {
+          "rank": 53,
+          "category_english": "fashion_male_clothing",
+          "total_gmv": 12893.45,
+          "total_orders": 111,
+          "gmv_ratio": 0.08
+        },
+        {
+          "rank": 54,
+          "category_english": "christmas_supplies",
+          "total_gmv": 12009.19,
+          "total_orders": 127,
+          "gmv_ratio": 0.08
+        },
+        {
+          "rank": 55,
+          "category_english": "fashion_underwear_beach",
+          "total_gmv": 11457.74,
+          "total_orders": 121,
+          "gmv_ratio": 0.07
+        },
+        {
+          "rank": 56,
+          "category_english": "tablets_printing_image",
+          "total_gmv": 8754.61,
+          "total_orders": 79,
+          "gmv_ratio": 0.06
+        },
+        {
+          "rank": 57,
+          "category_english": "cine_photo",
+          "total_gmv": 8189.66,
+          "total_orders": 65,
+          "gmv_ratio": 0.05
+        },
+        {
+          "rank": 58,
+          "category_english": "music",
+          "total_gmv": 6724.86,
+          "total_orders": 38,
+          "gmv_ratio": 0.04
+        },
+        {
+          "rank": 59,
+          "category_english": "furniture_mattress_and_upholstery",
+          "total_gmv": 5998.54,
+          "total_orders": 38,
+          "gmv_ratio": 0.04
+        },
+        {
+          "rank": 60,
+          "category_english": "dvds_blu_ray",
+          "total_gmv": 5804.37,
+          "total_orders": 57,
+          "gmv_ratio": 0.04
+        },
+        {
+          "rank": 61,
+          "category_english": "books_imported",
+          "total_gmv": 5409.7,
+          "total_orders": 53,
+          "gmv_ratio": 0.03
+        },
+        {
+          "rank": 62,
+          "category_english": "party_supplies",
+          "total_gmv": 5313.15,
+          "total_orders": 39,
+          "gmv_ratio": 0.03
+        },
+        {
+          "rank": 63,
+          "category_english": "fashio_female_clothing",
+          "total_gmv": 3425.39,
+          "total_orders": 39,
+          "gmv_ratio": 0.02
+        },
+        {
+          "rank": 64,
+          "category_english": "fashion_sport",
+          "total_gmv": 2697.64,
+          "total_orders": 27,
+          "gmv_ratio": 0.02
+        },
+        {
+          "rank": 65,
+          "category_english": "la_cuisine",
+          "total_gmv": 2388.54,
+          "total_orders": 13,
+          "gmv_ratio": 0.02
+        },
+        {
+          "rank": 66,
+          "category_english": "arts_and_craftmanship",
+          "total_gmv": 2184.14,
+          "total_orders": 23,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 67,
+          "category_english": "diapers_and_hygiene",
+          "total_gmv": 2101.25,
+          "total_orders": 26,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 68,
+          "category_english": "flowers",
+          "total_gmv": 1598.91,
+          "total_orders": 29,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 69,
+          "category_english": "home_comfort_2",
+          "total_gmv": 1170.58,
+          "total_orders": 24,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 70,
+          "category_english": "cds_dvds_musicals",
+          "total_gmv": 954.99,
+          "total_orders": 12,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 71,
+          "category_english": "fashion_childrens_clothes",
+          "total_gmv": 665.36,
+          "total_orders": 8,
+          "gmv_ratio": 0.0
+        },
+        {
+          "rank": 72,
+          "category_english": "security_and_services",
+          "total_gmv": 324.51,
+          "total_orders": 2,
+          "gmv_ratio": 0.0
+        }
+      ]
+    },
+    {
+      "name": "live metric status top-sellers",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live metric code top-sellers",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live metric data top-sellers",
+      "pass": true,
+      "actual": [
+        {
+          "rank": 1,
+          "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+          "seller_city": "guariba",
+          "seller_state": "SP",
+          "total_gmv": 249393.44,
+          "total_orders": 1131
+        },
+        {
+          "rank": 2,
+          "seller_id": "7c67e1448b00f6e969d365cea6b010ab",
+          "seller_city": "itaquaquecetuba",
+          "seller_state": "SP",
+          "total_gmv": 239536.44,
+          "total_orders": 982
+        },
+        {
+          "rank": 3,
+          "seller_id": "53243585a1d6dc2643021fd1853d8905",
+          "seller_city": "lauro de freitas",
+          "seller_state": "BA",
+          "total_gmv": 235856.68,
+          "total_orders": 358
+        },
+        {
+          "rank": 4,
+          "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+          "seller_city": "ibitinga",
+          "seller_state": "SP",
+          "total_gmv": 235359.3,
+          "total_orders": 1804
+        },
+        {
+          "rank": 5,
+          "seller_id": "fa1c13f2614d7b5c4749cbc52fecda94",
+          "seller_city": "sumare",
+          "seller_state": "SP",
+          "total_gmv": 202861.67,
+          "total_orders": 584
+        },
+        {
+          "rank": 6,
+          "seller_id": "da8622b14eb17ae2831f4ac5b9dab84a",
+          "seller_city": "piracicaba",
+          "seller_state": "SP",
+          "total_gmv": 185192.32,
+          "total_orders": 1314
+        },
+        {
+          "rank": 7,
+          "seller_id": "7e93a43ef30c4f03f38b393420bc753a",
+          "seller_city": "barueri",
+          "seller_state": "SP",
+          "total_gmv": 178838.42,
+          "total_orders": 332
+        },
+        {
+          "rank": 8,
+          "seller_id": "1025f0e2d44d7041d6cf58b6550e0bfa",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 172860.69,
+          "total_orders": 915
+        },
+        {
+          "rank": 9,
+          "seller_id": "7a67c85e85bb2ce8582c35f2203ad736",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 162607.24,
+          "total_orders": 1159
+        },
+        {
+          "rank": 10,
+          "seller_id": "955fee9216a65b617aa5c0531780ce60",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 160582.9,
+          "total_orders": 1286
+        },
+        {
+          "rank": 11,
+          "seller_id": "6560211a19b47992c3666cc44a7e94c0",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 150522.02,
+          "total_orders": 1847
+        },
+        {
+          "rank": 12,
+          "seller_id": "1f50f920176fa81dab994f9023523100",
+          "seller_city": "sao jose do rio preto",
+          "seller_state": "SP",
+          "total_gmv": 142037.48,
+          "total_orders": 1403
+        },
+        {
+          "rank": 13,
+          "seller_id": "46dc3b2cc0980fb8ec44634e21d2718e",
+          "seller_city": "rio de janeiro",
+          "seller_state": "RJ",
+          "total_gmv": 138919.78,
+          "total_orders": 518
+        },
+        {
+          "rank": 14,
+          "seller_id": "a1043bafd471dff536d0c462352beb48",
+          "seller_city": "ilicinea",
+          "seller_state": "MG",
+          "total_gmv": 133195.8,
+          "total_orders": 715
+        },
+        {
+          "rank": 15,
+          "seller_id": "cc419e0650a3c5ba77189a1882b7556a",
+          "seller_city": "santo andre",
+          "seller_state": "SP",
+          "total_gmv": 129169.95,
+          "total_orders": 1697
+        },
+        {
+          "rank": 16,
+          "seller_id": "620c87c171fb2a6dd6e8bb4dec959fc6",
+          "seller_city": "petropolis",
+          "seller_state": "RJ",
+          "total_gmv": 127674.78,
+          "total_orders": 732
+        },
+        {
+          "rank": 17,
+          "seller_id": "5dceca129747e92ff8ef7a997dc4f8ca",
+          "seller_city": "santa barbara d´oeste",
+          "seller_state": "SP",
+          "total_gmv": 125737.68,
+          "total_orders": 324
+        },
+        {
+          "rank": 18,
+          "seller_id": "7d13fca15225358621be4086e1eb0964",
+          "seller_city": "ribeirao preto",
+          "seller_state": "SP",
+          "total_gmv": 122261.02,
+          "total_orders": 565
+        },
+        {
+          "rank": 19,
+          "seller_id": "3d871de0142ce09b7081e2b9d1733cb1",
+          "seller_city": "campo limpo paulista",
+          "seller_state": "SP",
+          "total_gmv": 116835.8,
+          "total_orders": 1076
+        },
+        {
+          "rank": 20,
+          "seller_id": "edb1ef5e36e0c8cd84eb3c9b003e486d",
+          "seller_city": "teresopolis",
+          "seller_state": "RJ",
+          "total_gmv": 83189.65,
+          "total_orders": 166
+        }
+      ],
+      "expected": [
+        {
+          "rank": 1,
+          "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+          "seller_city": "guariba",
+          "seller_state": "SP",
+          "total_gmv": 249393.44,
+          "total_orders": 1131
+        },
+        {
+          "rank": 2,
+          "seller_id": "7c67e1448b00f6e969d365cea6b010ab",
+          "seller_city": "itaquaquecetuba",
+          "seller_state": "SP",
+          "total_gmv": 239536.44,
+          "total_orders": 982
+        },
+        {
+          "rank": 3,
+          "seller_id": "53243585a1d6dc2643021fd1853d8905",
+          "seller_city": "lauro de freitas",
+          "seller_state": "BA",
+          "total_gmv": 235856.68,
+          "total_orders": 358
+        },
+        {
+          "rank": 4,
+          "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+          "seller_city": "ibitinga",
+          "seller_state": "SP",
+          "total_gmv": 235359.3,
+          "total_orders": 1804
+        },
+        {
+          "rank": 5,
+          "seller_id": "fa1c13f2614d7b5c4749cbc52fecda94",
+          "seller_city": "sumare",
+          "seller_state": "SP",
+          "total_gmv": 202861.67,
+          "total_orders": 584
+        },
+        {
+          "rank": 6,
+          "seller_id": "da8622b14eb17ae2831f4ac5b9dab84a",
+          "seller_city": "piracicaba",
+          "seller_state": "SP",
+          "total_gmv": 185192.32,
+          "total_orders": 1314
+        },
+        {
+          "rank": 7,
+          "seller_id": "7e93a43ef30c4f03f38b393420bc753a",
+          "seller_city": "barueri",
+          "seller_state": "SP",
+          "total_gmv": 178838.42,
+          "total_orders": 332
+        },
+        {
+          "rank": 8,
+          "seller_id": "1025f0e2d44d7041d6cf58b6550e0bfa",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 172860.69,
+          "total_orders": 915
+        },
+        {
+          "rank": 9,
+          "seller_id": "7a67c85e85bb2ce8582c35f2203ad736",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 162607.24,
+          "total_orders": 1159
+        },
+        {
+          "rank": 10,
+          "seller_id": "955fee9216a65b617aa5c0531780ce60",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 160582.9,
+          "total_orders": 1286
+        },
+        {
+          "rank": 11,
+          "seller_id": "6560211a19b47992c3666cc44a7e94c0",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 150522.02,
+          "total_orders": 1847
+        },
+        {
+          "rank": 12,
+          "seller_id": "1f50f920176fa81dab994f9023523100",
+          "seller_city": "sao jose do rio preto",
+          "seller_state": "SP",
+          "total_gmv": 142037.48,
+          "total_orders": 1403
+        },
+        {
+          "rank": 13,
+          "seller_id": "46dc3b2cc0980fb8ec44634e21d2718e",
+          "seller_city": "rio de janeiro",
+          "seller_state": "RJ",
+          "total_gmv": 138919.78,
+          "total_orders": 518
+        },
+        {
+          "rank": 14,
+          "seller_id": "a1043bafd471dff536d0c462352beb48",
+          "seller_city": "ilicinea",
+          "seller_state": "MG",
+          "total_gmv": 133195.8,
+          "total_orders": 715
+        },
+        {
+          "rank": 15,
+          "seller_id": "cc419e0650a3c5ba77189a1882b7556a",
+          "seller_city": "santo andre",
+          "seller_state": "SP",
+          "total_gmv": 129169.95,
+          "total_orders": 1697
+        },
+        {
+          "rank": 16,
+          "seller_id": "620c87c171fb2a6dd6e8bb4dec959fc6",
+          "seller_city": "petropolis",
+          "seller_state": "RJ",
+          "total_gmv": 127674.78,
+          "total_orders": 732
+        },
+        {
+          "rank": 17,
+          "seller_id": "5dceca129747e92ff8ef7a997dc4f8ca",
+          "seller_city": "santa barbara d´oeste",
+          "seller_state": "SP",
+          "total_gmv": 125737.68,
+          "total_orders": 324
+        },
+        {
+          "rank": 18,
+          "seller_id": "7d13fca15225358621be4086e1eb0964",
+          "seller_city": "ribeirao preto",
+          "seller_state": "SP",
+          "total_gmv": 122261.02,
+          "total_orders": 565
+        },
+        {
+          "rank": 19,
+          "seller_id": "3d871de0142ce09b7081e2b9d1733cb1",
+          "seller_city": "campo limpo paulista",
+          "seller_state": "SP",
+          "total_gmv": 116835.8,
+          "total_orders": 1076
+        },
+        {
+          "rank": 20,
+          "seller_id": "edb1ef5e36e0c8cd84eb3c9b003e486d",
+          "seller_city": "teresopolis",
+          "seller_state": "RJ",
+          "total_gmv": 83189.65,
+          "total_orders": 166
+        }
+      ]
+    },
+    {
+      "name": "22 warehouse tables",
+      "pass": true,
+      "actual": 22,
+      "expected": 22
+    },
+    {
+      "name": "DWS total dws_trade_overview",
+      "pass": true,
+      "actual": "15735527.03",
+      "expected": "15735527.03"
+    },
+    {
+      "name": "DWS total dws_monthly_trade",
+      "pass": true,
+      "actual": "15735527.03",
+      "expected": "15735527.03"
+    },
+    {
+      "name": "DWS total dws_category_summary",
+      "pass": true,
+      "actual": "15735527.03",
+      "expected": "15735527.03"
+    },
+    {
+      "name": "DWS total dws_seller_summary",
+      "pass": true,
+      "actual": "15735527.03",
+      "expected": "15735527.03"
+    },
+    {
+      "name": "execution blocks newline_outfile",
+      "pass": true,
+      "actual": "guard",
+      "expected": "guard"
+    },
+    {
+      "name": "no connection for newline_outfile",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "execution blocks backtick_system",
+      "pass": true,
+      "actual": "guard",
+      "expected": "guard"
+    },
+    {
+      "name": "no connection for backtick_system",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "execution blocks outside_schema",
+      "pass": true,
+      "actual": "guard",
+      "expected": "guard"
+    },
+    {
+      "name": "no connection for outside_schema",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "execution blocks multiple_statements",
+      "pass": true,
+      "actual": "guard",
+      "expected": "guard"
+    },
+    {
+      "name": "no connection for multiple_statements",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "execution blocks top_level_lock",
+      "pass": true,
+      "actual": "guard",
+      "expected": "guard"
+    },
+    {
+      "name": "no connection for top_level_lock",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "execute valid comma_limit",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "bounded count comma_limit",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "truncation comma_limit",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "execute valid offset_limit",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "bounded count offset_limit",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "truncation offset_limit",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "execute valid nested_limit",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "bounded count nested_limit",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "truncation nested_limit",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "execute valid string_limit",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "bounded count string_limit",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "truncation string_limit",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "execute valid semicolon_literal",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "bounded count semicolon_literal",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "semicolon preserved",
+      "pass": true,
+      "actual": "a;b",
+      "expected": "a;b"
+    },
+    {
+      "name": "execute valid table_literal",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "bounded count table_literal",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "table literal preserved",
+      "pass": true,
+      "actual": "ads_gmv_overview",
+      "expected": "ads_gmv_overview"
+    },
+    {
+      "name": "guard rejects cte_shadow",
+      "pass": false,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "name": "guard rejects nested_lock",
+      "pass": false,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "name": "quoted identifier remains intact",
+      "pass": false,
+      "actual": "SELECT total_gmv FROM `datamind_ads`.`ads_gmv_overview",
+      "expected": "SELECT total_gmv FROM `datamind_ads`.`ads_gmv_overview`"
+    },
+    {
+      "name": "valid quoted query generation then execution",
+      "pass": false,
+      "actual": "guard",
+      "expected": null
+    },
+    {
+      "name": "summary includes latest month",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "summary includes latest GMV",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "summary includes all month keys",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "summary includes BRL rule",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "live chat status gmv",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat code gmv",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat status trend",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat code trend",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat status category",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat code category",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat status sellers",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat code sellers",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat status last_month",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat code last_month",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat status followup",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "live chat code followup",
+      "pass": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "GMV answer data",
+      "pass": true,
+      "actual": 15735527.03,
+      "expected": 15735527.03
+    },
+    {
+      "name": "trend returned months",
+      "pass": true,
+      "actual": 25,
+      "expected": 25
+    },
+    {
+      "name": "highest category",
+      "pass": true,
+      "actual": "health_beauty",
+      "expected": "health_beauty"
+    },
+    {
+      "name": "seller top5",
+      "pass": true,
+      "actual": [
+        "4869f7a5dfa277a7dca6462dcf3b52b2",
+        "7c67e1448b00f6e969d365cea6b010ab",
+        "53243585a1d6dc2643021fd1853d8905",
+        "4a3ca9315b744ce9f8e9374361493884",
+        "fa1c13f2614d7b5c4749cbc52fecda94"
+      ],
+      "expected": [
+        "4869f7a5dfa277a7dca6462dcf3b52b2",
+        "7c67e1448b00f6e969d365cea6b010ab",
+        "53243585a1d6dc2643021fd1853d8905",
+        "4a3ca9315b744ce9f8e9374361493884",
+        "fa1c13f2614d7b5c4749cbc52fecda94"
+      ]
+    },
+    {
+      "name": "last month selected by dataset month descending",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "last month orders",
+      "pass": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "followup categories",
+      "pass": true,
+      "actual": [
+        "health_beauty",
+        "watches_gifts",
+        "bed_bath_table"
+      ],
+      "expected": [
+        "health_beauty",
+        "watches_gifts",
+        "bed_bath_table"
+      ]
+    }
+  ],
+  "chat": {
+    "gmv": {
+      "question": "总 GMV 是多少？",
+      "http": 200,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "总 GMV 为 R$ 15,735,527.03（约 1573.55 万巴西雷亚尔）。",
+          "response_type": "text",
+          "chart_config": null,
+          "sql": "SELECT ROUND(`total_gmv`, 2) AS `total_gmv` FROM `datamind_ads`.`ads_gmv_overview` LIMIT 100",
+          "rows": [
+            {
+              "total_gmv": 15735527.03
+            }
+          ],
+          "row_count": 1,
+          "result_truncated": false,
+          "error_category": null
+        }
+      },
+      "seconds": 2.75
+    },
+    "trend": {
+      "question": "GMV 按月的趋势怎么样？",
+      "http": 200,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "2016年9月至2018年9月GMV整体呈上升后趋稳态势：2016年基数极低（9月仅R$279.69），2017年快速攀升，11月达R$117.2万；2018年1—8月稳定在R$100万—116万区间，9月骤降至R$166.46（仅1单），异常需核查。",
+          "response_type": "chart",
+          "chart_config": {
+            "type": "line",
+            "x": "year_month",
+            "y": [
+              "monthly_gmv"
+            ]
+          },
+          "sql": "SELECT `year_month`, ROUND(`monthly_gmv`, 2) AS `monthly_gmv`, `monthly_orders`, `mom_growth_rate` FROM `datamind_ads`.`ads_gmv_trend` ORDER BY `year_month` LIMIT 100",
+          "rows": [
+            {
+              "year_month": "2016-09",
+              "monthly_gmv": 279.69,
+              "monthly_orders": 2,
+              "mom_growth_rate": null
+            },
+            {
+              "year_month": "2016-10",
+              "monthly_gmv": 51354.52,
+              "monthly_orders": 293,
+              "mom_growth_rate": 18261.23
+            },
+            {
+              "year_month": "2016-11",
+              "monthly_gmv": 0.0,
+              "monthly_orders": 0,
+              "mom_growth_rate": -100.0
+            },
+            {
+              "year_month": "2016-12",
+              "monthly_gmv": 19.62,
+              "monthly_orders": 1,
+              "mom_growth_rate": null
+            },
+            {
+              "year_month": "2017-01",
+              "monthly_gmv": 136943.46,
+              "monthly_orders": 787,
+              "mom_growth_rate": 697878.9
+            },
+            {
+              "year_month": "2017-02",
+              "monthly_gmv": 283561.69,
+              "monthly_orders": 1718,
+              "mom_growth_rate": 107.06
+            },
+            {
+              "year_month": "2017-03",
+              "monthly_gmv": 425617.96,
+              "monthly_orders": 2617,
+              "mom_growth_rate": 50.1
+            },
+            {
+              "year_month": "2017-04",
+              "monthly_gmv": 405848.61,
+              "monthly_orders": 2377,
+              "mom_growth_rate": -4.64
+            },
+            {
+              "year_month": "2017-05",
+              "monthly_gmv": 582710.83,
+              "monthly_orders": 3640,
+              "mom_growth_rate": 43.58
+            },
+            {
+              "year_month": "2017-06",
+              "monthly_gmv": 499652.24,
+              "monthly_orders": 3205,
+              "mom_growth_rate": -14.25
+            },
+            {
+              "year_month": "2017-07",
+              "monthly_gmv": 578753.73,
+              "monthly_orders": 3946,
+              "mom_growth_rate": 15.83
+            },
+            {
+              "year_month": "2017-08",
+              "monthly_gmv": 661903.52,
+              "monthly_orders": 4272,
+              "mom_growth_rate": 14.37
+            },
+            {
+              "year_month": "2017-09",
+              "monthly_gmv": 717102.72,
+              "monthly_orders": 4227,
+              "mom_growth_rate": 8.34
+            },
+            {
+              "year_month": "2017-10",
+              "monthly_gmv": 764756.03,
+              "monthly_orders": 4547,
+              "mom_growth_rate": 6.65
+            },
+            {
+              "year_month": "2017-11",
+              "monthly_gmv": 1172191.68,
+              "monthly_orders": 7423,
+              "mom_growth_rate": 53.28
+            },
+            {
+              "year_month": "2017-12",
+              "monthly_gmv": 861526.77,
+              "monthly_orders": 5620,
+              "mom_growth_rate": -26.5
+            },
+            {
+              "year_month": "2018-01",
+              "monthly_gmv": 1101920.01,
+              "monthly_orders": 7187,
+              "mom_growth_rate": 27.9
+            },
+            {
+              "year_month": "2018-02",
+              "monthly_gmv": 979486.16,
+              "monthly_orders": 6625,
+              "mom_growth_rate": -11.11
+            },
+            {
+              "year_month": "2018-03",
+              "monthly_gmv": 1152656.99,
+              "monthly_orders": 7168,
+              "mom_growth_rate": 17.68
+            },
+            {
+              "year_month": "2018-04",
+              "monthly_gmv": 1156248.89,
+              "monthly_orders": 6919,
+              "mom_growth_rate": 0.31
+            },
+            {
+              "year_month": "2018-05",
+              "monthly_gmv": 1145686.46,
+              "monthly_orders": 6833,
+              "mom_growth_rate": -0.91
+            },
+            {
+              "year_month": "2018-06",
+              "monthly_gmv": 1020381.9,
+              "monthly_orders": 6145,
+              "mom_growth_rate": -10.94
+            },
+            {
+              "year_month": "2018-07",
+              "monthly_gmv": 1039783.58,
+              "monthly_orders": 6233,
+              "mom_growth_rate": 1.9
+            },
+            {
+              "year_month": "2018-08",
+              "monthly_gmv": 996973.51,
+              "monthly_orders": 6421,
+              "mom_growth_rate": -4.12
+            },
+            {
+              "year_month": "2018-09",
+              "monthly_gmv": 166.46,
+              "monthly_orders": 1,
+              "mom_growth_rate": -99.98
+            }
+          ],
+          "row_count": 25,
+          "result_truncated": false,
+          "error_category": null
+        }
+      },
+      "seconds": 3.7
+    },
+    "category": {
+      "question": "哪个品类销售额最高？",
+      "http": 200,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "销售额最高的品类是 **health_beauty（健康与美容）**，总销售额为 **R$ 1,437,665.78**（约 143.77 万巴西雷亚尔）。其后依次为 watches_gifts（R$ 1,298,292.47）和 bed_bath_table（R$ 1,240,386.13）。",
+          "response_type": "table",
+          "chart_config": null,
+          "sql": "SELECT `category_english`, ROUND(`total_gmv`, 2) AS `total_gmv` FROM `datamind_ads`.`ads_category_rank` ORDER BY `total_gmv` DESC LIMIT 100",
+          "rows": [
+            {
+              "category_english": "health_beauty",
+              "total_gmv": 1437665.78
+            },
+            {
+              "category_english": "watches_gifts",
+              "total_gmv": 1298292.47
+            },
+            {
+              "category_english": "bed_bath_table",
+              "total_gmv": 1240386.13
+            },
+            {
+              "category_english": "sports_leisure",
+              "total_gmv": 1147244.63
+            },
+            {
+              "category_english": "computers_accessories",
+              "total_gmv": 1050941.58
+            },
+            {
+              "category_english": "furniture_decor",
+              "total_gmv": 899626.04
+            },
+            {
+              "category_english": "housewares",
+              "total_gmv": 772035.14
+            },
+            {
+              "category_english": "cool_stuff",
+              "total_gmv": 704086.24
+            },
+            {
+              "category_english": "auto",
+              "total_gmv": 678606.64
+            },
+            {
+              "category_english": "garden_tools",
+              "total_gmv": 579525.2
+            },
+            {
+              "category_english": "toys",
+              "total_gmv": 556783.29
+            },
+            {
+              "category_english": "baby",
+              "total_gmv": 478320.0
+            },
+            {
+              "category_english": "perfumery",
+              "total_gmv": 450580.47
+            },
+            {
+              "category_english": "telephony",
+              "total_gmv": 393306.02
+            },
+            {
+              "category_english": "office_furniture",
+              "total_gmv": 342073.02
+            },
+            {
+              "category_english": "stationery",
+              "total_gmv": 276152.18
+            },
+            {
+              "category_english": "pet_shop",
+              "total_gmv": 253176.96
+            },
+            {
+              "category_english": "computers",
+              "total_gmv": 232799.43
+            },
+            {
+              "category_english": "unknown",
+              "total_gmv": 212182.44
+            },
+            {
+              "category_english": "musical_instruments",
+              "total_gmv": 206021.32
+            },
+            {
+              "category_english": "small_appliances",
+              "total_gmv": 203731.5
+            },
+            {
+              "category_english": "electronics",
+              "total_gmv": 203416.77
+            },
+            {
+              "category_english": "fashion_bags_accessories",
+              "total_gmv": 182934.76
+            },
+            {
+              "category_english": "consoles_games",
+              "total_gmv": 174639.6
+            },
+            {
+              "category_english": "luggage_accessories",
+              "total_gmv": 170504.09
+            },
+            {
+              "category_english": "construction_tools_construction",
+              "total_gmv": 165179.69
+            },
+            {
+              "category_english": "home_appliances_2",
+              "total_gmv": 121055.52
+            },
+            {
+              "category_english": "home_construction",
+              "total_gmv": 96833.62
+            },
+            {
+              "category_english": "home_appliances",
+              "total_gmv": 94771.3
+            },
+            {
+              "category_english": "furniture_living_room",
+              "total_gmv": 86557.3
+            },
+            {
+              "category_english": "agro_industry_and_commerce",
+              "total_gmv": 78374.07
+            },
+            {
+              "category_english": "home_confort",
+              "total_gmv": 67073.27
+            },
+            {
+              "category_english": "fixed_telephony",
+              "total_gmv": 62414.05
+            },
+            {
+              "category_english": "air_conditioning",
+              "total_gmv": 61436.57
+            },
+            {
+              "category_english": "kitchen_dining_laundry_garden_furniture",
+              "total_gmv": 57905.76
+            },
+            {
+              "category_english": "audio",
+              "total_gmv": 56371.26
+            },
+            {
+              "category_english": "books_general_interest",
+              "total_gmv": 54658.69
+            },
+            {
+              "category_english": "small_appliances_home_oven_and_coffee",
+              "total_gmv": 50193.57
+            },
+            {
+              "category_english": "industry_commerce_and_business",
+              "total_gmv": 47554.29
+            },
+            {
+              "category_english": "construction_tools_lights",
+              "total_gmv": 47511.18
+            },
+            {
+              "category_english": "construction_tools_safety",
+              "total_gmv": 43420.59
+            },
+            {
+              "category_english": "food",
+              "total_gmv": 36496.78
+            },
+            {
+              "category_english": "market_place",
+              "total_gmv": 33694.53
+            },
+            {
+              "category_english": "costruction_tools_garden",
+              "total_gmv": 30781.89
+            },
+            {
+              "category_english": "fashion_shoes",
+              "total_gmv": 28248.41
+            },
+            {
+              "category_english": "art",
+              "total_gmv": 28196.21
+            },
+            {
+              "category_english": "drinks",
+              "total_gmv": 28100.75
+            },
+            {
+              "category_english": "signaling_and_security",
+              "total_gmv": 28017.05
+            },
+            {
+              "category_english": "furniture_bedroom",
+              "total_gmv": 24661.01
+            },
+            {
+              "category_english": "books_technical",
+              "total_gmv": 23379.12
+            },
+            {
+              "category_english": "food_drink",
+              "total_gmv": 19608.1
+            },
+            {
+              "category_english": "costruction_tools_tools",
+              "total_gmv": 17934.17
+            },
+            {
+              "category_english": "fashion_male_clothing",
+              "total_gmv": 12893.45
+            },
+            {
+              "category_english": "christmas_supplies",
+              "total_gmv": 12009.19
+            },
+            {
+              "category_english": "fashion_underwear_beach",
+              "total_gmv": 11457.74
+            },
+            {
+              "category_english": "tablets_printing_image",
+              "total_gmv": 8754.61
+            },
+            {
+              "category_english": "cine_photo",
+              "total_gmv": 8189.66
+            },
+            {
+              "category_english": "music",
+              "total_gmv": 6724.86
+            },
+            {
+              "category_english": "furniture_mattress_and_upholstery",
+              "total_gmv": 5998.54
+            },
+            {
+              "category_english": "dvds_blu_ray",
+              "total_gmv": 5804.37
+            },
+            {
+              "category_english": "books_imported",
+              "total_gmv": 5409.7
+            },
+            {
+              "category_english": "party_supplies",
+              "total_gmv": 5313.15
+            },
+            {
+              "category_english": "fashio_female_clothing",
+              "total_gmv": 3425.39
+            },
+            {
+              "category_english": "fashion_sport",
+              "total_gmv": 2697.64
+            },
+            {
+              "category_english": "la_cuisine",
+              "total_gmv": 2388.54
+            },
+            {
+              "category_english": "arts_and_craftmanship",
+              "total_gmv": 2184.14
+            },
+            {
+              "category_english": "diapers_and_hygiene",
+              "total_gmv": 2101.25
+            },
+            {
+              "category_english": "flowers",
+              "total_gmv": 1598.91
+            },
+            {
+              "category_english": "home_comfort_2",
+              "total_gmv": 1170.58
+            },
+            {
+              "category_english": "cds_dvds_musicals",
+              "total_gmv": 954.99
+            },
+            {
+              "category_english": "fashion_childrens_clothes",
+              "total_gmv": 665.36
+            },
+            {
+              "category_english": "security_and_services",
+              "total_gmv": 324.51
+            }
+          ],
+          "row_count": 72,
+          "result_truncated": false,
+          "error_category": null
+        }
+      },
+      "seconds": 3.58
+    },
+    "sellers": {
+      "question": "卖家排行前五。",
+      "http": 200,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "卖家排行前五（按GMV，单位BRL）：  \n1. 4869f7a5…（SP州Guariba）R$ 249,393.44，1,131单  \n2. 7c67e144…（SP州Itaquaquecetuba）R$ 239,536.44，982单  \n3. 53243585…（BA州Lauro de Freitas）R$ 235,856.68，358单  \n4. 4a3ca931…（SP州Ibitinga）R$ 235,359.30，1,804单  \n5. fa1c13f2…（SP州Sumaré）R$ 202,861.67，584单  \n前五中4家位于SP州；第4名订单量最高但GMV排第4。",
+          "response_type": "chart",
+          "chart_config": {
+            "type": "bar",
+            "x": "seller_id",
+            "y": [
+              "total_gmv",
+              "total_orders"
+            ]
+          },
+          "sql": "SELECT `rank`, `seller_id`, `seller_city`, `seller_state`, ROUND(`total_gmv`, 2) AS `total_gmv`, `total_orders` FROM `datamind_ads`.`ads_top_sellers` ORDER BY `rank` ASC LIMIT 5",
+          "rows": [
+            {
+              "rank": 1,
+              "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+              "seller_city": "guariba",
+              "seller_state": "SP",
+              "total_gmv": 249393.44,
+              "total_orders": 1131
+            },
+            {
+              "rank": 2,
+              "seller_id": "7c67e1448b00f6e969d365cea6b010ab",
+              "seller_city": "itaquaquecetuba",
+              "seller_state": "SP",
+              "total_gmv": 239536.44,
+              "total_orders": 982
+            },
+            {
+              "rank": 3,
+              "seller_id": "53243585a1d6dc2643021fd1853d8905",
+              "seller_city": "lauro de freitas",
+              "seller_state": "BA",
+              "total_gmv": 235856.68,
+              "total_orders": 358
+            },
+            {
+              "rank": 4,
+              "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+              "seller_city": "ibitinga",
+              "seller_state": "SP",
+              "total_gmv": 235359.3,
+              "total_orders": 1804
+            },
+            {
+              "rank": 5,
+              "seller_id": "fa1c13f2614d7b5c4749cbc52fecda94",
+              "seller_city": "sumare",
+              "seller_state": "SP",
+              "total_gmv": 202861.67,
+              "total_orders": 584
+            }
+          ],
+          "row_count": 5,
+          "result_truncated": false,
+          "error_category": null
+        }
+      },
+      "seconds": 3.52
+    },
+    "last_month": {
+      "question": "数据集中最后一个月的订单数是多少？",
+      "http": 200,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "数据集中最后一个月的订单数为 1 单。",
+          "response_type": "text",
+          "chart_config": null,
+          "sql": "SELECT `monthly_orders` FROM `datamind_ads`.`ads_gmv_trend` ORDER BY `year_month` DESC LIMIT 1",
+          "rows": [
+            {
+              "monthly_orders": 1
+            }
+          ],
+          "row_count": 1,
+          "result_truncated": false,
+          "error_category": null
+        }
+      },
+      "seconds": 2.78
+    },
+    "followup": {
+      "question": "那前三名呢？",
+      "http": 200,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "前三名品类依次为：health_beauty（R$ 1,437,665.78，8,800 单，占比 9.14%）、watches_gifts（R$ 1,298,292.47，5,604 单，8.25%）、bed_bath_table（R$ 1,240,386.13，9,399 单，7.88%）。",
+          "response_type": "chart",
+          "chart_config": {
+            "type": "pie",
+            "name": "category_english",
+            "value": "gmv_ratio"
+          },
+          "sql": "SELECT `rank`, `category_english`, ROUND(`total_gmv`, 2) AS `total_gmv`, `total_orders`, `gmv_ratio` FROM `datamind_ads`.`ads_category_rank` ORDER BY `rank` ASC LIMIT 3",
+          "rows": [
+            {
+              "rank": 1,
+              "category_english": "health_beauty",
+              "total_gmv": 1437665.78,
+              "total_orders": 8800,
+              "gmv_ratio": 9.14
+            },
+            {
+              "rank": 2,
+              "category_english": "watches_gifts",
+              "total_gmv": 1298292.47,
+              "total_orders": 5604,
+              "gmv_ratio": 8.25
+            },
+            {
+              "rank": 3,
+              "category_english": "bed_bath_table",
+              "total_gmv": 1240386.13,
+              "total_orders": 9399,
+              "gmv_ratio": 7.88
+            }
+          ],
+          "row_count": 3,
+          "result_truncated": false,
+          "error_category": null
+        }
+      },
+      "seconds": 3.23
+    }
+  },
+  "probes": {
+    "comma_limit": {
+      "error": null,
+      "sql": "SELECT * FROM `datamind_dws`.`dws_daily_trade` LIMIT 1000 OFFSET 0",
+      "count": 1000,
+      "truncated": true
+    },
+    "offset_limit": {
+      "error": null,
+      "sql": "SELECT * FROM `datamind_dws`.`dws_daily_trade` LIMIT 1000 OFFSET 20",
+      "count": 1000,
+      "truncated": true
+    },
+    "nested_limit": {
+      "error": null,
+      "sql": "SELECT * FROM (SELECT * FROM `datamind_dws`.`dws_daily_trade` LIMIT 1500) AS `t` LIMIT 1000",
+      "count": 1000,
+      "truncated": true
+    },
+    "string_limit": {
+      "error": null,
+      "sql": "SELECT 'limit 1' AS `note`, `order_date` FROM `datamind_dws`.`dws_daily_trade` LIMIT 1000",
+      "count": 1000,
+      "truncated": true
+    },
+    "semicolon_literal": {
+      "error": null,
+      "sql": "SELECT 'a;b' AS `note` LIMIT 1000",
+      "count": 1,
+      "truncated": false
+    },
+    "table_literal": {
+      "error": null,
+      "sql": "SELECT 'ads_gmv_overview' AS `label` FROM `datamind_ads`.`ads_gmv_overview` LIMIT 1000",
+      "count": 1,
+      "truncated": false
+    },
+    "cte_shadow": {
+      "guard_allowed": true,
+      "sql": "WITH `ods_customers` AS (SELECT 1 AS `x`) SELECT * FROM `datamind_ods`.`ods_customers` LIMIT 1000",
+      "tables": [],
+      "reaches_connection": true,
+      "error_type": "sql"
+    },
+    "nested_lock": {
+      "guard_allowed": true,
+      "sql": "SELECT * FROM (SELECT `total_gmv` FROM `datamind_ads`.`ads_gmv_overview` FOR UPDATE) AS `t` LIMIT 1000",
+      "tables": [
+        "datamind_ads.ads_gmv_overview"
+      ],
+      "reaches_connection": true,
+      "error_type": "sql"
+    },
+    "quoted_sql_extraction": {
+      "input": "SELECT total_gmv FROM `datamind_ads`.`ads_gmv_overview`",
+      "output": "SELECT total_gmv FROM `datamind_ads`.`ads_gmv_overview",
+      "execution_error": "SQL 无法解析，已拒绝执行：Error tokenizing 'CT total_gmv FROM `datamind_ads`.`ads_gmv_overvie'"
+    },
+    "summary_input": {
+      "row_count": 25,
+      "last_month": "2018-09",
+      "last_gmv": 166.46
+    }
+  },
+  "readonly_grants": [
+    "GRANT USAGE ON *.* TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_category_rank` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_gmv_overview` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_gmv_trend` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_top_sellers` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_dws`.`dws_category_summary` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_dws`.`dws_daily_active_users` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_dws`.`dws_daily_trade` TO `datamind_ro`@`localhost`"
+  ],
+  "data": {
+    "overview": {
+      "total_gmv": "15735527.03",
+      "total_orders": 98207,
+      "avg_order_value": "160.23",
+      "total_customers": 94990,
+      "data_period_start": "2016-09-04",
+      "data_period_end": "2018-09-03"
+    },
+    "trend": [
+      {
+        "year_month": "2016-09",
+        "monthly_gmv": "279.69",
+        "monthly_orders": 2,
+        "mom_growth_rate": null
+      },
+      {
+        "year_month": "2016-10",
+        "monthly_gmv": "51354.52",
+        "monthly_orders": 293,
+        "mom_growth_rate": "18261.23"
+      },
+      {
+        "year_month": "2016-11",
+        "monthly_gmv": "0.00",
+        "monthly_orders": 0,
+        "mom_growth_rate": "-100.00"
+      },
+      {
+        "year_month": "2016-12",
+        "monthly_gmv": "19.62",
+        "monthly_orders": 1,
+        "mom_growth_rate": null
+      },
+      {
+        "year_month": "2017-01",
+        "monthly_gmv": "136943.46",
+        "monthly_orders": 787,
+        "mom_growth_rate": "697878.90"
+      },
+      {
+        "year_month": "2017-02",
+        "monthly_gmv": "283561.69",
+        "monthly_orders": 1718,
+        "mom_growth_rate": "107.06"
+      },
+      {
+        "year_month": "2017-03",
+        "monthly_gmv": "425617.96",
+        "monthly_orders": 2617,
+        "mom_growth_rate": "50.10"
+      },
+      {
+        "year_month": "2017-04",
+        "monthly_gmv": "405848.61",
+        "monthly_orders": 2377,
+        "mom_growth_rate": "-4.64"
+      },
+      {
+        "year_month": "2017-05",
+        "monthly_gmv": "582710.83",
+        "monthly_orders": 3640,
+        "mom_growth_rate": "43.58"
+      },
+      {
+        "year_month": "2017-06",
+        "monthly_gmv": "499652.24",
+        "monthly_orders": 3205,
+        "mom_growth_rate": "-14.25"
+      },
+      {
+        "year_month": "2017-07",
+        "monthly_gmv": "578753.73",
+        "monthly_orders": 3946,
+        "mom_growth_rate": "15.83"
+      },
+      {
+        "year_month": "2017-08",
+        "monthly_gmv": "661903.52",
+        "monthly_orders": 4272,
+        "mom_growth_rate": "14.37"
+      },
+      {
+        "year_month": "2017-09",
+        "monthly_gmv": "717102.72",
+        "monthly_orders": 4227,
+        "mom_growth_rate": "8.34"
+      },
+      {
+        "year_month": "2017-10",
+        "monthly_gmv": "764756.03",
+        "monthly_orders": 4547,
+        "mom_growth_rate": "6.65"
+      },
+      {
+        "year_month": "2017-11",
+        "monthly_gmv": "1172191.68",
+        "monthly_orders": 7423,
+        "mom_growth_rate": "53.28"
+      },
+      {
+        "year_month": "2017-12",
+        "monthly_gmv": "861526.77",
+        "monthly_orders": 5620,
+        "mom_growth_rate": "-26.50"
+      },
+      {
+        "year_month": "2018-01",
+        "monthly_gmv": "1101920.01",
+        "monthly_orders": 7187,
+        "mom_growth_rate": "27.90"
+      },
+      {
+        "year_month": "2018-02",
+        "monthly_gmv": "979486.16",
+        "monthly_orders": 6625,
+        "mom_growth_rate": "-11.11"
+      },
+      {
+        "year_month": "2018-03",
+        "monthly_gmv": "1152656.99",
+        "monthly_orders": 7168,
+        "mom_growth_rate": "17.68"
+      },
+      {
+        "year_month": "2018-04",
+        "monthly_gmv": "1156248.89",
+        "monthly_orders": 6919,
+        "mom_growth_rate": "0.31"
+      },
+      {
+        "year_month": "2018-05",
+        "monthly_gmv": "1145686.46",
+        "monthly_orders": 6833,
+        "mom_growth_rate": "-0.91"
+      },
+      {
+        "year_month": "2018-06",
+        "monthly_gmv": "1020381.90",
+        "monthly_orders": 6145,
+        "mom_growth_rate": "-10.94"
+      },
+      {
+        "year_month": "2018-07",
+        "monthly_gmv": "1039783.58",
+        "monthly_orders": 6233,
+        "mom_growth_rate": "1.90"
+      },
+      {
+        "year_month": "2018-08",
+        "monthly_gmv": "996973.51",
+        "monthly_orders": 6421,
+        "mom_growth_rate": "-4.12"
+      },
+      {
+        "year_month": "2018-09",
+        "monthly_gmv": "166.46",
+        "monthly_orders": 1,
+        "mom_growth_rate": "-99.98"
+      }
+    ],
+    "category": [
+      {
+        "rank": 1,
+        "category_english": "health_beauty",
+        "total_gmv": "1437665.78",
+        "total_orders": 8800,
+        "gmv_ratio": "9.14"
+      },
+      {
+        "rank": 2,
+        "category_english": "watches_gifts",
+        "total_gmv": "1298292.47",
+        "total_orders": 5604,
+        "gmv_ratio": "8.25"
+      },
+      {
+        "rank": 3,
+        "category_english": "bed_bath_table",
+        "total_gmv": "1240386.13",
+        "total_orders": 9399,
+        "gmv_ratio": "7.88"
+      },
+      {
+        "rank": 4,
+        "category_english": "sports_leisure",
+        "total_gmv": "1147244.63",
+        "total_orders": 7673,
+        "gmv_ratio": "7.29"
+      },
+      {
+        "rank": 5,
+        "category_english": "computers_accessories",
+        "total_gmv": "1050941.58",
+        "total_orders": 6654,
+        "gmv_ratio": "6.68"
+      },
+      {
+        "rank": 6,
+        "category_english": "furniture_decor",
+        "total_gmv": "899626.04",
+        "total_orders": 6425,
+        "gmv_ratio": "5.72"
+      },
+      {
+        "rank": 7,
+        "category_english": "housewares",
+        "total_gmv": "772035.14",
+        "total_orders": 5847,
+        "gmv_ratio": "4.91"
+      },
+      {
+        "rank": 8,
+        "category_english": "cool_stuff",
+        "total_gmv": "704086.24",
+        "total_orders": 3616,
+        "gmv_ratio": "4.47"
+      },
+      {
+        "rank": 9,
+        "category_english": "auto",
+        "total_gmv": "678606.64",
+        "total_orders": 3872,
+        "gmv_ratio": "4.31"
+      },
+      {
+        "rank": 10,
+        "category_english": "garden_tools",
+        "total_gmv": "579525.20",
+        "total_orders": 3505,
+        "gmv_ratio": "3.68"
+      },
+      {
+        "rank": 11,
+        "category_english": "toys",
+        "total_gmv": "556783.29",
+        "total_orders": 3855,
+        "gmv_ratio": "3.54"
+      },
+      {
+        "rank": 12,
+        "category_english": "baby",
+        "total_gmv": "478320.00",
+        "total_orders": 2868,
+        "gmv_ratio": "3.04"
+      },
+      {
+        "rank": 13,
+        "category_english": "perfumery",
+        "total_gmv": "450580.47",
+        "total_orders": 3146,
+        "gmv_ratio": "2.86"
+      },
+      {
+        "rank": 14,
+        "category_english": "telephony",
+        "total_gmv": "393306.02",
+        "total_orders": 4183,
+        "gmv_ratio": "2.50"
+      },
+      {
+        "rank": 15,
+        "category_english": "office_furniture",
+        "total_gmv": "342073.02",
+        "total_orders": 1272,
+        "gmv_ratio": "2.17"
+      },
+      {
+        "rank": 16,
+        "category_english": "stationery",
+        "total_gmv": "276152.18",
+        "total_orders": 2299,
+        "gmv_ratio": "1.75"
+      },
+      {
+        "rank": 17,
+        "category_english": "pet_shop",
+        "total_gmv": "253176.96",
+        "total_orders": 1706,
+        "gmv_ratio": "1.61"
+      },
+      {
+        "rank": 18,
+        "category_english": "computers",
+        "total_gmv": "232799.43",
+        "total_orders": 181,
+        "gmv_ratio": "1.48"
+      },
+      {
+        "rank": 19,
+        "category_english": "unknown",
+        "total_gmv": "212182.44",
+        "total_orders": 1457,
+        "gmv_ratio": "1.35"
+      },
+      {
+        "rank": 20,
+        "category_english": "musical_instruments",
+        "total_gmv": "206021.32",
+        "total_orders": 620,
+        "gmv_ratio": "1.31"
+      },
+      {
+        "rank": 21,
+        "category_english": "small_appliances",
+        "total_gmv": "203731.50",
+        "total_orders": 622,
+        "gmv_ratio": "1.29"
+      },
+      {
+        "rank": 22,
+        "category_english": "electronics",
+        "total_gmv": "203416.77",
+        "total_orders": 2543,
+        "gmv_ratio": "1.29"
+      },
+      {
+        "rank": 23,
+        "category_english": "fashion_bags_accessories",
+        "total_gmv": "182934.76",
+        "total_orders": 1858,
+        "gmv_ratio": "1.16"
+      },
+      {
+        "rank": 24,
+        "category_english": "consoles_games",
+        "total_gmv": "174639.60",
+        "total_orders": 1054,
+        "gmv_ratio": "1.11"
+      },
+      {
+        "rank": 25,
+        "category_english": "luggage_accessories",
+        "total_gmv": "170504.09",
+        "total_orders": 1030,
+        "gmv_ratio": "1.08"
+      },
+      {
+        "rank": 26,
+        "category_english": "construction_tools_construction",
+        "total_gmv": "165179.69",
+        "total_orders": 746,
+        "gmv_ratio": "1.05"
+      },
+      {
+        "rank": 27,
+        "category_english": "home_appliances_2",
+        "total_gmv": "121055.52",
+        "total_orders": 231,
+        "gmv_ratio": "0.77"
+      },
+      {
+        "rank": 28,
+        "category_english": "home_construction",
+        "total_gmv": "96833.62",
+        "total_orders": 489,
+        "gmv_ratio": "0.62"
+      },
+      {
+        "rank": 29,
+        "category_english": "home_appliances",
+        "total_gmv": "94771.30",
+        "total_orders": 762,
+        "gmv_ratio": "0.60"
+      },
+      {
+        "rank": 30,
+        "category_english": "furniture_living_room",
+        "total_gmv": "86557.30",
+        "total_orders": 420,
+        "gmv_ratio": "0.55"
+      },
+      {
+        "rank": 31,
+        "category_english": "agro_industry_and_commerce",
+        "total_gmv": "78374.07",
+        "total_orders": 182,
+        "gmv_ratio": "0.50"
+      },
+      {
+        "rank": 32,
+        "category_english": "home_confort",
+        "total_gmv": "67073.27",
+        "total_orders": 397,
+        "gmv_ratio": "0.43"
+      },
+      {
+        "rank": 33,
+        "category_english": "fixed_telephony",
+        "total_gmv": "62414.05",
+        "total_orders": 214,
+        "gmv_ratio": "0.40"
+      },
+      {
+        "rank": 34,
+        "category_english": "air_conditioning",
+        "total_gmv": "61436.57",
+        "total_orders": 251,
+        "gmv_ratio": "0.39"
+      },
+      {
+        "rank": 35,
+        "category_english": "kitchen_dining_laundry_garden_furniture",
+        "total_gmv": "57905.76",
+        "total_orders": 246,
+        "gmv_ratio": "0.37"
+      },
+      {
+        "rank": 36,
+        "category_english": "audio",
+        "total_gmv": "56371.26",
+        "total_orders": 349,
+        "gmv_ratio": "0.36"
+      },
+      {
+        "rank": 37,
+        "category_english": "books_general_interest",
+        "total_gmv": "54658.69",
+        "total_orders": 505,
+        "gmv_ratio": "0.35"
+      },
+      {
+        "rank": 38,
+        "category_english": "small_appliances_home_oven_and_coffee",
+        "total_gmv": "50193.57",
+        "total_orders": 75,
+        "gmv_ratio": "0.32"
+      },
+      {
+        "rank": 39,
+        "category_english": "industry_commerce_and_business",
+        "total_gmv": "47554.29",
+        "total_orders": 235,
+        "gmv_ratio": "0.30"
+      },
+      {
+        "rank": 40,
+        "category_english": "construction_tools_lights",
+        "total_gmv": "47511.18",
+        "total_orders": 243,
+        "gmv_ratio": "0.30"
+      },
+      {
+        "rank": 41,
+        "category_english": "construction_tools_safety",
+        "total_gmv": "43420.59",
+        "total_orders": 165,
+        "gmv_ratio": "0.28"
+      },
+      {
+        "rank": 42,
+        "category_english": "food",
+        "total_gmv": "36496.78",
+        "total_orders": 449,
+        "gmv_ratio": "0.23"
+      },
+      {
+        "rank": 43,
+        "category_english": "market_place",
+        "total_gmv": "33694.53",
+        "total_orders": 279,
+        "gmv_ratio": "0.21"
+      },
+      {
+        "rank": 44,
+        "category_english": "costruction_tools_garden",
+        "total_gmv": "30781.89",
+        "total_orders": 192,
+        "gmv_ratio": "0.20"
+      },
+      {
+        "rank": 45,
+        "category_english": "fashion_shoes",
+        "total_gmv": "28248.41",
+        "total_orders": 238,
+        "gmv_ratio": "0.18"
+      },
+      {
+        "rank": 46,
+        "category_english": "art",
+        "total_gmv": "28196.21",
+        "total_orders": 201,
+        "gmv_ratio": "0.18"
+      },
+      {
+        "rank": 47,
+        "category_english": "drinks",
+        "total_gmv": "28100.75",
+        "total_orders": 296,
+        "gmv_ratio": "0.18"
+      },
+      {
+        "rank": 48,
+        "category_english": "signaling_and_security",
+        "total_gmv": "28017.05",
+        "total_orders": 140,
+        "gmv_ratio": "0.18"
+      },
+      {
+        "rank": 49,
+        "category_english": "furniture_bedroom",
+        "total_gmv": "24661.01",
+        "total_orders": 95,
+        "gmv_ratio": "0.16"
+      },
+      {
+        "rank": 50,
+        "category_english": "books_technical",
+        "total_gmv": "23379.12",
+        "total_orders": 260,
+        "gmv_ratio": "0.15"
+      },
+      {
+        "rank": 51,
+        "category_english": "food_drink",
+        "total_gmv": "19608.10",
+        "total_orders": 225,
+        "gmv_ratio": "0.12"
+      },
+      {
+        "rank": 52,
+        "category_english": "costruction_tools_tools",
+        "total_gmv": "17934.17",
+        "total_orders": 97,
+        "gmv_ratio": "0.11"
+      },
+      {
+        "rank": 53,
+        "category_english": "fashion_male_clothing",
+        "total_gmv": "12893.45",
+        "total_orders": 111,
+        "gmv_ratio": "0.08"
+      },
+      {
+        "rank": 54,
+        "category_english": "christmas_supplies",
+        "total_gmv": "12009.19",
+        "total_orders": 127,
+        "gmv_ratio": "0.08"
+      },
+      {
+        "rank": 55,
+        "category_english": "fashion_underwear_beach",
+        "total_gmv": "11457.74",
+        "total_orders": 121,
+        "gmv_ratio": "0.07"
+      },
+      {
+        "rank": 56,
+        "category_english": "tablets_printing_image",
+        "total_gmv": "8754.61",
+        "total_orders": 79,
+        "gmv_ratio": "0.06"
+      },
+      {
+        "rank": 57,
+        "category_english": "cine_photo",
+        "total_gmv": "8189.66",
+        "total_orders": 65,
+        "gmv_ratio": "0.05"
+      },
+      {
+        "rank": 58,
+        "category_english": "music",
+        "total_gmv": "6724.86",
+        "total_orders": 38,
+        "gmv_ratio": "0.04"
+      },
+      {
+        "rank": 59,
+        "category_english": "furniture_mattress_and_upholstery",
+        "total_gmv": "5998.54",
+        "total_orders": 38,
+        "gmv_ratio": "0.04"
+      },
+      {
+        "rank": 60,
+        "category_english": "dvds_blu_ray",
+        "total_gmv": "5804.37",
+        "total_orders": 57,
+        "gmv_ratio": "0.04"
+      },
+      {
+        "rank": 61,
+        "category_english": "books_imported",
+        "total_gmv": "5409.70",
+        "total_orders": 53,
+        "gmv_ratio": "0.03"
+      },
+      {
+        "rank": 62,
+        "category_english": "party_supplies",
+        "total_gmv": "5313.15",
+        "total_orders": 39,
+        "gmv_ratio": "0.03"
+      },
+      {
+        "rank": 63,
+        "category_english": "fashio_female_clothing",
+        "total_gmv": "3425.39",
+        "total_orders": 39,
+        "gmv_ratio": "0.02"
+      },
+      {
+        "rank": 64,
+        "category_english": "fashion_sport",
+        "total_gmv": "2697.64",
+        "total_orders": 27,
+        "gmv_ratio": "0.02"
+      },
+      {
+        "rank": 65,
+        "category_english": "la_cuisine",
+        "total_gmv": "2388.54",
+        "total_orders": 13,
+        "gmv_ratio": "0.02"
+      },
+      {
+        "rank": 66,
+        "category_english": "arts_and_craftmanship",
+        "total_gmv": "2184.14",
+        "total_orders": 23,
+        "gmv_ratio": "0.01"
+      },
+      {
+        "rank": 67,
+        "category_english": "diapers_and_hygiene",
+        "total_gmv": "2101.25",
+        "total_orders": 26,
+        "gmv_ratio": "0.01"
+      },
+      {
+        "rank": 68,
+        "category_english": "flowers",
+        "total_gmv": "1598.91",
+        "total_orders": 29,
+        "gmv_ratio": "0.01"
+      },
+      {
+        "rank": 69,
+        "category_english": "home_comfort_2",
+        "total_gmv": "1170.58",
+        "total_orders": 24,
+        "gmv_ratio": "0.01"
+      },
+      {
+        "rank": 70,
+        "category_english": "cds_dvds_musicals",
+        "total_gmv": "954.99",
+        "total_orders": 12,
+        "gmv_ratio": "0.01"
+      },
+      {
+        "rank": 71,
+        "category_english": "fashion_childrens_clothes",
+        "total_gmv": "665.36",
+        "total_orders": 8,
+        "gmv_ratio": "0.00"
+      },
+      {
+        "rank": 72,
+        "category_english": "security_and_services",
+        "total_gmv": "324.51",
+        "total_orders": 2,
+        "gmv_ratio": "0.00"
+      }
+    ],
+    "sellers": [
+      {
+        "rank": 1,
+        "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+        "seller_city": "guariba",
+        "seller_state": "SP",
+        "total_gmv": "249393.44",
+        "total_orders": 1131
+      },
+      {
+        "rank": 2,
+        "seller_id": "7c67e1448b00f6e969d365cea6b010ab",
+        "seller_city": "itaquaquecetuba",
+        "seller_state": "SP",
+        "total_gmv": "239536.44",
+        "total_orders": 982
+      },
+      {
+        "rank": 3,
+        "seller_id": "53243585a1d6dc2643021fd1853d8905",
+        "seller_city": "lauro de freitas",
+        "seller_state": "BA",
+        "total_gmv": "235856.68",
+        "total_orders": 358
+      },
+      {
+        "rank": 4,
+        "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+        "seller_city": "ibitinga",
+        "seller_state": "SP",
+        "total_gmv": "235359.30",
+        "total_orders": 1804
+      },
+      {
+        "rank": 5,
+        "seller_id": "fa1c13f2614d7b5c4749cbc52fecda94",
+        "seller_city": "sumare",
+        "seller_state": "SP",
+        "total_gmv": "202861.67",
+        "total_orders": 584
+      },
+      {
+        "rank": 6,
+        "seller_id": "da8622b14eb17ae2831f4ac5b9dab84a",
+        "seller_city": "piracicaba",
+        "seller_state": "SP",
+        "total_gmv": "185192.32",
+        "total_orders": 1314
+      },
+      {
+        "rank": 7,
+        "seller_id": "7e93a43ef30c4f03f38b393420bc753a",
+        "seller_city": "barueri",
+        "seller_state": "SP",
+        "total_gmv": "178838.42",
+        "total_orders": 332
+      },
+      {
+        "rank": 8,
+        "seller_id": "1025f0e2d44d7041d6cf58b6550e0bfa",
+        "seller_city": "sao paulo",
+        "seller_state": "SP",
+        "total_gmv": "172860.69",
+        "total_orders": 915
+      },
+      {
+        "rank": 9,
+        "seller_id": "7a67c85e85bb2ce8582c35f2203ad736",
+        "seller_city": "sao paulo",
+        "seller_state": "SP",
+        "total_gmv": "162607.24",
+        "total_orders": 1159
+      },
+      {
+        "rank": 10,
+        "seller_id": "955fee9216a65b617aa5c0531780ce60",
+        "seller_city": "sao paulo",
+        "seller_state": "SP",
+        "total_gmv": "160582.90",
+        "total_orders": 1286
+      },
+      {
+        "rank": 11,
+        "seller_id": "6560211a19b47992c3666cc44a7e94c0",
+        "seller_city": "sao paulo",
+        "seller_state": "SP",
+        "total_gmv": "150522.02",
+        "total_orders": 1847
+      },
+      {
+        "rank": 12,
+        "seller_id": "1f50f920176fa81dab994f9023523100",
+        "seller_city": "sao jose do rio preto",
+        "seller_state": "SP",
+        "total_gmv": "142037.48",
+        "total_orders": 1403
+      },
+      {
+        "rank": 13,
+        "seller_id": "46dc3b2cc0980fb8ec44634e21d2718e",
+        "seller_city": "rio de janeiro",
+        "seller_state": "RJ",
+        "total_gmv": "138919.78",
+        "total_orders": 518
+      },
+      {
+        "rank": 14,
+        "seller_id": "a1043bafd471dff536d0c462352beb48",
+        "seller_city": "ilicinea",
+        "seller_state": "MG",
+        "total_gmv": "133195.80",
+        "total_orders": 715
+      },
+      {
+        "rank": 15,
+        "seller_id": "cc419e0650a3c5ba77189a1882b7556a",
+        "seller_city": "santo andre",
+        "seller_state": "SP",
+        "total_gmv": "129169.95",
+        "total_orders": 1697
+      },
+      {
+        "rank": 16,
+        "seller_id": "620c87c171fb2a6dd6e8bb4dec959fc6",
+        "seller_city": "petropolis",
+        "seller_state": "RJ",
+        "total_gmv": "127674.78",
+        "total_orders": 732
+      },
+      {
+        "rank": 17,
+        "seller_id": "5dceca129747e92ff8ef7a997dc4f8ca",
+        "seller_city": "santa barbara d´oeste",
+        "seller_state": "SP",
+        "total_gmv": "125737.68",
+        "total_orders": 324
+      },
+      {
+        "rank": 18,
+        "seller_id": "7d13fca15225358621be4086e1eb0964",
+        "seller_city": "ribeirao preto",
+        "seller_state": "SP",
+        "total_gmv": "122261.02",
+        "total_orders": 565
+      },
+      {
+        "rank": 19,
+        "seller_id": "3d871de0142ce09b7081e2b9d1733cb1",
+        "seller_city": "campo limpo paulista",
+        "seller_state": "SP",
+        "total_gmv": "116835.80",
+        "total_orders": 1076
+      },
+      {
+        "rank": 20,
+        "seller_id": "edb1ef5e36e0c8cd84eb3c9b003e486d",
+        "seller_city": "teresopolis",
+        "seller_state": "RJ",
+        "total_gmv": "83189.65",
+        "total_orders": 166
+      }
+    ]
+  },
+  "table_counts": {
+    "datamind_ods.ods_customers": 99441,
+    "datamind_ods.ods_order_items": 112650,
+    "datamind_ods.ods_order_payments": 103886,
+    "datamind_ods.ods_order_reviews": 99224,
+    "datamind_ods.ods_orders": 99441,
+    "datamind_ods.ods_product_category_name_translation": 71,
+    "datamind_ods.ods_products": 32951,
+    "datamind_ods.ods_sellers": 3095,
+    "datamind_dwd.dwd_customers": 96096,
+    "datamind_dwd.dwd_order_items": 112650,
+    "datamind_dwd.dwd_orders": 98207,
+    "datamind_dwd.dwd_products": 32951,
+    "datamind_dws.dws_category_summary": 72,
+    "datamind_dws.dws_daily_active_users": 614,
+    "datamind_dws.dws_daily_trade": 18927,
+    "datamind_dws.dws_monthly_trade": 25,
+    "datamind_dws.dws_seller_summary": 3053,
+    "datamind_dws.dws_trade_overview": 1,
+    "datamind_ads.ads_category_rank": 72,
+    "datamind_ads.ads_gmv_overview": 1,
+    "datamind_ads.ads_gmv_trend": 25,
+    "datamind_ads.ads_top_sellers": 20
+  },
+  "pipeline_fault_checks": [
+    {
+      "scenario": "connection",
+      "http": 503,
+      "code": 503,
+      "error_category": "connection",
+      "generation_calls": 1,
+      "row_count": 0,
+      "passed": true
+    },
+    {
+      "scenario": "sql",
+      "http": 500,
+      "code": 500,
+      "error_category": "sql",
+      "generation_calls": 3,
+      "row_count": 0,
+      "passed": true
+    },
+    {
+      "scenario": "guard",
+      "http": 400,
+      "code": 400,
+      "error_category": "guard",
+      "generation_calls": 3,
+      "row_count": 0,
+      "passed": true
+    },
+    {
+      "scenario": "empty",
+      "http": 200,
+      "code": 200,
+      "error_category": null,
+      "generation_calls": 1,
+      "row_count": 0,
+      "passed": true
+    }
+  ],
+  "syntax_files": 30,
+  "independent_checks_passed": 79,
+  "independent_checks_failed": [
+    "guard rejects cte_shadow",
+    "guard rejects nested_lock",
+    "quoted identifier remains intact",
+    "valid quoted query generation then execution"
+  ]
+}

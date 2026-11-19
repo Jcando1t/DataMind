@@ -1,0 +1,36 @@
+# ============ 本地凭据与运行产物（禁止提交） ============
+# 含真实密钥/密码的文件
+.env
+agent/.env
+*.env
+!*.env.example
+
+# 本地产物
+__pycache__/
+*.pyc
+.venv/
+.idea/
+/tmp/
+*.log
+node_modules/
+frontend/dist/
+backend/sources.local.json
+backend/dataset.local.json
+data/ingestion/
+data/review_index/
+
+# 原始数据集（约 121MB，Kaggle 下载，见 data/raw/README.md）
+data/raw/*.csv
+
+# 运行日志
+logs/
+
+# Windows 本地 Hadoop 二进制（winutils，第三方文件不入库）
+hadoop/
+
+# 本助手的工作区记忆（个人文件）
+.workbuddy/
+
+# Vite 根目录缓存 / 系统工具恢复产物
+.vite/
+.dsh-acl-recovery/

@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-11-17T19:22:16",
+  "checks": [
+    {
+      "name": "session_protection_verified",
+      "error_type": null,
+      "meta": {
+        "tables": [
+          "datamind_ads.ads_gmv_overview"
+        ],
+        "limit_action": "added",
+        "session_read_only_verified": true,
+        "query_timeout_ms": 15000
+      },
+      "rows": 1
+    },
+    {
+      "name": "max_rows_cap",
+      "rows": 1000,
+      "truncated": true,
+      "limit_action": "added"
+    },
+    {
+      "name": "limit_offset",
+      "rows": 3,
+      "first": {
+        "year_month": "2017-02",
+        "monthly_gmv": 283561.69
+      },
+      "limit_action": "kept"
+    },
+    {
+      "name": "denied_before_connect",
+      "sql": "WITH ods_customers AS (SELECT 1 AS x) SELECT * FROM datamind_ods.ods_c",
+      "error_type": "guard",
+      "connect_called": false
+    },
+    {
+      "name": "denied_before_connect",
+      "sql": "SELECT * FROM (SELECT total_gmv FROM ads_gmv_overview FOR UPDATE) t",
+      "error_type": "guard",
+      "connect_called": false
+    },
+    {
+      "name": "denied_before_connect",
+      "sql": "SELECT * FROM ads_gmv_overview UNION SELECT * FROM (SELECT total_gmv F",
+      "error_type": "guard",
+      "connect_called": false
+    },
+    {
+      "name": "denied_before_connect",
+      "sql": "SELECT * FROM mysql.user",
+      "error_type": "guard",
+      "connect_called": false
+    },
+    {
+      "name": "denied_before_connect",
+      "sql": "SELECT 1 INTO OUTFILE '/tmp/x'",
+      "error_type": "guard",
+      "connect_called": false
+    },
+    {
+      "name": "denied_before_connect",
+      "sql": "SELECT 1; SELECT 2",
+      "error_type": "guard",
+      "connect_called": false
+    }
+  ]
+}

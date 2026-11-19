@@ -1,0 +1,850 @@
+{
+  "database": {
+    "tables": {
+      "datamind_ods.ods_customers": 99441,
+      "datamind_ods.ods_order_items": 112650,
+      "datamind_ods.ods_order_payments": 103886,
+      "datamind_ods.ods_order_reviews": 99224,
+      "datamind_ods.ods_orders": 99441,
+      "datamind_ods.ods_product_category_name_translation": 71,
+      "datamind_ods.ods_products": 32951,
+      "datamind_ods.ods_sellers": 3095,
+      "datamind_dwd.dwd_customers": 96096,
+      "datamind_dwd.dwd_order_items": 112650,
+      "datamind_dwd.dwd_orders": 98207,
+      "datamind_dwd.dwd_products": 32951,
+      "datamind_dws.dws_category_summary": 72,
+      "datamind_dws.dws_daily_active_users": 614,
+      "datamind_dws.dws_daily_trade": 18927,
+      "datamind_dws.dws_monthly_trade": 25,
+      "datamind_dws.dws_seller_summary": 3053,
+      "datamind_dws.dws_trade_overview": 1,
+      "datamind_ads.ads_category_rank": 72,
+      "datamind_ads.ads_gmv_overview": 1,
+      "datamind_ads.ads_gmv_trend": 25,
+      "datamind_ads.ads_top_sellers": 20
+    },
+    "checks": [
+      {
+        "name": "GMV vs ODS",
+        "pass": true,
+        "actual": "15735527.03",
+        "expected": "15735527.03"
+      },
+      {
+        "name": "orders vs ODS",
+        "pass": true,
+        "actual": "98207",
+        "expected": "98207"
+      },
+      {
+        "name": "unique customers vs ODS",
+        "pass": true,
+        "actual": "94990",
+        "expected": "94990"
+      },
+      {
+        "name": "start date",
+        "pass": true,
+        "actual": "2016-09-04",
+        "expected": "2016-09-04"
+      },
+      {
+        "name": "end date",
+        "pass": true,
+        "actual": "2018-09-03",
+        "expected": "2018-09-03"
+      },
+      {
+        "name": "average order value",
+        "pass": true,
+        "actual": "160.23",
+        "expected": "160.23"
+      },
+      {
+        "name": "DWD order duplicate count",
+        "pass": true,
+        "actual": "0",
+        "expected": "0"
+      },
+      {
+        "name": "DWD customer duplicate count",
+        "pass": true,
+        "actual": "0",
+        "expected": "0"
+      },
+      {
+        "name": "DWS overview GMV",
+        "pass": true,
+        "actual": "15735527.03",
+        "expected": "15735527.03"
+      },
+      {
+        "name": "DWS monthly GMV",
+        "pass": true,
+        "actual": "15735527.03",
+        "expected": "15735527.03"
+      },
+      {
+        "name": "DWS category GMV",
+        "pass": true,
+        "actual": "15735527.03",
+        "expected": "15735527.03"
+      },
+      {
+        "name": "DWS seller GMV",
+        "pass": true,
+        "actual": "15735527.03",
+        "expected": "15735527.03"
+      },
+      {
+        "name": "ADS monthly GMV",
+        "pass": true,
+        "actual": "15735527.03",
+        "expected": "15735527.03"
+      },
+      {
+        "name": "ADS monthly orders",
+        "pass": true,
+        "actual": "98207",
+        "expected": "98207"
+      },
+      {
+        "name": "ADS category GMV",
+        "pass": true,
+        "actual": "15735527.03",
+        "expected": "15735527.03"
+      },
+      {
+        "name": "top20 independent grouping",
+        "pass": true,
+        "actual": "[('4869f7a5dfa277a7dca6462dcf3b52b2', Decimal('249393.44'), 1131), ('7c67e1448b00f6e969d365cea6b010ab', Decimal('239536.44'), 982), ('53243585a1d6dc2643021fd1853d8905', Decimal('235856.68'), 358), ('4a3ca9315b744ce9f8e9374361493884', Decimal('235359.30'), 1804), ('fa1c13f2614d7b5c4749cbc52fecda94', Decimal('202861.67'), 584), ('da8622b14eb17ae2831f4ac5b9dab84a', Decimal('185192.32'), 1314), ('7e93a43ef30c4f03f38b393420bc753a', Decimal('178838.42'), 332), ('1025f0e2d44d7041d6cf58b6550e0bfa', Decimal('172860.69'), 915), ('7a67c85e85bb2ce8582c35f2203ad736', Decimal('162607.24'), 1159), ('955fee9216a65b617aa5c0531780ce60', Decimal('160582.90'), 1286), ('6560211a19b47992c3666cc44a7e94c0', Decimal('150522.02'), 1847), ('1f50f920176fa81dab994f9023523100', Decimal('142037.48'), 1403), ('46dc3b2cc0980fb8ec44634e21d2718e', Decimal('138919.78'), 518), ('a1043bafd471dff536d0c462352beb48', Decimal('133195.80'), 715), ('cc419e0650a3c5ba77189a1882b7556a', Decimal('129169.95'), 1697), ('620c87c171fb2a6dd6e8bb4dec959fc6', Decimal('127674.78'), 732), ('5dceca129747e92ff8ef7a997dc4f8ca', Decimal('125737.68'), 324), ('7d13fca15225358621be4086e1eb0964', Decimal('122261.02'), 565), ('3d871de0142ce09b7081e2b9d1733cb1', Decimal('116835.80'), 1076), ('edb1ef5e36e0c8cd84eb3c9b003e486d', Decimal('83189.65'), 166)]",
+        "expected": "[('4869f7a5dfa277a7dca6462dcf3b52b2', Decimal('249393.44'), 1131), ('7c67e1448b00f6e969d365cea6b010ab', Decimal('239536.44'), 982), ('53243585a1d6dc2643021fd1853d8905', Decimal('235856.68'), 358), ('4a3ca9315b744ce9f8e9374361493884', Decimal('235359.30'), 1804), ('fa1c13f2614d7b5c4749cbc52fecda94', Decimal('202861.67'), 584), ('da8622b14eb17ae2831f4ac5b9dab84a', Decimal('185192.32'), 1314), ('7e93a43ef30c4f03f38b393420bc753a', Decimal('178838.42'), 332), ('1025f0e2d44d7041d6cf58b6550e0bfa', Decimal('172860.69'), 915), ('7a67c85e85bb2ce8582c35f2203ad736', Decimal('162607.24'), 1159), ('955fee9216a65b617aa5c0531780ce60', Decimal('160582.90'), 1286), ('6560211a19b47992c3666cc44a7e94c0', Decimal('150522.02'), 1847), ('1f50f920176fa81dab994f9023523100', Decimal('142037.48'), 1403), ('46dc3b2cc0980fb8ec44634e21d2718e', Decimal('138919.78'), 518), ('a1043bafd471dff536d0c462352beb48', Decimal('133195.80'), 715), ('cc419e0650a3c5ba77189a1882b7556a', Decimal('129169.95'), 1697), ('620c87c171fb2a6dd6e8bb4dec959fc6', Decimal('127674.78'), 732), ('5dceca129747e92ff8ef7a997dc4f8ca', Decimal('125737.68'), 324), ('7d13fca15225358621be4086e1eb0964', Decimal('122261.02'), 565), ('3d871de0142ce09b7081e2b9d1733cb1', Decimal('116835.80'), 1076), ('edb1ef5e36e0c8cd84eb3c9b003e486d', Decimal('83189.65'), 166)]"
+      },
+      {
+        "name": "category ranks",
+        "pass": true,
+        "actual": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72]",
+        "expected": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72]"
+      },
+      {
+        "name": "category sorted",
+        "pass": true,
+        "actual": "[Decimal('1437665.78'), Decimal('1298292.47'), Decimal('1240386.13'), Decimal('1147244.63'), Decimal('1050941.58'), Decimal('899626.04'), Decimal('772035.14'), Decimal('704086.24'), Decimal('678606.64'), Decimal('579525.20'), Decimal('556783.29'), Decimal('478320.00'), Decimal('450580.47'), Decimal('393306.02'), Decimal('342073.02'), Decimal('276152.18'), Decimal('253176.96'), Decimal('232799.43'), Decimal('212182.44'), Decimal('206021.32'), Decimal('203731.50'), Decimal('203416.77'), Decimal('182934.76'), Decimal('174639.60'), Decimal('170504.09'), Decimal('165179.69'), Decimal('121055.52'), Decimal('96833.62'), Decimal('94771.30'), Decimal('86557.30'), Decimal('78374.07'), Decimal('67073.27'), Decimal('62414.05'), Decimal('61436.57'), Decimal('57905.76'), Decimal('56371.26'), Decimal('54658.69'), Decimal('50193.57'), Decimal('47554.29'), Decimal('47511.18'), Decimal('43420.59'), Decimal('36496.78'), Decimal('33694.53'), Decimal('30781.89'), Decimal('28248.41'), Decimal('28196.21'), Decimal('28100.75'), Decimal('28017.05'), Decimal('24661.01'), Decimal('23379.12'), Decimal('19608.10'), Decimal('17934.17'), Decimal('12893.45'), Decimal('12009.19'), Decimal('11457.74'), Decimal('8754.61'), Decimal('8189.66'), Decimal('6724.86'), Decimal('5998.54'), Decimal('5804.37'), Decimal('5409.70'), Decimal('5313.15'), Decimal('3425.39'), Decimal('2697.64'), Decimal('2388.54'), Decimal('2184.14'), Decimal('2101.25'), Decimal('1598.91'), Decimal('1170.58'), Decimal('954.99'), Decimal('665.36'), Decimal('324.51')]",
+        "expected": "[Decimal('1437665.78'), Decimal('1298292.47'), Decimal('1240386.13'), Decimal('1147244.63'), Decimal('1050941.58'), Decimal('899626.04'), Decimal('772035.14'), Decimal('704086.24'), Decimal('678606.64'), Decimal('579525.20'), Decimal('556783.29'), Decimal('478320.00'), Decimal('450580.47'), Decimal('393306.02'), Decimal('342073.02'), Decimal('276152.18'), Decimal('253176.96'), Decimal('232799.43'), Decimal('212182.44'), Decimal('206021.32'), Decimal('203731.50'), Decimal('203416.77'), Decimal('182934.76'), Decimal('174639.60'), Decimal('170504.09'), Decimal('165179.69'), Decimal('121055.52'), Decimal('96833.62'), Decimal('94771.30'), Decimal('86557.30'), Decimal('78374.07'), Decimal('67073.27'), Decimal('62414.05'), Decimal('61436.57'), Decimal('57905.76'), Decimal('56371.26'), Decimal('54658.69'), Decimal('50193.57'), Decimal('47554.29'), Decimal('47511.18'), Decimal('43420.59'), Decimal('36496.78'), Decimal('33694.53'), Decimal('30781.89'), Decimal('28248.41'), Decimal('28196.21'), Decimal('28100.75'), Decimal('28017.05'), Decimal('24661.01'), Decimal('23379.12'), Decimal('19608.10'), Decimal('17934.17'), Decimal('12893.45'), Decimal('12009.19'), Decimal('11457.74'), Decimal('8754.61'), Decimal('8189.66'), Decimal('6724.86'), Decimal('5998.54'), Decimal('5804.37'), Decimal('5409.70'), Decimal('5313.15'), Decimal('3425.39'), Decimal('2697.64'), Decimal('2388.54'), Decimal('2184.14'), Decimal('2101.25'), Decimal('1598.91'), Decimal('1170.58'), Decimal('954.99'), Decimal('665.36'), Decimal('324.51')]"
+      },
+      {
+        "name": "continuous months",
+        "pass": true,
+        "actual": "25",
+        "expected": "25"
+      },
+      {
+        "name": "MoM 2016-09",
+        "pass": true,
+        "actual": "None",
+        "expected": "None"
+      },
+      {
+        "name": "MoM 2016-10",
+        "pass": true,
+        "actual": "18261.23",
+        "expected": "18261.23"
+      },
+      {
+        "name": "MoM 2016-11",
+        "pass": true,
+        "actual": "-100.00",
+        "expected": "-100.00"
+      },
+      {
+        "name": "MoM 2016-12",
+        "pass": true,
+        "actual": "None",
+        "expected": "None"
+      },
+      {
+        "name": "MoM 2017-01",
+        "pass": true,
+        "actual": "697878.90",
+        "expected": "697878.90"
+      },
+      {
+        "name": "MoM 2017-02",
+        "pass": true,
+        "actual": "107.06",
+        "expected": "107.06"
+      },
+      {
+        "name": "MoM 2017-03",
+        "pass": true,
+        "actual": "50.10",
+        "expected": "50.10"
+      },
+      {
+        "name": "MoM 2017-04",
+        "pass": true,
+        "actual": "-4.64",
+        "expected": "-4.64"
+      },
+      {
+        "name": "MoM 2017-05",
+        "pass": true,
+        "actual": "43.58",
+        "expected": "43.58"
+      },
+      {
+        "name": "MoM 2017-06",
+        "pass": true,
+        "actual": "-14.25",
+        "expected": "-14.25"
+      },
+      {
+        "name": "MoM 2017-07",
+        "pass": true,
+        "actual": "15.83",
+        "expected": "15.83"
+      },
+      {
+        "name": "MoM 2017-08",
+        "pass": true,
+        "actual": "14.37",
+        "expected": "14.37"
+      },
+      {
+        "name": "MoM 2017-09",
+        "pass": true,
+        "actual": "8.34",
+        "expected": "8.34"
+      },
+      {
+        "name": "MoM 2017-10",
+        "pass": true,
+        "actual": "6.65",
+        "expected": "6.65"
+      },
+      {
+        "name": "MoM 2017-11",
+        "pass": true,
+        "actual": "53.28",
+        "expected": "53.28"
+      },
+      {
+        "name": "MoM 2017-12",
+        "pass": true,
+        "actual": "-26.50",
+        "expected": "-26.50"
+      },
+      {
+        "name": "MoM 2018-01",
+        "pass": true,
+        "actual": "27.90",
+        "expected": "27.90"
+      },
+      {
+        "name": "MoM 2018-02",
+        "pass": true,
+        "actual": "-11.11",
+        "expected": "-11.11"
+      },
+      {
+        "name": "MoM 2018-03",
+        "pass": true,
+        "actual": "17.68",
+        "expected": "17.68"
+      },
+      {
+        "name": "MoM 2018-04",
+        "pass": true,
+        "actual": "0.31",
+        "expected": "0.31"
+      },
+      {
+        "name": "MoM 2018-05",
+        "pass": true,
+        "actual": "-0.91",
+        "expected": "-0.91"
+      },
+      {
+        "name": "MoM 2018-06",
+        "pass": true,
+        "actual": "-10.94",
+        "expected": "-10.94"
+      },
+      {
+        "name": "MoM 2018-07",
+        "pass": true,
+        "actual": "1.90",
+        "expected": "1.90"
+      },
+      {
+        "name": "MoM 2018-08",
+        "pass": true,
+        "actual": "-4.12",
+        "expected": "-4.12"
+      },
+      {
+        "name": "MoM 2018-09",
+        "pass": true,
+        "actual": "-99.98",
+        "expected": "-99.98"
+      },
+      {
+        "name": "API overview data",
+        "pass": true,
+        "actual": "True",
+        "expected": "True"
+      },
+      {
+        "name": "API overview code",
+        "pass": true,
+        "actual": "200",
+        "expected": "200"
+      },
+      {
+        "name": "API trend data",
+        "pass": true,
+        "actual": "True",
+        "expected": "True"
+      },
+      {
+        "name": "API trend code",
+        "pass": true,
+        "actual": "200",
+        "expected": "200"
+      },
+      {
+        "name": "API category-rank data",
+        "pass": true,
+        "actual": "True",
+        "expected": "True"
+      },
+      {
+        "name": "API category-rank code",
+        "pass": true,
+        "actual": "200",
+        "expected": "200"
+      },
+      {
+        "name": "API top-sellers data",
+        "pass": true,
+        "actual": "True",
+        "expected": "True"
+      },
+      {
+        "name": "API top-sellers code",
+        "pass": true,
+        "actual": "200",
+        "expected": "200"
+      }
+    ],
+    "metrics": {
+      "overview": {
+        "code": 200,
+        "rows": 1
+      },
+      "trend": {
+        "code": 200,
+        "rows": 25
+      },
+      "category-rank": {
+        "code": 200,
+        "rows": 72
+      },
+      "top-sellers": {
+        "code": 200,
+        "rows": 20
+      }
+    },
+    "overview": {
+      "total_gmv": "15735527.03",
+      "total_orders": 98207,
+      "avg_order_value": "160.23",
+      "total_customers": 94990,
+      "data_period_start": "2016-09-04",
+      "data_period_end": "2018-09-03"
+    },
+    "expected_chat": {
+      "last_month": {
+        "year_month": "2018-09",
+        "monthly_gmv": "166.46",
+        "monthly_orders": 1,
+        "mom_growth_rate": "-99.98"
+      },
+      "top_category": {
+        "rank": 1,
+        "category_english": "health_beauty",
+        "total_gmv": "1437665.78",
+        "total_orders": 8800,
+        "gmv_ratio": "9.14"
+      },
+      "top3": [
+        {
+          "rank": 1,
+          "category_english": "health_beauty",
+          "total_gmv": "1437665.78",
+          "total_orders": 8800,
+          "gmv_ratio": "9.14"
+        },
+        {
+          "rank": 2,
+          "category_english": "watches_gifts",
+          "total_gmv": "1298292.47",
+          "total_orders": 5604,
+          "gmv_ratio": "8.25"
+        },
+        {
+          "rank": 3,
+          "category_english": "bed_bath_table",
+          "total_gmv": "1240386.13",
+          "total_orders": 9399,
+          "gmv_ratio": "7.88"
+        }
+      ],
+      "top5_sellers": [
+        {
+          "rank": 1,
+          "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+          "seller_city": "guariba",
+          "seller_state": "SP",
+          "total_gmv": "249393.44",
+          "total_orders": 1131
+        },
+        {
+          "rank": 2,
+          "seller_id": "7c67e1448b00f6e969d365cea6b010ab",
+          "seller_city": "itaquaquecetuba",
+          "seller_state": "SP",
+          "total_gmv": "239536.44",
+          "total_orders": 982
+        },
+        {
+          "rank": 3,
+          "seller_id": "53243585a1d6dc2643021fd1853d8905",
+          "seller_city": "lauro de freitas",
+          "seller_state": "BA",
+          "total_gmv": "235856.68",
+          "total_orders": 358
+        },
+        {
+          "rank": 4,
+          "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+          "seller_city": "ibitinga",
+          "seller_state": "SP",
+          "total_gmv": "235359.30",
+          "total_orders": 1804
+        },
+        {
+          "rank": 5,
+          "seller_id": "fa1c13f2614d7b5c4749cbc52fecda94",
+          "seller_city": "sumare",
+          "seller_state": "SP",
+          "total_gmv": "202861.67",
+          "total_orders": 584
+        }
+      ]
+    }
+  },
+  "chat": {
+    "gmv": {
+      "question": "总 GMV 是多少？",
+      "http": 200,
+      "elapsed": 3.22,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "总 GMV 为 15,735,527.03。",
+          "response_type": "text",
+          "chart_config": null,
+          "sql": "SELECT ROUND(total_gmv, 2) AS total_gmv FROM `datamind_ads`.`ads_gmv_overview` LIMIT 100;",
+          "rows": [
+            {
+              "total_gmv": 15735527.03
+            }
+          ],
+          "row_count": 1
+        }
+      }
+    },
+    "trend": {
+      "question": "GMV 按月的趋势怎么样？",
+      "http": 200,
+      "elapsed": 3.94,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "GMV 整体呈快速上升趋势：2016年9月仅279.69元，2017年1月跃升至13.7万元，2017年11月突破117万元。2018年1-4月稳定在110-116万元区间，4月达115.6万元。增长伴随明显波动，如2017年12月环比下降26.5%，2018年2月下降11.1%。订单量与GMV走势基本一致。",
+          "response_type": "chart",
+          "chart_config": {
+            "type": "line",
+            "x": "year_month",
+            "y": [
+              "monthly_gmv",
+              "monthly_orders",
+              "mom_growth_rate"
+            ]
+          },
+          "sql": "SELECT `year_month`, ROUND(monthly_gmv, 2) AS monthly_gmv, monthly_orders, mom_growth_rate FROM `datamind_ads`.`ads_gmv_trend` ORDER BY `year_month` LIMIT 100;",
+          "rows": [
+            {
+              "year_month": "2016-09",
+              "monthly_gmv": 279.69,
+              "monthly_orders": 2,
+              "mom_growth_rate": null
+            },
+            {
+              "year_month": "2016-10",
+              "monthly_gmv": 51354.52,
+              "monthly_orders": 293,
+              "mom_growth_rate": 18261.23
+            },
+            {
+              "year_month": "2016-11",
+              "monthly_gmv": 0.0,
+              "monthly_orders": 0,
+              "mom_growth_rate": -100.0
+            },
+            {
+              "year_month": "2016-12",
+              "monthly_gmv": 19.62,
+              "monthly_orders": 1,
+              "mom_growth_rate": null
+            },
+            {
+              "year_month": "2017-01",
+              "monthly_gmv": 136943.46,
+              "monthly_orders": 787,
+              "mom_growth_rate": 697878.9
+            },
+            {
+              "year_month": "2017-02",
+              "monthly_gmv": 283561.69,
+              "monthly_orders": 1718,
+              "mom_growth_rate": 107.06
+            },
+            {
+              "year_month": "2017-03",
+              "monthly_gmv": 425617.96,
+              "monthly_orders": 2617,
+              "mom_growth_rate": 50.1
+            },
+            {
+              "year_month": "2017-04",
+              "monthly_gmv": 405848.61,
+              "monthly_orders": 2377,
+              "mom_growth_rate": -4.64
+            },
+            {
+              "year_month": "2017-05",
+              "monthly_gmv": 582710.83,
+              "monthly_orders": 3640,
+              "mom_growth_rate": 43.58
+            },
+            {
+              "year_month": "2017-06",
+              "monthly_gmv": 499652.24,
+              "monthly_orders": 3205,
+              "mom_growth_rate": -14.25
+            },
+            {
+              "year_month": "2017-07",
+              "monthly_gmv": 578753.73,
+              "monthly_orders": 3946,
+              "mom_growth_rate": 15.83
+            },
+            {
+              "year_month": "2017-08",
+              "monthly_gmv": 661903.52,
+              "monthly_orders": 4272,
+              "mom_growth_rate": 14.37
+            },
+            {
+              "year_month": "2017-09",
+              "monthly_gmv": 717102.72,
+              "monthly_orders": 4227,
+              "mom_growth_rate": 8.34
+            },
+            {
+              "year_month": "2017-10",
+              "monthly_gmv": 764756.03,
+              "monthly_orders": 4547,
+              "mom_growth_rate": 6.65
+            },
+            {
+              "year_month": "2017-11",
+              "monthly_gmv": 1172191.68,
+              "monthly_orders": 7423,
+              "mom_growth_rate": 53.28
+            },
+            {
+              "year_month": "2017-12",
+              "monthly_gmv": 861526.77,
+              "monthly_orders": 5620,
+              "mom_growth_rate": -26.5
+            },
+            {
+              "year_month": "2018-01",
+              "monthly_gmv": 1101920.01,
+              "monthly_orders": 7187,
+              "mom_growth_rate": 27.9
+            },
+            {
+              "year_month": "2018-02",
+              "monthly_gmv": 979486.16,
+              "monthly_orders": 6625,
+              "mom_growth_rate": -11.11
+            },
+            {
+              "year_month": "2018-03",
+              "monthly_gmv": 1152656.99,
+              "monthly_orders": 7168,
+              "mom_growth_rate": 17.68
+            },
+            {
+              "year_month": "2018-04",
+              "monthly_gmv": 1156248.89,
+              "monthly_orders": 6919,
+              "mom_growth_rate": 0.31
+            },
+            {
+              "year_month": "2018-05",
+              "monthly_gmv": 1145686.46,
+              "monthly_orders": 6833,
+              "mom_growth_rate": -0.91
+            },
+            {
+              "year_month": "2018-06",
+              "monthly_gmv": 1020381.9,
+              "monthly_orders": 6145,
+              "mom_growth_rate": -10.94
+            },
+            {
+              "year_month": "2018-07",
+              "monthly_gmv": 1039783.58,
+              "monthly_orders": 6233,
+              "mom_growth_rate": 1.9
+            },
+            {
+              "year_month": "2018-08",
+              "monthly_gmv": 996973.51,
+              "monthly_orders": 6421,
+              "mom_growth_rate": -4.12
+            },
+            {
+              "year_month": "2018-09",
+              "monthly_gmv": 166.46,
+              "monthly_orders": 1,
+              "mom_growth_rate": -99.98
+            }
+          ],
+          "row_count": 25
+        }
+      }
+    },
+    "category": {
+      "question": "哪个品类销售额最高？",
+      "http": 200,
+      "elapsed": 3.66,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "health_beauty（健康美容）品类销售额最高，总GMV为1,437,665.78。",
+          "response_type": "text",
+          "chart_config": null,
+          "sql": "SELECT `category_english`, ROUND(`total_gmv`, 2) AS total_gmv FROM `datamind_ads`.`ads_category_rank` ORDER BY `total_gmv` DESC LIMIT 1;",
+          "rows": [
+            {
+              "category_english": "health_beauty",
+              "total_gmv": 1437665.78
+            }
+          ],
+          "row_count": 1
+        }
+      }
+    },
+    "sellers": {
+      "question": "卖家排行前五。",
+      "http": 200,
+      "elapsed": 4.03,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "卖家排行前五（按GMV）：\n\n1. 4869f7a5…（SP州Guariba）：GMV 249,393.44，订单1,131\n2. 7c67e144…（SP州Itaquaquecetuba）：GMV 239,536.44，订单982\n3. 53243585…（BA州Lauro de Freitas）：GMV 235,856.68，订单358\n4. 4a3ca931…（SP州Ibitinga）：GMV 235,359.30，订单1,804\n5. fa1c13f2…（SP州Sumaré）：GMV 202,861.67，订单584\n\n前五中4家位于SP州；第4名订单量最高（1,804单），第3名订单最少但GMV排第三。",
+          "response_type": "chart",
+          "chart_config": {
+            "type": "bar",
+            "x": "seller_id",
+            "y": [
+              "total_gmv",
+              "total_orders"
+            ]
+          },
+          "sql": "SELECT `rank`, seller_id, seller_city, seller_state, ROUND(total_gmv, 2) AS total_gmv, total_orders FROM `datamind_ads`.`ads_top_sellers` ORDER BY `rank` LIMIT 5;",
+          "rows": [
+            {
+              "rank": 1,
+              "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+              "seller_city": "guariba",
+              "seller_state": "SP",
+              "total_gmv": 249393.44,
+              "total_orders": 1131
+            },
+            {
+              "rank": 2,
+              "seller_id": "7c67e1448b00f6e969d365cea6b010ab",
+              "seller_city": "itaquaquecetuba",
+              "seller_state": "SP",
+              "total_gmv": 239536.44,
+              "total_orders": 982
+            },
+            {
+              "rank": 3,
+              "seller_id": "53243585a1d6dc2643021fd1853d8905",
+              "seller_city": "lauro de freitas",
+              "seller_state": "BA",
+              "total_gmv": 235856.68,
+              "total_orders": 358
+            },
+            {
+              "rank": 4,
+              "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+              "seller_city": "ibitinga",
+              "seller_state": "SP",
+              "total_gmv": 235359.3,
+              "total_orders": 1804
+            },
+            {
+              "rank": 5,
+              "seller_id": "fa1c13f2614d7b5c4749cbc52fecda94",
+              "seller_city": "sumare",
+              "seller_state": "SP",
+              "total_gmv": 202861.67,
+              "total_orders": 584
+            }
+          ],
+          "row_count": 5
+        }
+      }
+    },
+    "last_month": {
+      "question": "数据集中最后一个月的订单数是多少？",
+      "http": 200,
+      "elapsed": 3.67,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "数据集中最后一个月的订单数为1（2018-09）。",
+          "response_type": "text",
+          "chart_config": null,
+          "sql": "SELECT `year_month`, monthly_orders\nFROM `datamind_ads`.`ads_gmv_trend`\nORDER BY `year_month` DESC\nLIMIT 1;",
+          "rows": [
+            {
+              "year_month": "2018-09",
+              "monthly_orders": 1
+            }
+          ],
+          "row_count": 1
+        }
+      }
+    },
+    "followup": {
+      "question": "那前三名呢？",
+      "http": 200,
+      "elapsed": 3.41,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "前三名品类依次为：health_beauty（GMV 143.77万，8800单，占比9.14%）、watches_gifts（GMV 129.83万，5604单，占比8.25%）、bed_bath_table（GMV 124.04万，9399单，占比7.88%）。其中 bed_bath_table 订单量最高但 GMV 最低，客单价偏低。",
+          "response_type": "chart",
+          "chart_config": {
+            "type": "pie",
+            "name": "category_english",
+            "value": "gmv_ratio"
+          },
+          "sql": "SELECT `rank`, category_english, ROUND(total_gmv, 2) AS total_gmv, total_orders, gmv_ratio FROM `datamind_ads`.`ads_category_rank` ORDER BY `rank` ASC LIMIT 3;",
+          "rows": [
+            {
+              "rank": 1,
+              "category_english": "health_beauty",
+              "total_gmv": 1437665.78,
+              "total_orders": 8800,
+              "gmv_ratio": 9.14
+            },
+            {
+              "rank": 2,
+              "category_english": "watches_gifts",
+              "total_gmv": 1298292.47,
+              "total_orders": 5604,
+              "gmv_ratio": 8.25
+            },
+            {
+              "rank": 3,
+              "category_english": "bed_bath_table",
+              "total_gmv": 1240386.13,
+              "total_orders": 9399,
+              "gmv_ratio": 7.88
+            }
+          ],
+          "row_count": 3
+        }
+      }
+    }
+  },
+  "fault_injection": {
+    "api_key_stored_as_literal": true,
+    "db_privileges": {
+      "FILE": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true
+    },
+    "db_transaction_read_only": 0,
+    "retry_success": {
+      "calls": {
+        "generate": 2,
+        "execute": 2
+      },
+      "history_preserved": true,
+      "retry_count": 1,
+      "answer": "查询执行成功，但没有匹配到任何数据。可能是查询条件与数据内容不匹配，请调整问法或缩小时间范围后重试。"
+    },
+    "retry_exhausted": {
+      "calls": {
+        "generate": 3,
+        "execute": 3
+      },
+      "history_preserved": true,
+      "retry_count": 2,
+      "answer": "SQL 执行失败（已自动重试仍未成功）：test SQL syntax"
+    },
+    "connection": {
+      "calls": {
+        "generate": 1,
+        "execute": 1
+      },
+      "history_preserved": true,
+      "retry_count": 0,
+      "answer": "数据库连接失败，无法执行查询。请检查 MySQL 服务是否已启动。详细原因：test connection"
+    },
+    "connection_classification": {
+      "type": "connection",
+      "error": "数据库连接失败（错误码 2003）：acceptance injected connection failure"
+    }
+  },
+  "security_probe": {
+    "newline_outfile_validator_allowed": true,
+    "backtick_mysql_user_validator_allowed": true,
+    "mysql_prepare_accepted_both": true,
+    "executed": false,
+    "notes": "只进行了 PREPARE/DEALLOCATE，未执行写文件或读取系统用户数据"
+  },
+  "chat_core_assertions_passed": 6
+}

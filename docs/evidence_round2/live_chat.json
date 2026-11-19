@@ -1,0 +1,212 @@
+{
+  "generated_at": "2026-11-17T19:43:50",
+  "mode": "真实模型联调（本机8000端口，真实DeepSeek，真实只读MySQL）",
+  "results": [
+    {
+      "question": "总体GMV是多少？",
+      "history_used": false,
+      "http_status": 200,
+      "code": 200,
+      "answer": "总体GMV为 R$ 15,735,527.03（约1573.55万巴西雷亚尔）。",
+      "response_type": "text",
+      "chart_config": null,
+      "sql": "SELECT ROUND(`total_gmv`, 2) AS `total_gmv` FROM `datamind_ads`.`ads_gmv_overview` LIMIT 1000",
+      "row_count": 1,
+      "result_truncated": false,
+      "error_category": null,
+      "elapsed_s": 5.81,
+      "secret_hits": []
+    },
+    {
+      "question": "GMV按月的趋势怎么样？",
+      "history_used": false,
+      "http_status": 200,
+      "code": 200,
+      "answer": "GMV从2016年9月R$279.69起步，2017年1月起快速放量，2017年11月达R$117.2万高峰；2018年1—8月稳定在R$100万左右，2018年9月骤降至R$166.46（仅1单），环比-99.98%，为数据末端异常低值。整体呈先高速增长后高位平台期，末期出现断崖式下滑。",
+      "response_type": "chart",
+      "chart_config": {
+        "type": "line",
+        "x": "year_month",
+        "y": [
+          "monthly_gmv"
+        ],
+        "unit": "BRL"
+      },
+      "sql": "SELECT `year_month`, ROUND(`monthly_gmv`, 2) AS `monthly_gmv`, `monthly_orders`, `mom_growth_rate` FROM `datamind_ads`.`ads_gmv_trend` ORDER BY `year_month` LIMIT 1000",
+      "row_count": 25,
+      "result_truncated": false,
+      "error_category": null,
+      "elapsed_s": 3.74,
+      "secret_hits": []
+    },
+    {
+      "question": "哪个品类销售额最高？",
+      "history_used": false,
+      "http_status": 200,
+      "code": 200,
+      "answer": "健康美容（health_beauty）品类销售额最高，总GMV为 R$ 1,437,665.78。",
+      "response_type": "text",
+      "chart_config": null,
+      "sql": "SELECT `category_english`, `total_gmv` FROM `datamind_ads`.`ads_category_rank` ORDER BY `total_gmv` DESC LIMIT 1",
+      "row_count": 1,
+      "result_truncated": false,
+      "error_category": null,
+      "elapsed_s": 2.83,
+      "secret_hits": []
+    },
+    {
+      "question": "卖家销售额排行前20",
+      "history_used": false,
+      "http_status": 200,
+      "code": 200,
+      "answer": "销售额前20卖家共实现GMV约327万BRL，榜首为R$249,393.44（1,131单），第20名R$83,189.65（166单）。前20中SP州占14席，集中度明显；榜首与末位差距约3倍。",
+      "response_type": "chart",
+      "chart_config": {
+        "type": "bar",
+        "x": "seller_id",
+        "y": [
+          "total_gmv"
+        ],
+        "unit": "BRL"
+      },
+      "sql": "SELECT `rank`, `seller_id`, `seller_city`, `seller_state`, ROUND(`total_gmv`, 2) AS `total_gmv`, `total_orders` FROM `datamind_ads`.`ads_top_sellers` ORDER BY `rank` LIMIT 20",
+      "row_count": 20,
+      "result_truncated": false,
+      "error_category": null,
+      "elapsed_s": 3.2,
+      "secret_hits": []
+    },
+    {
+      "question": "数据集中最后一个月的订单数是多少？",
+      "history_used": false,
+      "http_status": 200,
+      "code": 200,
+      "answer": "数据集最后一个月的订单数为 1 单。",
+      "response_type": "text",
+      "chart_config": null,
+      "sql": "SELECT `monthly_orders` FROM `datamind_ads`.`ads_gmv_trend` ORDER BY `year_month` DESC LIMIT 1",
+      "row_count": 1,
+      "result_truncated": false,
+      "error_category": null,
+      "elapsed_s": 2.95,
+      "secret_hits": []
+    },
+    {
+      "question": "总用户数是多少？",
+      "history_used": false,
+      "http_status": 200,
+      "code": 200,
+      "answer": "总用户数为 94,990 人（全局去重下单客户）。",
+      "response_type": "text",
+      "chart_config": null,
+      "sql": "SELECT `total_customers` FROM `datamind_ads`.`ads_gmv_overview` LIMIT 1000",
+      "row_count": 1,
+      "result_truncated": false,
+      "error_category": null,
+      "elapsed_s": 3.27,
+      "secret_hits": []
+    },
+    {
+      "question": "每日活跃用户数趋势",
+      "history_used": false,
+      "http_status": 200,
+      "code": 200,
+      "answer": "基于抽样21/614条数据：活跃用户从2016年9月的个位数，升至2016年10月初峰值58，2017-11-24达1151；2018年8月下旬由239降至11，9月3日仅1。整体呈脉冲式波动、近期骤降，但仅为部分数据观察，不能代表完整趋势。金额单位若涉及均为BRL。\n\n（共 614 行结果，以上结论基于首尾抽样与极值行）",
+      "response_type": "chart",
+      "chart_config": {
+        "type": "line",
+        "x": "order_date",
+        "y": [
+          "active_user_count"
+        ],
+        "unit": "users"
+      },
+      "sql": "SELECT `order_date`, `active_user_count` FROM `datamind_dws`.`dws_daily_active_users` ORDER BY `order_date` LIMIT 1000",
+      "row_count": 614,
+      "result_truncated": false,
+      "error_category": null,
+      "elapsed_s": 3.44,
+      "secret_hits": []
+    },
+    {
+      "question": "2017年去重下单用户数是多少？",
+      "history_used": false,
+      "http_status": 422,
+      "code": 422,
+      "answer": "当前数据能力无法精确回答：现有授权汇总表只有全周期去重客户数和每日去重下单用户数，无法精确推导自定义期间的去重客户数；每日用户数相加会得到人次而非去重人数。",
+      "response_type": "text",
+      "chart_config": null,
+      "sql": null,
+      "row_count": 0,
+      "result_truncated": false,
+      "error_category": "unsupported",
+      "elapsed_s": 1.6,
+      "secret_hits": []
+    },
+    {
+      "question": "哪个品类销售额最高？",
+      "history_used": false,
+      "http_status": 200,
+      "code": 200,
+      "answer": "健康美容（health_beauty）品类销售额最高，总GMV为 R$ 1,437,665.78。",
+      "response_type": "text",
+      "chart_config": null,
+      "sql": "SELECT `category_english`, ROUND(`total_gmv`, 2) AS `total_gmv` FROM `datamind_ads`.`ads_category_rank` ORDER BY `total_gmv` DESC LIMIT 1",
+      "row_count": 1,
+      "result_truncated": false,
+      "error_category": null,
+      "elapsed_s": 2.99,
+      "secret_hits": []
+    },
+    {
+      "question": "那前三名呢？",
+      "history_used": true,
+      "http_status": 200,
+      "code": 200,
+      "answer": "前三名品类（按GMV）：第1名 health_beauty，GMV R$ 1,437,665.78，8,800单，占比9.14%；第2名 watches_gifts，GMV R$ 1,298,292.47，5,604单，占比8.25%；第3名 bed_bath_table，GMV R$ 1,240,386.13，9,399单，占比7.88%。",
+      "response_type": "chart",
+      "chart_config": {
+        "type": "bar",
+        "x": "category_english",
+        "y": [
+          "total_gmv"
+        ],
+        "unit": "BRL"
+      },
+      "sql": "SELECT `rank`, `category_english`, ROUND(`total_gmv`, 2) AS `total_gmv`, `total_orders`, `gmv_ratio` FROM `datamind_ads`.`ads_category_rank` ORDER BY `rank` LIMIT 3",
+      "row_count": 3,
+      "result_truncated": false,
+      "error_category": null,
+      "elapsed_s": 2.94,
+      "secret_hits": []
+    },
+    {
+      "question": "那订单数按月呢？",
+      "history_used": true,
+      "http_status": 200,
+      "code": 200,
+      "answer": "2016-09至2018-09月订单数：2016-09仅2单，2016-10达293单，2016-11为0；2017-01起快速攀升，2017-11达7423单峰值；2018年稳定在6000-7200单区间，2018-09骤降至1单（数据截止所致）。整体看订单量2017年高速增长，2018年趋于平稳。",
+      "response_type": "chart",
+      "chart_config": {
+        "type": "line",
+        "x": "year_month",
+        "y": [
+          "monthly_orders"
+        ],
+        "unit": "orders"
+      },
+      "sql": "SELECT `year_month`, `monthly_orders`, `mom_growth_rate` FROM `datamind_ads`.`ads_gmv_trend` ORDER BY `year_month` LIMIT 1000",
+      "row_count": 25,
+      "result_truncated": false,
+      "error_category": null,
+      "elapsed_s": 3.55,
+      "secret_hits": []
+    },
+    {
+      "question": "<空白问题>",
+      "http_status": 422,
+      "code": 422,
+      "_note": "F项输入校验，应在模型/数据库调用前返回422"
+    }
+  ]
+}

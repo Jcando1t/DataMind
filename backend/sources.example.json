@@ -1,0 +1,11 @@
+{
+  "shop": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "your_business_database",
+    "username": "datamind_source_ro",
+    "tables": ["orders", "order_items", "customers", "products", "sellers"],
+    "currency": "CNY",
+    "timezone": "Asia/Shanghai"
+  }
+}

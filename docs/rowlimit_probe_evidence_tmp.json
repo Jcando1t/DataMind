@@ -1,0 +1,37 @@
+{
+  "table": "datamind_dws.dws_daily_trade (18927 行)",
+  "cap": 1000,
+  "all_pass": true,
+  "results": [
+    {
+      "case": "无 LIMIT",
+      "rows": 1000,
+      "truncated": true,
+      "final_sql": "SELECT `order_date`, `gmv` FROM `datamind_dws`.`dws_daily_trade` LIMIT 1000"
+    },
+    {
+      "case": "LIMIT 0,999999",
+      "rows": 1000,
+      "truncated": true,
+      "final_sql": "SELECT `order_date`, `gmv` FROM `datamind_dws`.`dws_daily_trade` LIMIT 1000 OFFSET 0"
+    },
+    {
+      "case": "LIMIT 999999 OFFSET 5",
+      "rows": 1000,
+      "truncated": true,
+      "final_sql": "SELECT `order_date`, `gmv` FROM `datamind_dws`.`dws_daily_trade` LIMIT 1000 OFFSET 5"
+    },
+    {
+      "case": "自带 LIMIT 5",
+      "rows": 5,
+      "truncated": false,
+      "final_sql": "SELECT `order_date`, `gmv` FROM `datamind_dws`.`dws_daily_trade` LIMIT 5"
+    },
+    {
+      "case": "子查询 LIMIT 不影响外层",
+      "rows": 3,
+      "truncated": false,
+      "final_sql": "SELECT * FROM (SELECT `order_date` FROM `datamind_dws`.`dws_daily_trade` LIMIT 3) AS `t` LIMIT 1000"
+    }
+  ]
+}

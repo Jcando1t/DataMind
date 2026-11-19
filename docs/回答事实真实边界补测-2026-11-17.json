@@ -1,0 +1,72 @@
+{
+  "mode": "real HTTP/model/read-only MySQL",
+  "cases": [
+    {
+      "case": "historical_latest",
+      "question": "2017年最后一个月的订单数是多少？",
+      "http": 200,
+      "elapsed_s": 4.03,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "数据集中最后有记录月份为 2017-12，订单数为 5,620 单。数据仅覆盖至 2018-09-03（当月仅 3 天），该月数据不完整，不能代表整个自然月，也不应据此判断整体趋势。",
+          "response_type": "text",
+          "chart_config": null,
+          "sql": "SELECT `year_month`, `monthly_orders` FROM `datamind_ads`.`ads_gmv_trend` WHERE `year_month` = '2017-12' LIMIT 1000",
+          "rows": [
+            {
+              "year_month": "2017-12",
+              "monthly_orders": 5620
+            }
+          ],
+          "row_count": 1,
+          "result_truncated": false,
+          "error_category": null
+        }
+      },
+      "sql_rows_replay_equal": true
+    },
+    {
+      "case": "ratio_only",
+      "question": "请按GMV占比降序列出前三个品类，只返回品类名称和GMV占比，不返回金额。",
+      "http": 200,
+      "elapsed_s": 5.92,
+      "body": {
+        "code": 200,
+        "message": "success",
+        "data": {
+          "answer": "GMV占比前三品类：health_beauty 9.14%、watches_gifts 8.25%、bed_bath_table 7.88%。\n经系统精确核算：本结果集 gmv_ratio 合计 R$ 25.27。",
+          "response_type": "chart",
+          "chart_config": {
+            "type": "bar",
+            "x": "category_english",
+            "y": [
+              "gmv_ratio"
+            ],
+            "unit": "percent"
+          },
+          "sql": "SELECT `category_english`, `gmv_ratio` FROM `datamind_ads`.`ads_category_rank` ORDER BY `gmv_ratio` DESC LIMIT 3",
+          "rows": [
+            {
+              "category_english": "health_beauty",
+              "gmv_ratio": 9.14
+            },
+            {
+              "category_english": "watches_gifts",
+              "gmv_ratio": 8.25
+            },
+            {
+              "category_english": "bed_bath_table",
+              "gmv_ratio": 7.88
+            }
+          ],
+          "row_count": 3,
+          "result_truncated": false,
+          "error_category": null
+        }
+      },
+      "sql_rows_replay_equal": true
+    }
+  ]
+}

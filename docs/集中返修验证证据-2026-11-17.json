@@ -1,0 +1,98 @@
+{
+  "report": "集中返修验证证据-2026-11-17",
+  "generated_at": "2026-11-17T19:30:00+08:00",
+  "project": "D:/DataMind",
+  "note": "本文件仅记录命令、退出码、时间与脱敏结果；不含任何密码、API Key 或完整连接串。真实凭据仅存于 agent/.env（已 gitignore）。",
+  "environment": {
+    "os": "Windows (win32)",
+    "python": "3.12.10 (D:/python3.12.10/python.exe)",
+    "java": "Temurin OpenJDK 11.0.33 (系统 PATH 当前 JAVA_HOME=C:/Program Files/Eclipse Adoptium/jdk-11.0.25.9-hotspot)",
+    "pyspark": "3.5.3",
+    "mysql": "8.4.11",
+    "key_packages": {
+      "langgraph": "1.2.22", "langchain": "1.5.0", "openai": "2.54.0",
+      "pymysql": "1.2.4", "httpx": "0.28.1", "sqlglot": "30.32.0",
+      "python-dotenv": "1.2.4", "fastapi": "0.162.0", "uvicorn": "0.54.0",
+      "sqlalchemy": "2.1.6", "aiomysql": "0.3.2", "pydantic": "2.14.1",
+      "greenlet": "3.5.6", "cryptography": "50.0.2", "typing_extensions": "4.16.0"
+    }
+  },
+  "test_runs": [
+    {"command": "python agent/test_fixes.py", "exit_code": 0, "result": "6/6 组通过", "mode": "纯函数/模拟"},
+    {"command": "python agent/test_remediation.py", "exit_code": 0, "result": "6/6 组通过", "mode": "纯函数/模拟"},
+    {"command": "python agent/test_concentrated.py", "exit_code": 0, "result": "16/16 测试通过 (unittest)", "mode": "纯函数/模拟"},
+    {"command": "python backend/test_chat_router.py", "exit_code": 0, "result": "7/7 组通过", "mode": "TestClient 故障注入"},
+    {"command": "python backend/test_chat_validation.py", "exit_code": 0, "result": "5/5 测试通过 (unittest)", "mode": "TestClient 故障注入"}
+  ],
+  "total_tests": {"test_files": 5, "cases_or_groups": 40, "all_passed": true},
+  "mysql_reconciliation": {
+    "mode": "真实只读 MySQL 直连查询",
+    "data": {
+      "current_user": "datamind_ro@localhost",
+      "overview": {"total_gmv": 15735527.03, "total_orders": 98207, "avg_order_value": 160.23, "total_customers": 94990, "period": "2016-09-04 ~ 2018-09-03"},
+      "trend": {"months": 25, "gmv_sum": 15735527.03, "order_sum": 98207, "zero_months": 1, "min": "2016-09", "max": "2018-09"},
+      "category": {"n": 72, "gmv_sum": 15735527.03, "order_sum": 99002, "ratio_sum": 99.99},
+      "top3_ratio_sum": 25.27,
+      "daily_active_users": {"rows": 614, "daily_sum": 97277, "note": "日活合计=用户日人次，不等于去重客户 94990"},
+      "grants_count": 7,
+      "grants_summary": "USAGE + 7 张 ADS/DWS 表 SELECT，无 FILE/写权限"
+    },
+    "verdict": "与基准全部一致",
+    "evidence": "docs/evidence_run/mysql_reconcile.json"
+  },
+  "live_llm_tests": {
+    "mode": "真实模型联调（本机 8000 端口 /api/chat + 真实 DeepSeek + 真实只读 MySQL）",
+    "cases": [
+      {"q": "总体GMV是多少？", "http": 200, "answer": "R$ 15,735,527.03", "sql_ok": true, "verdict": "通过"},
+      {"q": "GMV按月的趋势怎么样？", "http": 200, "rows": 25, "chart": "line y=monthly_gmv unit=BRL", "covers_latest": "2018-09 R$166.46", "verdict": "通过"},
+      {"q": "哪个品类销售额最高？", "http": 200, "answer": "health_beauty R$ 1,437,665.78", "verdict": "通过"},
+      {"q": "卖家销售额排行前20", "http": 200, "rows": 20, "chart": "bar y=total_gmv unit=BRL（金额与订单分指标，未同轴混画）", "verdict": "通过"},
+      {"q": "数据集中最后一个月的订单数是多少？", "http": 200, "answer": "1 单（ORDER BY year_month DESC LIMIT 1）", "verdict": "通过"},
+      {"q": "总用户数是多少？", "http": 200, "answer": "94,990（ads_gmv_overview.total_customers）", "sql_ok": true, "verdict": "通过（C项修复确认）"},
+      {"q": "每日活跃用户数趋势", "http": 200, "rows": 614, "chart": "line y=active_user_count unit=users", "note": "超100行按首尾+极值抽样并明确标注范围", "verdict": "通过"},
+      {"q": "2017年去重下单用户数是多少？", "http": 422, "error_category": "unsupported", "sql": null, "answer": "明确说明汇总表无法精确推导自定义期间去重客户数", "verdict": "通过（无占位SQL、无编造）"},
+      {"q": "品类问题后追问\"那前三名呢？\"", "http": 200, "rows": 3, "chart": "bar y=total_gmv unit=BRL", "note": "Top3占比合计25.27%，未画成完整饼图", "verdict": "通过"},
+      {"q": "切换指标追问\"那订单数按月呢？\"", "http": 200, "rows": 25, "chart": "line y=monthly_orders unit=orders", "verdict": "通过"},
+      {"q": "<空白问题>", "http": 422, "note": "模型/数据库调用前返回422", "verdict": "通过（F项确认）"}
+    ],
+    "all_passed": true,
+    "evidence": "docs/evidence_run/live_chat.json"
+  },
+  "security_and_runtime": {
+    "mode": "真实执行层 + 模拟故障注入 + 静态检查",
+    "checks": [
+      {"name": "会话保护回读", "result": "transaction_read_only=1, max_execution_time=15000 生效", "mode": "真实"},
+      {"name": "最大返回行数", "result": "dws_daily_trade 18927 行 → 截断 1000 行 truncated=true", "mode": "真实"},
+      {"name": "LIMIT offset,count", "result": "LIMIT 3 OFFSET 5 从第6行(2017-02)开始，语义保留", "mode": "真实"},
+      {"name": "危险SQL连接前拦截", "result": "6类(CTE同名遮蔽/嵌套锁/UNION锁/mysql.user/INTO OUTFILE/多语句)均 guard 拒绝且 connect_called=false", "mode": "连接前拦截"},
+      {"name": "PYTHONHASHSEED稳定", "result": "seed=0/1/42/12345/random 五进程摘要哈希一致", "mode": "多进程"},
+      {"name": "嵌套递归脱敏", "result": "深层 SQL/rows/列表中的合成凭据全部替换为***", "mode": "合成标记"},
+      {"name": "输入校验", "result": "空白/超长/非法角色/超量历史/额外字段均 422", "mode": "TestClient"},
+      {"name": "特殊字符密码URL", "result": "URL.create 往返解析 @ : # / 等特殊字符正确", "mode": "静态/往返"},
+      {"name": "模型超时", "result": "APITimeoutError → 稳定 LLMError", "mode": "模拟"},
+      {"name": "输出截断", "result": "finish_reason=length → LLMOutputError 拒绝", "mode": "模拟"},
+      {"name": "会话配置失败", "result": "SET SESSION 失败 → configuration 类明确失败，不静默降级", "mode": "故障注入"},
+      {"name": "配置缺失", "result": "缺失 API Key/查询密码给出明确提示且不泄露", "mode": "故障注入"},
+      {"name": "错误端口", "result": "端口3399 → connection 类(2003)，不重试", "mode": "故障注入"}
+    ],
+    "evidence": ["docs/evidence_run/security_runtime.json", "docs/evidence_run/config_faults.json", "docs/evidence_run/hashseed_probe.py"]
+  },
+  "A_to_J_coverage": {
+    "A": "SQL提取仅剥外围围栏，保留反引号/分号；生成→guard 回归通过",
+    "B": "CTE作用域按scope解析、显式库名物理表始终校验、遍历整树锁节点；连接前拦截通过",
+    "C": "total_customers语义映射+稳定优先排序+部分失败分类+业务code检查；真实'总用户数'=94990",
+    "D": "口径标注+UNSUPPORTED处理+占位SQL拒绝；2017去重用户返回422无编造",
+    "E": "排行优先柱状图、Top3不画完整饼图、卖家单一指标轴、趋势仅monthly_gmv",
+    "F": "question去空白+长度/条数上限+Literal角色+extra=forbid；无效请求422",
+    "G": "未处理异常稳定返回+完整响应递归脱敏+异常/全局处理日志脱敏",
+    "H": "SQLAlchemy URL.create 结构化构建，特殊字符密码往返通过",
+    "I": "有界超时/重试+会话保护回读生效+长度截断拒绝",
+    "J": "安装运行/配置/只读账号SQL模板/本报告/本证据"
+  },
+  "remaining_items": [
+    "ETL 未重跑（数据完整且对账通过，按范围约束不做 overwrite）；从空库一键重建未验证",
+    "前端未开发（不在本次范围）；图表配置的最终渲染效果需前端联调确认",
+    "ETL 脚本注释标注 JDK 17，但 run_all.py 硬编码 JAVA_HOME=C:/jdk11，当前系统 JDK 11；文档以实际验证的 JDK 11 为准",
+    "大结果集抽样仅做提示词/范围提示层验证，前端展示效果未验证"
+  ]
+}

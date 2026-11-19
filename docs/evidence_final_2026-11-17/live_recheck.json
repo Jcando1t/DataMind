@@ -1,0 +1,734 @@
+{
+  "generated_at": "2026-11-17T20:03:12.579358",
+  "mode": "live model recheck after targeted fix",
+  "endpoint": "http://localhost:8000/api/chat",
+  "results": [
+    {
+      "key": "sellers",
+      "question": "卖家销售额排行前20",
+      "history_used": false,
+      "http_status": 200,
+      "code": null,
+      "answer": "销售额前20卖家榜首为 4869f7a5dfa277a7dca6462dcf3b52b2（guariba/SP），GMV R$ 249,393.44，1,131 单。第二 7c67e1448b00f6e969d365cea6b010ab（itaquaquecetuba/SP），R$ 239,536.44，982 单；第三 53243585a1d6dc2643021fd1853d8905（lauro de freitas/BA），R$ 235,856.68，358 单。前20合计 GMV R$ 3,292,633.06。数据覆盖至 2018-09-03。\n各行 total_orders 之和为 18,908，系各卖家订单计数相加，跨卖家可能重复，非全局去重订单数。",
+      "sql": "SELECT `rank`, `seller_id`, `seller_city`, `seller_state`, ROUND(`total_gmv`, 2) AS `total_gmv`, `total_orders` FROM `datamind_ads`.`ads_top_sellers` ORDER BY `rank` LIMIT 20",
+      "row_count": 20,
+      "rows": [
+        {
+          "rank": 1,
+          "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+          "seller_city": "guariba",
+          "seller_state": "SP",
+          "total_gmv": 249393.44,
+          "total_orders": 1131
+        },
+        {
+          "rank": 2,
+          "seller_id": "7c67e1448b00f6e969d365cea6b010ab",
+          "seller_city": "itaquaquecetuba",
+          "seller_state": "SP",
+          "total_gmv": 239536.44,
+          "total_orders": 982
+        },
+        {
+          "rank": 3,
+          "seller_id": "53243585a1d6dc2643021fd1853d8905",
+          "seller_city": "lauro de freitas",
+          "seller_state": "BA",
+          "total_gmv": 235856.68,
+          "total_orders": 358
+        },
+        {
+          "rank": 4,
+          "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+          "seller_city": "ibitinga",
+          "seller_state": "SP",
+          "total_gmv": 235359.3,
+          "total_orders": 1804
+        },
+        {
+          "rank": 5,
+          "seller_id": "fa1c13f2614d7b5c4749cbc52fecda94",
+          "seller_city": "sumare",
+          "seller_state": "SP",
+          "total_gmv": 202861.67,
+          "total_orders": 584
+        },
+        {
+          "rank": 6,
+          "seller_id": "da8622b14eb17ae2831f4ac5b9dab84a",
+          "seller_city": "piracicaba",
+          "seller_state": "SP",
+          "total_gmv": 185192.32,
+          "total_orders": 1314
+        },
+        {
+          "rank": 7,
+          "seller_id": "7e93a43ef30c4f03f38b393420bc753a",
+          "seller_city": "barueri",
+          "seller_state": "SP",
+          "total_gmv": 178838.42,
+          "total_orders": 332
+        },
+        {
+          "rank": 8,
+          "seller_id": "1025f0e2d44d7041d6cf58b6550e0bfa",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 172860.69,
+          "total_orders": 915
+        },
+        {
+          "rank": 9,
+          "seller_id": "7a67c85e85bb2ce8582c35f2203ad736",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 162607.24,
+          "total_orders": 1159
+        },
+        {
+          "rank": 10,
+          "seller_id": "955fee9216a65b617aa5c0531780ce60",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 160582.9,
+          "total_orders": 1286
+        },
+        {
+          "rank": 11,
+          "seller_id": "6560211a19b47992c3666cc44a7e94c0",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 150522.02,
+          "total_orders": 1847
+        },
+        {
+          "rank": 12,
+          "seller_id": "1f50f920176fa81dab994f9023523100",
+          "seller_city": "sao jose do rio preto",
+          "seller_state": "SP",
+          "total_gmv": 142037.48,
+          "total_orders": 1403
+        },
+        {
+          "rank": 13,
+          "seller_id": "46dc3b2cc0980fb8ec44634e21d2718e",
+          "seller_city": "rio de janeiro",
+          "seller_state": "RJ",
+          "total_gmv": 138919.78,
+          "total_orders": 518
+        },
+        {
+          "rank": 14,
+          "seller_id": "a1043bafd471dff536d0c462352beb48",
+          "seller_city": "ilicinea",
+          "seller_state": "MG",
+          "total_gmv": 133195.8,
+          "total_orders": 715
+        },
+        {
+          "rank": 15,
+          "seller_id": "cc419e0650a3c5ba77189a1882b7556a",
+          "seller_city": "santo andre",
+          "seller_state": "SP",
+          "total_gmv": 129169.95,
+          "total_orders": 1697
+        },
+        {
+          "rank": 16,
+          "seller_id": "620c87c171fb2a6dd6e8bb4dec959fc6",
+          "seller_city": "petropolis",
+          "seller_state": "RJ",
+          "total_gmv": 127674.78,
+          "total_orders": 732
+        },
+        {
+          "rank": 17,
+          "seller_id": "5dceca129747e92ff8ef7a997dc4f8ca",
+          "seller_city": "santa barbara d´oeste",
+          "seller_state": "SP",
+          "total_gmv": 125737.68,
+          "total_orders": 324
+        },
+        {
+          "rank": 18,
+          "seller_id": "7d13fca15225358621be4086e1eb0964",
+          "seller_city": "ribeirao preto",
+          "seller_state": "SP",
+          "total_gmv": 122261.02,
+          "total_orders": 565
+        },
+        {
+          "rank": 19,
+          "seller_id": "3d871de0142ce09b7081e2b9d1733cb1",
+          "seller_city": "campo limpo paulista",
+          "seller_state": "SP",
+          "total_gmv": 116835.8,
+          "total_orders": 1076
+        },
+        {
+          "rank": 20,
+          "seller_id": "edb1ef5e36e0c8cd84eb3c9b003e486d",
+          "seller_city": "teresopolis",
+          "seller_state": "RJ",
+          "total_gmv": 83189.65,
+          "total_orders": 166
+        }
+      ],
+      "chart_config": {
+        "type": "bar",
+        "x": "seller_id",
+        "y": [
+          "total_gmv"
+        ],
+        "unit": "BRL"
+      },
+      "notes": [
+        "gmv_sum=3292633.06 orders_sum=18908"
+      ],
+      "assertions": [
+        {
+          "name": "http_200",
+          "passed": true
+        },
+        {
+          "name": "rows_20",
+          "passed": true
+        },
+        {
+          "name": "gmv_sum_exact",
+          "passed": true
+        },
+        {
+          "name": "orders_sum_exact",
+          "passed": true
+        },
+        {
+          "name": "answer_has_exact_gmv",
+          "passed": true
+        },
+        {
+          "name": "answer_no_wrong_estimate",
+          "passed": true
+        },
+        {
+          "name": "orders_caliber_stated",
+          "passed": true
+        },
+        {
+          "name": "chart_single_metric_bar",
+          "passed": true
+        },
+        {
+          "name": "chart_unit_brl",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "key": "latest",
+      "question": "数据集中最后一个月的订单数是多少？",
+      "history_used": false,
+      "http_status": 200,
+      "code": null,
+      "answer": "数据集中最后有记录月份为 2018-09，订单数为 1 单。数据仅覆盖至 2018-09-03（当月仅 3 天），该月数据不完整，不能代表整个自然月，也不应据此判断整体趋势。",
+      "sql": "SELECT `year_month`, `monthly_orders` FROM `datamind_ads`.`ads_gmv_trend` ORDER BY `year_month` DESC LIMIT 1",
+      "row_count": 1,
+      "rows": [
+        {
+          "year_month": "2018-09",
+          "monthly_orders": 1
+        }
+      ],
+      "chart_config": null,
+      "notes": [],
+      "assertions": [
+        {
+          "name": "http_200",
+          "passed": true
+        },
+        {
+          "name": "single_row",
+          "passed": true
+        },
+        {
+          "name": "answer_last_recorded_month",
+          "passed": true
+        },
+        {
+          "name": "answer_order_count",
+          "passed": true
+        },
+        {
+          "name": "answer_period_end",
+          "passed": true
+        },
+        {
+          "name": "answer_not_complete_month",
+          "passed": true
+        },
+        {
+          "name": "answer_no_garbled",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "key": "trend",
+      "question": "GMV按月的趋势怎么样？",
+      "history_used": false,
+      "http_status": 200,
+      "code": null,
+      "answer": "2016-09至2018-09 GMV合计R$ 15,735,527.03，整体快速上升：2017年多个月环比增50%以上，2017-11达R$ 1,172,191.68；2018年高位趋稳，月均约R$ 1,000,000。最后有记录月份2018-09仅覆盖至3日，GMV R$ 166.46，为不完整月份，不宜据此判断经营下滑。",
+      "sql": "SELECT `year_month`, ROUND(`monthly_gmv`, 2) AS `monthly_gmv`, `monthly_orders`, `mom_growth_rate` FROM `datamind_ads`.`ads_gmv_trend` ORDER BY `year_month` LIMIT 1000",
+      "row_count": 25,
+      "rows": [
+        {
+          "year_month": "2016-09",
+          "monthly_gmv": 279.69,
+          "monthly_orders": 2,
+          "mom_growth_rate": null
+        },
+        {
+          "year_month": "2016-10",
+          "monthly_gmv": 51354.52,
+          "monthly_orders": 293,
+          "mom_growth_rate": 18261.23
+        },
+        {
+          "year_month": "2016-11",
+          "monthly_gmv": 0.0,
+          "monthly_orders": 0,
+          "mom_growth_rate": -100.0
+        },
+        {
+          "year_month": "2016-12",
+          "monthly_gmv": 19.62,
+          "monthly_orders": 1,
+          "mom_growth_rate": null
+        },
+        {
+          "year_month": "2017-01",
+          "monthly_gmv": 136943.46,
+          "monthly_orders": 787,
+          "mom_growth_rate": 697878.9
+        },
+        {
+          "year_month": "2017-02",
+          "monthly_gmv": 283561.69,
+          "monthly_orders": 1718,
+          "mom_growth_rate": 107.06
+        },
+        {
+          "year_month": "2017-03",
+          "monthly_gmv": 425617.96,
+          "monthly_orders": 2617,
+          "mom_growth_rate": 50.1
+        },
+        {
+          "year_month": "2017-04",
+          "monthly_gmv": 405848.61,
+          "monthly_orders": 2377,
+          "mom_growth_rate": -4.64
+        },
+        {
+          "year_month": "2017-05",
+          "monthly_gmv": 582710.83,
+          "monthly_orders": 3640,
+          "mom_growth_rate": 43.58
+        },
+        {
+          "year_month": "2017-06",
+          "monthly_gmv": 499652.24,
+          "monthly_orders": 3205,
+          "mom_growth_rate": -14.25
+        },
+        {
+          "year_month": "2017-07",
+          "monthly_gmv": 578753.73,
+          "monthly_orders": 3946,
+          "mom_growth_rate": 15.83
+        },
+        {
+          "year_month": "2017-08",
+          "monthly_gmv": 661903.52,
+          "monthly_orders": 4272,
+          "mom_growth_rate": 14.37
+        },
+        {
+          "year_month": "2017-09",
+          "monthly_gmv": 717102.72,
+          "monthly_orders": 4227,
+          "mom_growth_rate": 8.34
+        },
+        {
+          "year_month": "2017-10",
+          "monthly_gmv": 764756.03,
+          "monthly_orders": 4547,
+          "mom_growth_rate": 6.65
+        },
+        {
+          "year_month": "2017-11",
+          "monthly_gmv": 1172191.68,
+          "monthly_orders": 7423,
+          "mom_growth_rate": 53.28
+        },
+        {
+          "year_month": "2017-12",
+          "monthly_gmv": 861526.77,
+          "monthly_orders": 5620,
+          "mom_growth_rate": -26.5
+        },
+        {
+          "year_month": "2018-01",
+          "monthly_gmv": 1101920.01,
+          "monthly_orders": 7187,
+          "mom_growth_rate": 27.9
+        },
+        {
+          "year_month": "2018-02",
+          "monthly_gmv": 979486.16,
+          "monthly_orders": 6625,
+          "mom_growth_rate": -11.11
+        },
+        {
+          "year_month": "2018-03",
+          "monthly_gmv": 1152656.99,
+          "monthly_orders": 7168,
+          "mom_growth_rate": 17.68
+        },
+        {
+          "year_month": "2018-04",
+          "monthly_gmv": 1156248.89,
+          "monthly_orders": 6919,
+          "mom_growth_rate": 0.31
+        },
+        {
+          "year_month": "2018-05",
+          "monthly_gmv": 1145686.46,
+          "monthly_orders": 6833,
+          "mom_growth_rate": -0.91
+        },
+        {
+          "year_month": "2018-06",
+          "monthly_gmv": 1020381.9,
+          "monthly_orders": 6145,
+          "mom_growth_rate": -10.94
+        },
+        {
+          "year_month": "2018-07",
+          "monthly_gmv": 1039783.58,
+          "monthly_orders": 6233,
+          "mom_growth_rate": 1.9
+        },
+        {
+          "year_month": "2018-08",
+          "monthly_gmv": 996973.51,
+          "monthly_orders": 6421,
+          "mom_growth_rate": -4.12
+        },
+        {
+          "year_month": "2018-09",
+          "monthly_gmv": 166.46,
+          "monthly_orders": 1,
+          "mom_growth_rate": -99.98
+        }
+      ],
+      "chart_config": {
+        "type": "line",
+        "x": "year_month",
+        "y": [
+          "monthly_gmv"
+        ],
+        "unit": "BRL"
+      },
+      "notes": [],
+      "assertions": [
+        {
+          "name": "http_200",
+          "passed": true
+        },
+        {
+          "name": "rows_25",
+          "passed": true
+        },
+        {
+          "name": "last_month_2018_09",
+          "passed": true
+        },
+        {
+          "name": "trend_partial_month_note",
+          "passed": true
+        },
+        {
+          "name": "trend_not_complete_claim",
+          "passed": true
+        },
+        {
+          "name": "chart_line_gmv_brl",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "key": "category_follow",
+      "question": "哪个品类销售额最高？",
+      "history_used": true,
+      "follow_question": "那前三名呢？",
+      "http_status": 200,
+      "code": null,
+      "answer": "前三名品类：\n1. health_beauty：GMV R$ 1,437,665.78，订单 8,800，GMV占比 9.14%\n2. watches_gifts：GMV R$ 1,298,292.47，订单 5,604，GMV占比 8.25%\n3. bed_bath_table：GMV R$ 1,240,386.13，订单 9,399，GMV占比 7.88%\n经系统精确核算：本结果集 total_gmv 合计 R$ 3,976,344.38。\n各行 total_orders 之和为 23,803，系各卖家订单计数相加，跨卖家可能重复，非全局去重订单数。",
+      "sql": "SELECT `rank`, `category_english`, ROUND(`total_gmv`, 2) AS `total_gmv`, `total_orders`, `gmv_ratio` FROM `datamind_ads`.`ads_category_rank` ORDER BY `rank` LIMIT 3",
+      "row_count": 3,
+      "rows": [
+        {
+          "rank": 1,
+          "category_english": "health_beauty",
+          "total_gmv": 1437665.78,
+          "total_orders": 8800,
+          "gmv_ratio": 9.14
+        },
+        {
+          "rank": 2,
+          "category_english": "watches_gifts",
+          "total_gmv": 1298292.47,
+          "total_orders": 5604,
+          "gmv_ratio": 8.25
+        },
+        {
+          "rank": 3,
+          "category_english": "bed_bath_table",
+          "total_gmv": 1240386.13,
+          "total_orders": 9399,
+          "gmv_ratio": 7.88
+        }
+      ],
+      "chart_config": {
+        "type": "bar",
+        "x": "category_english",
+        "y": [
+          "total_gmv"
+        ],
+        "unit": "BRL"
+      },
+      "notes": [],
+      "assertions": [
+        {
+          "name": "http_200",
+          "passed": true
+        },
+        {
+          "name": "rows_3",
+          "passed": true
+        },
+        {
+          "name": "top1_health_beauty",
+          "passed": true
+        },
+        {
+          "name": "chart_bar",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "key": "orders_follow",
+      "question": "GMV按月的趋势怎么样？",
+      "history_used": true,
+      "follow_question": "那订单数按月呢？",
+      "http_status": 200,
+      "code": null,
+      "answer": "按月订单数从2016-09的2单增至2017-11峰值7,423单，2018年多维持在6,000–7,200单。最后有记录月份为2018-09，仅覆盖至2018-09-03，仅1单，属不完整月份，不宜据此判断下滑。期间GMV合计R$ 15,735,527.03。",
+      "sql": "SELECT `year_month`, `monthly_orders`, ROUND(`monthly_gmv`, 2) AS `monthly_gmv`, `mom_growth_rate` FROM `datamind_ads`.`ads_gmv_trend` ORDER BY `year_month` LIMIT 1000",
+      "row_count": 25,
+      "rows": [
+        {
+          "year_month": "2016-09",
+          "monthly_orders": 2,
+          "monthly_gmv": 279.69,
+          "mom_growth_rate": null
+        },
+        {
+          "year_month": "2016-10",
+          "monthly_orders": 293,
+          "monthly_gmv": 51354.52,
+          "mom_growth_rate": 18261.23
+        },
+        {
+          "year_month": "2016-11",
+          "monthly_orders": 0,
+          "monthly_gmv": 0.0,
+          "mom_growth_rate": -100.0
+        },
+        {
+          "year_month": "2016-12",
+          "monthly_orders": 1,
+          "monthly_gmv": 19.62,
+          "mom_growth_rate": null
+        },
+        {
+          "year_month": "2017-01",
+          "monthly_orders": 787,
+          "monthly_gmv": 136943.46,
+          "mom_growth_rate": 697878.9
+        },
+        {
+          "year_month": "2017-02",
+          "monthly_orders": 1718,
+          "monthly_gmv": 283561.69,
+          "mom_growth_rate": 107.06
+        },
+        {
+          "year_month": "2017-03",
+          "monthly_orders": 2617,
+          "monthly_gmv": 425617.96,
+          "mom_growth_rate": 50.1
+        },
+        {
+          "year_month": "2017-04",
+          "monthly_orders": 2377,
+          "monthly_gmv": 405848.61,
+          "mom_growth_rate": -4.64
+        },
+        {
+          "year_month": "2017-05",
+          "monthly_orders": 3640,
+          "monthly_gmv": 582710.83,
+          "mom_growth_rate": 43.58
+        },
+        {
+          "year_month": "2017-06",
+          "monthly_orders": 3205,
+          "monthly_gmv": 499652.24,
+          "mom_growth_rate": -14.25
+        },
+        {
+          "year_month": "2017-07",
+          "monthly_orders": 3946,
+          "monthly_gmv": 578753.73,
+          "mom_growth_rate": 15.83
+        },
+        {
+          "year_month": "2017-08",
+          "monthly_orders": 4272,
+          "monthly_gmv": 661903.52,
+          "mom_growth_rate": 14.37
+        },
+        {
+          "year_month": "2017-09",
+          "monthly_orders": 4227,
+          "monthly_gmv": 717102.72,
+          "mom_growth_rate": 8.34
+        },
+        {
+          "year_month": "2017-10",
+          "monthly_orders": 4547,
+          "monthly_gmv": 764756.03,
+          "mom_growth_rate": 6.65
+        },
+        {
+          "year_month": "2017-11",
+          "monthly_orders": 7423,
+          "monthly_gmv": 1172191.68,
+          "mom_growth_rate": 53.28
+        },
+        {
+          "year_month": "2017-12",
+          "monthly_orders": 5620,
+          "monthly_gmv": 861526.77,
+          "mom_growth_rate": -26.5
+        },
+        {
+          "year_month": "2018-01",
+          "monthly_orders": 7187,
+          "monthly_gmv": 1101920.01,
+          "mom_growth_rate": 27.9
+        },
+        {
+          "year_month": "2018-02",
+          "monthly_orders": 6625,
+          "monthly_gmv": 979486.16,
+          "mom_growth_rate": -11.11
+        },
+        {
+          "year_month": "2018-03",
+          "monthly_orders": 7168,
+          "monthly_gmv": 1152656.99,
+          "mom_growth_rate": 17.68
+        },
+        {
+          "year_month": "2018-04",
+          "monthly_orders": 6919,
+          "monthly_gmv": 1156248.89,
+          "mom_growth_rate": 0.31
+        },
+        {
+          "year_month": "2018-05",
+          "monthly_orders": 6833,
+          "monthly_gmv": 1145686.46,
+          "mom_growth_rate": -0.91
+        },
+        {
+          "year_month": "2018-06",
+          "monthly_orders": 6145,
+          "monthly_gmv": 1020381.9,
+          "mom_growth_rate": -10.94
+        },
+        {
+          "year_month": "2018-07",
+          "monthly_orders": 6233,
+          "monthly_gmv": 1039783.58,
+          "mom_growth_rate": 1.9
+        },
+        {
+          "year_month": "2018-08",
+          "monthly_orders": 6421,
+          "monthly_gmv": 996973.51,
+          "mom_growth_rate": -4.12
+        },
+        {
+          "year_month": "2018-09",
+          "monthly_orders": 1,
+          "monthly_gmv": 166.46,
+          "mom_growth_rate": -99.98
+        }
+      ],
+      "chart_config": {
+        "type": "line",
+        "x": "year_month",
+        "y": [
+          "monthly_orders"
+        ],
+        "unit": "orders"
+      },
+      "notes": [],
+      "assertions": [
+        {
+          "name": "http_200",
+          "passed": true
+        },
+        {
+          "name": "rows_25",
+          "passed": true
+        },
+        {
+          "name": "orders_unit",
+          "passed": true
+        },
+        {
+          "name": "answer_last_month_scoped",
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0
+  }
+}

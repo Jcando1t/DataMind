@@ -1,0 +1,149 @@
+{
+  "report": "集中返修回退修复-独立验证证据-2026-11-17",
+  "generated_at": "2026-11-17T19:45:00+08:00",
+  "project": "D:/DataMind",
+  "note": "本文件仅含命令、退出码、脱敏结果与代码哈希，不含任何密码/API Key/连接串。",
+  "interpreter": "D:/python3.12.10/python.exe, PYTHONIOENCODING=utf-8",
+
+  "rollback_forensics": {
+    "observed_mtime": "2026-11-17 19:27:50 +0800",
+    "affected_files_recorded_by_codex": [
+      "agent/config.py", "agent/graph.py", "agent/state.py",
+      "agent/nodes/sql_generation.py", "agent/nodes/schema_retrieval.py",
+      "agent/nodes/sql_execution.py", "agent/nodes/response.py", "backend/api/chat.py"
+    ],
+    "additionally_found_same_mtime": ["backend/main.py"],
+    "investigation": {
+      "method": "文件系统 mtime/SHA-256 取证；运行进程只读快照；备份现场",
+      "running_processes_at_investigation": ["codex", "codex-code-mode-host", "idea64", "pycharm64", "OneDrive", "OneDrive.Sync.Service", "多个 WorkBuddy 进程"],
+      "backup_dir": "docs/evidence_rollback_2026-11-17_192750/",
+      "backup_hashes_file": "docs/evidence_rollback_2026-11-17_192750/现场哈希与备份一致.txt",
+      "conclusion": "无法仅凭文件系统与进程列表确定 19:27:50 批量写入的确切来源；当时多个可执行写操作的工具（codex/IDEA/PyCharm/OneDrive/多个 WorkBuddy 进程）并存。已备份回退版本并固定哈希，未擅自归因于任一工具。"
+    }
+  },
+
+  "root_cause": "config.py 被回退后缺失 LLM_CONNECT_TIMEOUT/LLM_READ_TIMEOUT/LLM_MAX_RETRIES 定义，未回退的 llm.py 仍导入这三个名称；任一新 Python 进程在导入 agent.llm 时抛 ImportError，五个测试文件全部无法进入断言，后端应用无法导入启动。",
+
+  "code_hashes_sha256": {
+    "baseline_after_fix": "docs/evidence_rollback_2026-11-17_192750/hashes_after_fix.txt",
+    "final_check": "与 baseline_after_fix 完全一致（diff 无差异，核对两次：测试前、最终全量测试后）",
+    "files": {
+      "agent/config.py": "67793681d70c7ba20f146d5bcc69599398ea8e27208e2d2675ebe5c31b4def3a",
+      "agent/graph.py": "8d47bc80ca5c5ea5eaa22cf0bda7ab004ede0721d71ccf97c00f6cc2c4464675",
+      "agent/state.py": "25b9a698b0003feb49e0f07edc7a8a34e201a977eaebfe0d0a8c655a90283029",
+      "agent/nodes/sql_generation.py": "4250fc2684d993988b9fb919f26b3a2e2af3ae7ba61284b490eefe8b13da7e46",
+      "agent/nodes/schema_retrieval.py": "7cedb49ce9fd38d4fe605c5c4262b4f2bf1f0c70ad173d138b7525795ab74d72",
+      "agent/nodes/sql_execution.py": "5171ad455189bac83231576ac4e5d61e4c11d0ca94860fd3594d497860ce07c5",
+      "agent/nodes/response.py": "37b0737d6f95e6f7e08748df23462e66d829baa59f5691dd20492114ca01c97f",
+      "backend/api/chat.py": "178a1687dbd8267f3d89040cf45ec2b17ab25dbb8a52c7c0fca75716591ae231",
+      "backend/main.py": "e1ea8ec89108f0c37da96e0c8a5eccaf9a4e541dae0926a8f3f811501b7f1fd2",
+      "agent/redaction.py": "49e384d37ee4faaa8c1e42020ebe113f29bbb6ed1ba189fa2a1fcb7b67850a8f",
+      "agent/llm.py": "03a53f99cb4e5ce6676bff04f5bbcafa72c9356d78a12a35faf8da1056502360"
+    }
+  },
+
+  "test_runs": [
+    {"command": "python agent/test_fixes.py", "exit_code": 0, "result": "6/6 组通过"},
+    {"command": "python agent/test_remediation.py", "exit_code": 0, "result": "6/6 组通过"},
+    {"command": "python agent/test_concentrated.py", "exit_code": 0, "result": "16/16 通过"},
+    {"command": "python backend/test_chat_router.py", "exit_code": 0, "result": "7/7 组通过"},
+    {"command": "python backend/test_chat_validation.py", "exit_code": 0, "result": "5/5 通过"},
+    {"command": "python agent/test_rollback_regression.py", "exit_code": 0, "result": "8/8 通过（本轮新增）"}
+  ],
+  "test_total": {"files": 6, "cases_or_groups": 48, "all_passed": true},
+  "new_tests_added": "agent/test_rollback_regression.py（短秘密脱敏、递归脱敏、接口一致性、unsupported 契约、图表口径、业务 code 分类 8 项）",
+
+  "import_check": {
+    "command": "fresh python: import agent.config/llm/graph/state + all nodes + backend.main",
+    "result": "全部成功；backend.main 8 条路由注册；LLM_CONNECT_TIMEOUT=10 LLM_READ_TIMEOUT=45 LLM_MAX_RETRIES=1",
+    "mode": "真实执行（无模拟补丁）"
+  },
+
+  "service_check": {
+    "port_8000": "LISTENING",
+    "health": "HTTP 200 {status:ok}",
+    "version_confirmation": [
+      "空白问题 → 422（回退版会放行）",
+      "2017年去重用户 → 422/unsupported 且 sql=null（回退版返回占位 SQL）",
+      "总用户数 → 94990"
+    ],
+    "decision": "服务以 --reload 模式运行并已自动加载修复后代码，行为确认是最新版本，未重启服务，未停止 MySQL"
+  },
+
+  "security_runtime": {
+    "mode": "真实执行 + 连接前拦截",
+    "results": [
+      "会话保护回读生效：transaction_read_only=1, max_execution_time=15000",
+      "最大行数：dws_daily_trade 18927 行 → 截断 1000 行 truncated=true",
+      "LIMIT 3 OFFSET 5 从第6行(2017-02)开始",
+      "6 类危险 SQL（CTE同名遮蔽/嵌套锁/UNION锁/mysql.user/INTO OUTFILE/多语句）均 guard 拒绝且 connect_called=false"
+    ],
+    "evidence": "docs/evidence_round2/security_runtime.json"
+  },
+  "config_faults": {
+    "mode": "故障注入（模拟）",
+    "results": [
+      "缺失 API Key → 明确提示，leaks_secret=false",
+      "缺失查询密码 → 明确提示",
+      "错误端口 3399 → connection(2003)，不重试",
+      "模型超时 → 稳定 LLMError",
+      "输出截断 finish_reason=length → LLMOutputError"
+    ],
+    "evidence": "docs/evidence_round2/config_faults.json"
+  },
+  "hashseed_stability": {
+    "seeds": ["0", "1", "42", "12345", "random"],
+    "digest": "a0aa0a4edd623eeef51ab2a1f5baf87dd45155111e0f6c8c01d1d45496d4d2cb",
+    "all_identical": true,
+    "mode": "多进程真实关键词与检索顺序"
+  },
+
+  "metrics_http_vs_mysql": {
+    "mode": "真实 HTTP + 真实只读 MySQL 直连",
+    "overview": {"http": 200, "total_gmv": 15735527.03, "total_orders": 98207, "avg_order_value": 160.23, "total_customers": 94990, "period": "2016-09-04~2018-09-03"},
+    "trend": {"http": 200, "rows": 25, "last": {"month": "2018-09", "gmv": 166.46, "orders": 1}},
+    "category_rank": {"http": 200, "rows": 72, "top3_ratio_sum": 25.27, "gmv_sum": 15735527.03},
+    "top_sellers": {"http": 200, "rows": 20, "top1_gmv": 249393.44},
+    "mysql_grants": "USAGE + 7 表 SELECT，无 FILE/写权限",
+    "verdict": "四个 HTTP 接口与 MySQL 直连对账全部符合基准"
+  },
+
+  "live_llm": {
+    "mode": "真实模型联调（8000 端口 + 真实 DeepSeek + 真实只读 MySQL）",
+    "cases": 12,
+    "all_passed": true,
+    "highlights": [
+      "总体GMV R$ 15,735,527.03",
+      "月度趋势 25 行含最新 2018-09 GMV166.46/1单，折线 y=monthly_gmv unit=BRL",
+      "品类第一 health_beauty R$ 1,437,665.78",
+      "卖家Top20 柱状 y=total_gmv unit=BRL（金额/订单未同轴）",
+      "总用户数 94990",
+      "每日活跃趋势 614 行 line unit=users，抽样标注范围",
+      "2017去重用户 HTTP422 unsupported sql=null 无编造",
+      "追问前三名 bar，切换指标追问 line y=monthly_orders unit=orders",
+      "空白问题 422"
+    ],
+    "evidence": "docs/evidence_round2/live_chat.json"
+  },
+
+  "A_to_J_result": {
+    "P1_启动阻塞": "已修复：config 补回 3 个 LLM 常量与 require_query_password；全新进程可导入",
+    "A": "已修复：_extract_sql 仅剥外围围栏，保留反引号/分号",
+    "B": "保持通过：sql_guard 作用域/嵌套锁校验未改动，回归通过",
+    "C": "已修复：total_customers 优先映射、有序去重、四类状态分类、业务 code 校验、schema_status/warning",
+    "D": "已修复：unsupported 贯穿生成/执行/图路由/响应/HTTP422；无占位 SQL；语义口径完整",
+    "E": "已修复：Top3 不画完整饼图、排行柱状、单一度量+单位、趋势仅 monthly_gmv",
+    "F": "已修复：question 去空白+长度、历史强类型/角色/条数、extra=forbid，422 前置",
+    "G": "已修复：answer/SQL/rows/chart/嵌套递归脱敏，短秘密同样替换；异常与日志稳定脱敏",
+    "H": "保持通过：URL.create 特殊字符密码往返",
+    "I": "已修复：密码缺失前置 configuration；会话设置失败中止并回读；超时/重试/截断保留；configuration/connection/unsupported 不重试",
+    "J": "本报告+证据+历史报告保留；安装说明/只读模板沿用（上一轮交付，与当前代码兼容）"
+  },
+
+  "remaining_items": [
+    "文件覆盖源未能确定：存在多个可能写入工具并存，已备份回退版本与哈希；需运行方确认编辑器/同步配置以避免再次发生",
+    "ETL 未重跑（数据完整且对账通过，按范围不 overwrite）；空库重建未验证",
+    "前端未开发（范围外）；图表最终渲染未验证",
+    "大结果集抽样展示效果、旧版 MySQL 会话兼容未验证"
+  ]
+}

@@ -1,0 +1,361 @@
+{
+  "started_at": "2026-11-17T20:13:49.809180",
+  "mode": "read-only inventory; synthetic inputs and prior verified real rows",
+  "checks": [
+    {
+      "id": "R01_wrong_exact_total",
+      "result": {
+        "answer": "前20卖家合计GMV为R$3,344,000.00，订单合计20,000单。\n经系统精确核算：本结果集 total_gmv 合计 R$ 3,292,633.06。\n各行 total_orders 之和为 18,908，系各卖家订单计数相加，跨卖家可能重复，非全局去重订单数。",
+        "chart": {
+          "type": "bar",
+          "x": "seller_id",
+          "y": [
+            "total_gmv"
+          ],
+          "unit": "BRL"
+        }
+      }
+    },
+    {
+      "id": "R02_ratio_is_currency",
+      "result": {
+        "answer": "占比为9.14%、8.25%、7.88%。\n经系统精确核算：本结果集 gmv_ratio 合计 R$ 25.27。",
+        "chart": {
+          "type": "bar",
+          "x": "category_english",
+          "y": [
+            "gmv_ratio"
+          ],
+          "unit": "percent"
+        }
+      }
+    },
+    {
+      "id": "R03_avg_treated_as_order_count",
+      "result": "【系统已核验的精确事实（唯一允许引用的数字来源）】\n- 本结果集 total_gmv 精确合计：R$ 300.00。如需提及 GMV/销售额合计，必须逐字引用此值，禁止自行相加、估算或用“约/大约/近/万”等近似表达。\n- 本结果集 avg_order_value 逐行相加：32。口径：这是各行订单计数之和，跨卖家/跨品类可能重复，不是全局去重订单数，提及必须说明。\n- 数据覆盖截止 2018-09-03；最后一个有记录月份仅覆盖到该日，是不完整月份，禁止称“完整月份/完整月/整月”。\n- 本问题只要求排行：优先输出可逐行核验的事实（榜首、前三名及各自数值）；除非必要不要输出合计，绝不自行为金额或订单总数做汇总估算。"
+    },
+    {
+      "id": "R04_first_column_changes_sum",
+      "result": {
+        "date_first": {
+          "is_rank": false,
+          "is_latest": false,
+          "is_trend": true,
+          "period_end": "2018-09-03",
+          "row_count": 1,
+          "gmv_col": "gmv",
+          "gmv_total": 100.0,
+          "orders_col": "order_date"
+        },
+        "count_first": {
+          "is_rank": false,
+          "is_latest": false,
+          "is_trend": true,
+          "period_end": "2018-09-03",
+          "row_count": 1,
+          "gmv_col": "gmv",
+          "gmv_total": 100.0,
+          "orders_col": "order_count",
+          "orders_sum": 5
+        }
+      }
+    },
+    {
+      "id": "R05_null_aggregate_zero",
+      "result": {
+        "answer": "合计待查",
+        "chart": null
+      }
+    },
+    {
+      "id": "R06_formatted_numeric_crash",
+      "exception": "InvalidOperation",
+      "message": "[<class 'decimal.ConversionSyntax'>]"
+    },
+    {
+      "id": "R07_rank_subset_declared_seller_counts",
+      "result": {
+        "answer": "8月最高。\n经系统精确核算：本结果集 monthly_gmv 合计 R$ 300.00。\n各行 monthly_orders 之和为 5，系各卖家订单计数相加，跨卖家可能重复，非全局去重订单数。",
+        "chart": {
+          "type": "bar",
+          "x": "year_month",
+          "y": [
+            "monthly_gmv"
+          ],
+          "unit": "BRL"
+        }
+      }
+    },
+    {
+      "id": "R08_truncated_total",
+      "result": {
+        "answer": "全部卖家已列出。\n经系统精确核算：本结果集 total_gmv 合计 R$ 3,292,633.06。\n各行 total_orders 之和为 18,908，系各卖家订单计数相加，跨卖家可能重复，非全局去重订单数。\n\n（结果较多，仅展示前 1000 行；如需完整数据请缩小查询范围）",
+        "chart": {
+          "type": "bar",
+          "x": "seller_id",
+          "y": [
+            "total_gmv"
+          ],
+          "unit": "BRL"
+        }
+      }
+    },
+    {
+      "id": "R09_historical_latest_partial",
+      "result": {
+        "answer": "数据集中最后有记录月份为 2017-12，订单数为 5,620 单。数据仅覆盖至 2018-09-03（当月仅 3 天），该月数据不完整，不能代表整个自然月，也不应据此判断整体趋势。",
+        "chart": null
+      }
+    },
+    {
+      "id": "R10_complete_period_still_partial",
+      "result": {
+        "answer": "数据集中最后有记录月份为 2024-02，订单数为 3 单。数据仅覆盖至 2024-02-29（当月仅 29 天），该月数据不完整，不能代表整个自然月，也不应据此判断整体趋势。",
+        "chart": null
+      }
+    },
+    {
+      "id": "R11_latest_average_label",
+      "result": {
+        "answer": "数据集中最后有记录月份为 2018-09，订单数为 166.46 单。数据仅覆盖至 2018-09-03（当月仅 3 天），该月数据不完整，不能代表整个自然月，也不应据此判断整体趋势。",
+        "chart": null
+      }
+    },
+    {
+      "id": "R12_trend_contradictory",
+      "result": {
+        "answer": "2018-09为完整月份，经营大幅下滑。\n（数据仅覆盖至 2018-09-03，末月数据不完整。）",
+        "chart": {
+          "type": "line",
+          "x": "year_month",
+          "y": [
+            "monthly_gmv"
+          ],
+          "unit": "BRL"
+        }
+      }
+    },
+    {
+      "id": "R13_trend_alias_time",
+      "result": {
+        "answer": "本月完整，经营崩溃。",
+        "chart": {
+          "type": "line",
+          "x": "month",
+          "y": [
+            "monthly_gmv"
+          ],
+          "unit": "BRL"
+        }
+      }
+    },
+    {
+      "id": "C01_alias_unit",
+      "result": [
+        "chart",
+        {
+          "type": "bar",
+          "x": "品类",
+          "y": [
+            "销售额"
+          ],
+          "unit": "count"
+        }
+      ]
+    },
+    {
+      "id": "C02_date_dimension_order",
+      "result": [
+        "chart",
+        {
+          "type": "line",
+          "x": "category_english",
+          "y": [
+            "gmv"
+          ],
+          "unit": "BRL"
+        }
+      ]
+    },
+    {
+      "id": "C03_no_dimension_chart",
+      "result": [
+        "chart",
+        {
+          "type": "line",
+          "x": "monthly_gmv",
+          "y": [
+            "monthly_gmv"
+          ],
+          "unit": "BRL"
+        }
+      ]
+    },
+    {
+      "id": "C04_relative_ratio_global_pie",
+      "result": [
+        "chart",
+        {
+          "type": "bar",
+          "x": "category_english",
+          "y": [
+            "subset_ratio"
+          ],
+          "unit": "percent"
+        }
+      ]
+    },
+    {
+      "id": "C05_order_question_selects_aov",
+      "result": [
+        "chart",
+        {
+          "type": "line",
+          "x": "year_month",
+          "y": [
+            "avg_order_value"
+          ],
+          "unit": "BRL"
+        }
+      ]
+    },
+    {
+      "id": "G01_supported_single_day_blocked",
+      "result": "现有授权汇总表只有全周期去重客户数和每日去重下单用户数，无法精确推导自定义期间的去重客户数；每日用户数相加会得到人次而非去重人数"
+    },
+    {
+      "id": "G02_daily_series_blocked",
+      "result": "现有授权汇总表只有全周期去重客户数和每日去重下单用户数，无法精确推导自定义期间的去重客户数；每日用户数相加会得到人次而非去重人数"
+    },
+    {
+      "id": "G03_fenced_unsupported",
+      "result": {
+        "user_question": "未知指标",
+        "schema_context": "表名: dws_daily_active_users (数据库: datamind_dws)\n字段: order_date, active_user_count",
+        "chat_history": [],
+        "retry_count": 0,
+        "sql": "text\nUNSUPPORTED: 没有此指标",
+        "sql_error": null,
+        "sql_error_type": null
+      }
+    },
+    {
+      "id": "S01_missing_table_description",
+      "exception": "KeyError",
+      "message": "'table_desc'"
+    },
+    {
+      "id": "S02_malformed_fields",
+      "exception": "KeyError",
+      "message": "'desc'"
+    },
+    {
+      "id": "T01_nulls_reported_zero_facts",
+      "result": {
+        "is_rank": false,
+        "is_latest": false,
+        "is_trend": false,
+        "period_end": "2018-09-03",
+        "row_count": 1,
+        "gmv_col": "total_gmv",
+        "gmv_total": 0.0
+      }
+    },
+    {
+      "id": "T02_unrequested_sum",
+      "result": {
+        "answer": "已列出前三名。\n经系统精确核算：本结果集 total_gmv 合计 R$ 3,976,344.38。\n各行 total_orders 之和为 23,803，系各卖家订单计数相加，跨卖家可能重复，非全局去重订单数。",
+        "chart": {
+          "type": "bar",
+          "x": "category_english",
+          "y": [
+            "total_gmv"
+          ],
+          "unit": "BRL"
+        }
+      }
+    },
+    {
+      "id": "SEC01_secret_dict_key",
+      "result": {
+        "synthetic-hidden": "ok"
+      }
+    }
+  ],
+  "code_before": {
+    "agent\\config.py": "67793681d70c7ba20f146d5bcc69599398ea8e27208e2d2675ebe5c31b4def3a",
+    "agent\\graph.py": "8d47bc80ca5c5ea5eaa22cf0bda7ab004ede0721d71ccf97c00f6cc2c4464675",
+    "agent\\llm.py": "03a53f99cb4e5ce6676bff04f5bbcafa72c9356d78a12a35faf8da1056502360",
+    "agent\\redaction.py": "49e384d37ee4faaa8c1e42020ebe113f29bbb6ed1ba189fa2a1fcb7b67850a8f",
+    "agent\\sql_guard.py": "25bb46ba51f78e000ebb6d4cbe3b5b7d41ceeda7364b5bc7921f011bf903ef32",
+    "agent\\state.py": "25b9a698b0003feb49e0f07edc7a8a34e201a977eaebfe0d0a8c655a90283029",
+    "agent\\test_answer_facts.py": "b265f27f2b6b072b514800d3edc48740969e7135f40bf366b54f0ba5a6233ef2",
+    "agent\\test_concentrated.py": "91f735a90c12dc7b06ab6b5577c9e46b3dc3d54a04c3f31005ae03474de27cb3",
+    "agent\\test_fixes.py": "88ff4e3707a3ddd1c07e9b72fa1b0247cfe7c70fb2ab97ae5951e4b8fb844d31",
+    "agent\\test_remediation.py": "5878b1d937b6383de570bfee99d72c25c902166adbb8427768f4a9e0889f694f",
+    "agent\\test_rollback_regression.py": "76d1ca35e29906e8cd4bc0121974e9dd85d9b3f6bbefccee023cdd8cdaf538d5",
+    "agent\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent\\nodes\\intent.py": "b5e2dbefcb602f0b813804a53ab2c5dd59037a97a969f28e12c771d619512344",
+    "agent\\nodes\\response.py": "38e3484f29d8fc2f45ece4ae266eb09a230567f71ec1b06c50c00b8de8a7dfd5",
+    "agent\\nodes\\schema_retrieval.py": "7cedb49ce9fd38d4fe605c5c4262b4f2bf1f0c70ad173d138b7525795ab74d72",
+    "agent\\nodes\\sql_execution.py": "5171ad455189bac83231576ac4e5d61e4c11d0ca94860fd3594d497860ce07c5",
+    "agent\\nodes\\sql_generation.py": "4250fc2684d993988b9fb919f26b3a2e2af3ae7ba61284b490eefe8b13da7e46",
+    "agent\\nodes\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend\\data_dictionary.py": "6c9946aaa987952a261bc47de3620e2a0ced279f505905a70c69e280476f9f13",
+    "backend\\main.py": "e1ea8ec89108f0c37da96e0c8a5eccaf9a4e541dae0926a8f3f811501b7f1fd2",
+    "backend\\test_chat_router.py": "dc8c031a8a3435625193b2407e844a671231582fc4c647eb682671cd7161ddc8",
+    "backend\\test_chat_validation.py": "7d3453c3cdabbda5e07c523906ab82df0dfc37023a10f85ce117d727f34540a5",
+    "backend\\api\\chat.py": "178a1687dbd8267f3d89040cf45ec2b17ab25dbb8a52c7c0fca75716591ae231",
+    "backend\\api\\metrics.py": "418da0f20246862956b80ab8749350bf15aa17cb7a8697e6eb48ef7a3f6d1458",
+    "backend\\api\\schema_search.py": "57f23bc91619605434f1e361c23e653587c835071ff1b6964794bc88b3340cc5",
+    "backend\\api\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend\\db\\connection.py": "c9a9a9b6ef1c87d06807ff5699b653614f71a41a3bc0b3521e47a669d30f7114",
+    "backend\\db\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend\\models\\schemas.py": "b84ee00aeffb7603fd1f431f666abab9643da98d6d51ec030f4b4f296c705561",
+    "backend\\models\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "etl\\run_all.py": "75d69c4470d854942a6fa3dbd9dd976544b8325f20d64b01cc7dc3e57df32343",
+    "etl\\ads\\build_ads.py": "2ad4bb2b844004347779f7dde9f27c56236a6c21dde0b929bb9a7b95f5fcd0e8",
+    "etl\\dwd\\build_dwd.py": "a2feec8f7e5746f2413a425651f52a3bd39d60f2c6a3509e2861901ea7243d8c",
+    "etl\\dws\\build_dws.py": "2dbd00199721d06bd86874fd383f563f3bf51a842c3a6b80ebc1d7b7721add25",
+    "etl\\ods\\load_ods.py": "412fb4cce4887efd4cff26006f6866e9be2cce963a73ac1dc113c8c4b5483848"
+  },
+  "code_after": {
+    "agent\\config.py": "67793681d70c7ba20f146d5bcc69599398ea8e27208e2d2675ebe5c31b4def3a",
+    "agent\\graph.py": "8d47bc80ca5c5ea5eaa22cf0bda7ab004ede0721d71ccf97c00f6cc2c4464675",
+    "agent\\llm.py": "03a53f99cb4e5ce6676bff04f5bbcafa72c9356d78a12a35faf8da1056502360",
+    "agent\\redaction.py": "49e384d37ee4faaa8c1e42020ebe113f29bbb6ed1ba189fa2a1fcb7b67850a8f",
+    "agent\\sql_guard.py": "25bb46ba51f78e000ebb6d4cbe3b5b7d41ceeda7364b5bc7921f011bf903ef32",
+    "agent\\state.py": "25b9a698b0003feb49e0f07edc7a8a34e201a977eaebfe0d0a8c655a90283029",
+    "agent\\test_answer_facts.py": "b265f27f2b6b072b514800d3edc48740969e7135f40bf366b54f0ba5a6233ef2",
+    "agent\\test_concentrated.py": "91f735a90c12dc7b06ab6b5577c9e46b3dc3d54a04c3f31005ae03474de27cb3",
+    "agent\\test_fixes.py": "88ff4e3707a3ddd1c07e9b72fa1b0247cfe7c70fb2ab97ae5951e4b8fb844d31",
+    "agent\\test_remediation.py": "5878b1d937b6383de570bfee99d72c25c902166adbb8427768f4a9e0889f694f",
+    "agent\\test_rollback_regression.py": "76d1ca35e29906e8cd4bc0121974e9dd85d9b3f6bbefccee023cdd8cdaf538d5",
+    "agent\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent\\nodes\\intent.py": "b5e2dbefcb602f0b813804a53ab2c5dd59037a97a969f28e12c771d619512344",
+    "agent\\nodes\\response.py": "38e3484f29d8fc2f45ece4ae266eb09a230567f71ec1b06c50c00b8de8a7dfd5",
+    "agent\\nodes\\schema_retrieval.py": "7cedb49ce9fd38d4fe605c5c4262b4f2bf1f0c70ad173d138b7525795ab74d72",
+    "agent\\nodes\\sql_execution.py": "5171ad455189bac83231576ac4e5d61e4c11d0ca94860fd3594d497860ce07c5",
+    "agent\\nodes\\sql_generation.py": "4250fc2684d993988b9fb919f26b3a2e2af3ae7ba61284b490eefe8b13da7e46",
+    "agent\\nodes\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend\\data_dictionary.py": "6c9946aaa987952a261bc47de3620e2a0ced279f505905a70c69e280476f9f13",
+    "backend\\main.py": "e1ea8ec89108f0c37da96e0c8a5eccaf9a4e541dae0926a8f3f811501b7f1fd2",
+    "backend\\test_chat_router.py": "dc8c031a8a3435625193b2407e844a671231582fc4c647eb682671cd7161ddc8",
+    "backend\\test_chat_validation.py": "7d3453c3cdabbda5e07c523906ab82df0dfc37023a10f85ce117d727f34540a5",
+    "backend\\api\\chat.py": "178a1687dbd8267f3d89040cf45ec2b17ab25dbb8a52c7c0fca75716591ae231",
+    "backend\\api\\metrics.py": "418da0f20246862956b80ab8749350bf15aa17cb7a8697e6eb48ef7a3f6d1458",
+    "backend\\api\\schema_search.py": "57f23bc91619605434f1e361c23e653587c835071ff1b6964794bc88b3340cc5",
+    "backend\\api\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend\\db\\connection.py": "c9a9a9b6ef1c87d06807ff5699b653614f71a41a3bc0b3521e47a669d30f7114",
+    "backend\\db\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend\\models\\schemas.py": "b84ee00aeffb7603fd1f431f666abab9643da98d6d51ec030f4b4f296c705561",
+    "backend\\models\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "etl\\run_all.py": "75d69c4470d854942a6fa3dbd9dd976544b8325f20d64b01cc7dc3e57df32343",
+    "etl\\ads\\build_ads.py": "2ad4bb2b844004347779f7dde9f27c56236a6c21dde0b929bb9a7b95f5fcd0e8",
+    "etl\\dwd\\build_dwd.py": "a2feec8f7e5746f2413a425651f52a3bd39d60f2c6a3509e2861901ea7243d8c",
+    "etl\\dws\\build_dws.py": "2dbd00199721d06bd86874fd383f563f3bf51a842c3a6b80ebc1d7b7721add25",
+    "etl\\ods\\load_ods.py": "412fb4cce4887efd4cff26006f6866e9be2cce963a73ac1dc113c8c4b5483848"
+  },
+  "code_stable": true,
+  "finished_at": "2026-11-17T20:13:49.828090"
+}

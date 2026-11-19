@@ -1,0 +1,62 @@
+{
+  "environment": "DATAMIND_MYSQL_PORT=3399（不存在端口）+ 合成占位密码",
+  "conclusion": "全部拒绝类探针在建连前被拦截（分类 guard，非 connection），放行类探针语义正确",
+  "probes": [
+    {
+      "probe": "CTE同名遮蔽未授权来源",
+      "expected_deny": true,
+      "error_type": "guard",
+      "pass": true,
+      "error": "安全限制：禁止访问库 datamind_ods（仅允许 ADS/DWS 授权表）"
+    },
+    {
+      "probe": "CTE体引用系统库",
+      "expected_deny": true,
+      "error_type": "guard",
+      "pass": true,
+      "error": "安全限制：禁止访问库 mysql（仅允许 ADS/DWS 授权表）"
+    },
+    {
+      "probe": "合法CTE查询",
+      "expected_deny": false,
+      "error_type": "connection",
+      "pass": true,
+      "error": "数据库连接失败（错误码 2003）：Can't connect to MySQL server on 'localhost' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)"
+    },
+    {
+      "probe": "同名CTE加全限定引用",
+      "expected_deny": false,
+      "error_type": "connection",
+      "pass": true,
+      "error": "数据库连接失败（错误码 2003）：Can't connect to MySQL server on 'localhost' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)"
+    },
+    {
+      "probe": "嵌套子查询加锁",
+      "expected_deny": true,
+      "error_type": "guard",
+      "pass": true,
+      "error": "安全限制：禁止加锁读（FOR UPDATE / LOCK IN SHARE MODE）"
+    },
+    {
+      "probe": "UNION尾部加锁",
+      "expected_deny": true,
+      "error_type": "guard",
+      "pass": true,
+      "error": "安全限制：禁止加锁读（FOR UPDATE / LOCK IN SHARE MODE）"
+    },
+    {
+      "probe": "INTO OUTFILE 换行",
+      "expected_deny": true,
+      "error_type": "guard",
+      "pass": true,
+      "error": "SQL 无法解析，已拒绝执行：Invalid expression / Unexpected token. Line 2, Col: 18."
+    },
+    {
+      "probe": "反引号系统库",
+      "expected_deny": true,
+      "error_type": "guard",
+      "pass": true,
+      "error": "安全限制：禁止访问库 mysql（仅允许 ADS/DWS 授权表）"
+    }
+  ]
+}

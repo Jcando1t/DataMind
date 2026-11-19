@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-11-17T19:42:41",
+  "checks": [
+    {
+      "name": "missing_api_key",
+      "message": "未配置 DEEPSEEK_API_KEY：请在 agent/.env 或环境变量中设置后重启服务",
+      "leaks_secret": false
+    },
+    {
+      "name": "missing_query_password",
+      "message": "未配置 DATAMIND_QUERY_PASSWORD：请在 agent/.env 或环境变量中设置后重启服务"
+    },
+    {
+      "name": "wrong_port",
+      "error_type": "connection",
+      "error_shown": "数据库连接失败（错误码 2003）：Can't connect to MySQL server on 'localhost' ([WinError 10061]"
+    },
+    {
+      "name": "model_timeout",
+      "message": "模型服务连接或响应超时，请稍后重试"
+    },
+    {
+      "name": "output_truncation",
+      "message": "模型输出因长度上限被截断，未作为完整结果使用"
+    }
+  ]
+}

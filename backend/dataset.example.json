@@ -1,0 +1,13 @@
+{
+  "display_name": "公司经营数据",
+  "region": "中国",
+  "currency": "CNY",
+  "currency_symbol": "¥",
+  "currency_locale": "zh-CN",
+  "currency_label": "人民币",
+  "timezone": "Asia/Shanghai",
+  "database_prefix": "datamind_company",
+  "gmv_definition": "商品金额 + 运费",
+  "exclude_order_statuses": ["canceled", "cancelled", "unavailable"],
+  "raw_dir": "D:/DataMind/data/raw"
+}

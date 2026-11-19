@@ -1,0 +1,1813 @@
+{
+  "started_at": "2026-11-17T19:30:34.389854",
+  "mode": "Codex independent read-only acceptance",
+  "checks": [
+    {
+      "name": "query_account_only_7_select_grants",
+      "passed": true,
+      "detail": [
+        "GRANT USAGE ON *.* TO `datamind_ro`@`localhost`",
+        "GRANT SELECT ON `datamind_ads`.`ads_category_rank` TO `datamind_ro`@`localhost`",
+        "GRANT SELECT ON `datamind_ads`.`ads_gmv_overview` TO `datamind_ro`@`localhost`",
+        "GRANT SELECT ON `datamind_ads`.`ads_gmv_trend` TO `datamind_ro`@`localhost`",
+        "GRANT SELECT ON `datamind_ads`.`ads_top_sellers` TO `datamind_ro`@`localhost`",
+        "GRANT SELECT ON `datamind_dws`.`dws_category_summary` TO `datamind_ro`@`localhost`",
+        "GRANT SELECT ON `datamind_dws`.`dws_daily_active_users` TO `datamind_ro`@`localhost`",
+        "GRANT SELECT ON `datamind_dws`.`dws_daily_trade` TO `datamind_ro`@`localhost`"
+      ]
+    },
+    {
+      "name": "session_settings_read_back",
+      "passed": true,
+      "detail": {
+        "account": "datamind_ro@localhost",
+        "version": "8.4.11",
+        "ro": 1,
+        "timeout_ms": 15000
+      }
+    },
+    {
+      "name": "live_health",
+      "passed": false,
+      "detail": null
+    },
+    {
+      "name": "metric_full_comparison_overview",
+      "passed": false,
+      "detail": {
+        "rows": 1,
+        "http": null
+      }
+    },
+    {
+      "name": "metric_full_comparison_trend",
+      "passed": false,
+      "detail": {
+        "rows": 25,
+        "http": null
+      }
+    },
+    {
+      "name": "metric_full_comparison_category-rank",
+      "passed": false,
+      "detail": {
+        "rows": 72,
+        "http": null
+      }
+    },
+    {
+      "name": "metric_full_comparison_top-sellers",
+      "passed": false,
+      "detail": {
+        "rows": 20,
+        "http": null
+      }
+    },
+    {
+      "name": "overview_baseline",
+      "passed": true,
+      "detail": {
+        "total_gmv": 15735527.03,
+        "total_orders": 98207,
+        "avg_order_value": 160.23,
+        "total_customers": 94990,
+        "data_period_start": "2016-09-04",
+        "data_period_end": "2018-09-03"
+      }
+    },
+    {
+      "name": "monthly_reconciliation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "category_gmv_reconciliation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "distinct_customers_not_daily_sum",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "guard_before_connect_0",
+      "passed": true,
+      "detail": {
+        "sql": "WITH ods_customers AS (SELECT 1 AS x) SELECT * FROM datamind_ods.ods_customers",
+        "category": "guard",
+        "connected": false
+      }
+    },
+    {
+      "name": "guard_before_connect_1",
+      "passed": true,
+      "detail": {
+        "sql": "WITH a AS (WITH b AS (SELECT * FROM datamind_ods.ods_customers) SELECT * FROM b) SELECT * FROM a",
+        "category": "guard",
+        "connected": false
+      }
+    },
+    {
+      "name": "guard_before_connect_2",
+      "passed": true,
+      "detail": {
+        "sql": "SELECT * FROM (SELECT total_gmv FROM ads_gmv_overview FOR UPDATE) t",
+        "category": "guard",
+        "connected": false
+      }
+    },
+    {
+      "name": "guard_before_connect_3",
+      "passed": true,
+      "detail": {
+        "sql": "SELECT total_gmv FROM ads_gmv_overview UNION SELECT total_gmv FROM ads_gmv_overview FOR UPDATE",
+        "category": "guard",
+        "connected": false
+      }
+    },
+    {
+      "name": "guard_before_connect_4",
+      "passed": true,
+      "detail": {
+        "sql": "SELECT * FROM `mysql`.`user`",
+        "category": "guard",
+        "connected": false
+      }
+    },
+    {
+      "name": "guard_before_connect_5",
+      "passed": true,
+      "detail": {
+        "sql": "SELECT 1 INTO\nOUTFILE '/tmp/datamind-never-executed'",
+        "category": "guard",
+        "connected": false
+      }
+    },
+    {
+      "name": "guard_before_connect_6",
+      "passed": true,
+      "detail": {
+        "sql": "SELECT 1; SELECT 2",
+        "category": "guard",
+        "connected": false
+      }
+    },
+    {
+      "name": "guard_before_connect_7",
+      "passed": true,
+      "detail": {
+        "sql": "SELECT @@datadir",
+        "category": "guard",
+        "connected": false
+      }
+    },
+    {
+      "name": "guard_before_connect_8",
+      "passed": true,
+      "detail": {
+        "sql": "SELECT SLEEP(1)",
+        "category": "guard",
+        "connected": false
+      }
+    },
+    {
+      "name": "valid_actual_execution_0",
+      "passed": true,
+      "detail": {
+        "category": null,
+        "rows": 1
+      }
+    },
+    {
+      "name": "valid_actual_execution_1",
+      "passed": true,
+      "detail": {
+        "category": null,
+        "rows": 1
+      }
+    },
+    {
+      "name": "valid_actual_execution_2",
+      "passed": true,
+      "detail": {
+        "category": null,
+        "rows": 1
+      }
+    },
+    {
+      "name": "valid_actual_execution_3",
+      "passed": true,
+      "detail": {
+        "category": null,
+        "rows": 72
+      }
+    },
+    {
+      "name": "row_limit_default_cap",
+      "passed": true,
+      "detail": {
+        "rows": 1000,
+        "truncated": true,
+        "meta": {
+          "tables": [
+            "datamind_dws.dws_daily_trade"
+          ],
+          "limit_action": "added"
+        }
+      }
+    },
+    {
+      "name": "row_limit_comma_limit_cap",
+      "passed": true,
+      "detail": {
+        "rows": 1000,
+        "truncated": true,
+        "meta": {
+          "tables": [
+            "datamind_dws.dws_daily_trade"
+          ],
+          "limit_action": "capped"
+        }
+      }
+    },
+    {
+      "name": "row_limit_explicit_limit",
+      "passed": true,
+      "detail": {
+        "rows": 5,
+        "truncated": false,
+        "meta": {
+          "tables": [
+            "datamind_dws.dws_daily_trade"
+          ],
+          "limit_action": "kept"
+        }
+      }
+    },
+    {
+      "name": "row_limit_inner_limit",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "truncated": false,
+        "meta": {
+          "tables": [
+            "datamind_dws.dws_daily_trade"
+          ],
+          "limit_action": "added"
+        }
+      }
+    },
+    {
+      "name": "row_limit_offset",
+      "passed": true,
+      "detail": {
+        "rows": 3,
+        "truncated": false,
+        "meta": {
+          "tables": [
+            "datamind_ads.ads_gmv_trend"
+          ],
+          "limit_action": "kept"
+        }
+      }
+    },
+    {
+      "name": "missing_password_no_connection",
+      "passed": false,
+      "detail": null
+    },
+    {
+      "name": "session_configuration_fail_closed",
+      "passed": false,
+      "detail": {
+        "error_type": null,
+        "business_executed": true,
+        "simulation": true
+      }
+    },
+    {
+      "name": "missing_model_key",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "wrong_port_actual_connection_error",
+      "passed": true,
+      "detail": {
+        "category": "connection"
+      }
+    },
+    {
+      "name": "configured_short_password_redacted",
+      "passed": false,
+      "detail": {
+        "synthetic_only": true,
+        "result": {
+          "answer": "credential=aB3!",
+          "rows": [
+            {
+              "v": "aB3!"
+            }
+          ],
+          "sql": "SELECT 'aB3!'"
+        }
+      }
+    },
+    {
+      "name": "actual_schema_hashseed_stability",
+      "passed": false,
+      "detail": [
+        {
+          "seed": "0",
+          "exit": 1,
+          "digest": ""
+        },
+        {
+          "seed": "1",
+          "exit": 1,
+          "digest": ""
+        },
+        {
+          "seed": "42",
+          "exit": 1,
+          "digest": ""
+        },
+        {
+          "seed": "12345",
+          "exit": 1,
+          "digest": ""
+        },
+        {
+          "seed": "random",
+          "exit": 1,
+          "digest": ""
+        }
+      ]
+    },
+    {
+      "name": "latest_test_agent/test_fixes.py",
+      "passed": false,
+      "detail": {
+        "exit_code": 1
+      }
+    },
+    {
+      "name": "latest_test_agent/test_remediation.py",
+      "passed": false,
+      "detail": {
+        "exit_code": 1
+      }
+    },
+    {
+      "name": "latest_test_agent/test_concentrated.py",
+      "passed": false,
+      "detail": {
+        "exit_code": 1
+      }
+    },
+    {
+      "name": "latest_test_backend/test_chat_router.py",
+      "passed": false,
+      "detail": {
+        "exit_code": 1
+      }
+    },
+    {
+      "name": "latest_test_backend/test_chat_validation.py",
+      "passed": false,
+      "detail": {
+        "exit_code": 1
+      }
+    },
+    {
+      "name": "code_stable_during_review",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "latest_test_agent/test_fixes.py",
+      "passed": false,
+      "detail": {
+        "exit_code": 1,
+        "last_error": [
+          "ImportError: cannot import name 'LLM_CONNECT_TIMEOUT' from 'agent.config' (D:\\DataMind\\agent\\config.py)"
+        ]
+      }
+    },
+    {
+      "name": "latest_test_agent/test_remediation.py",
+      "passed": false,
+      "detail": {
+        "exit_code": 1,
+        "last_error": [
+          "ImportError: cannot import name 'LLM_CONNECT_TIMEOUT' from 'agent.config' (D:\\DataMind\\agent\\config.py)"
+        ]
+      }
+    },
+    {
+      "name": "latest_test_agent/test_concentrated.py",
+      "passed": false,
+      "detail": {
+        "exit_code": 1,
+        "last_error": [
+          "ImportError: cannot import name 'LLM_CONNECT_TIMEOUT' from 'agent.config' (D:\\DataMind\\agent\\config.py)"
+        ]
+      }
+    },
+    {
+      "name": "latest_test_backend/test_chat_router.py",
+      "passed": false,
+      "detail": {
+        "exit_code": 1,
+        "last_error": [
+          "ImportError: cannot import name 'LLM_CONNECT_TIMEOUT' from 'agent.config' (D:\\DataMind\\backend\\api\\..\\..\\agent\\config.py)"
+        ]
+      }
+    },
+    {
+      "name": "latest_test_backend/test_chat_validation.py",
+      "passed": false,
+      "detail": {
+        "exit_code": 1,
+        "last_error": [
+          "ImportError: cannot import name 'LLM_CONNECT_TIMEOUT' from 'agent.config' (D:\\DataMind\\backend\\api\\..\\..\\agent\\config.py)"
+        ]
+      }
+    },
+    {
+      "name": "keyword_hashseed_stability",
+      "passed": false,
+      "detail": [
+        {
+          "seed": "0",
+          "exit_code": 0,
+          "keywords": "{\"GMV按月趋势和订单数\": [\"GMV\", \"order\", \"trend\"], \"卖家排行前20\": [\"rank\", \"seller\"], \"品类GMV占比分布\": [\"GMV\", \"category\"], \"总用户数是多少？\": [\"user\"], \"每日下单用户数趋势\": [\"order\", \"user\", \"trend\"], \"那前三名呢\": [\"rank\"]}"
+        },
+        {
+          "seed": "1",
+          "exit_code": 0,
+          "keywords": "{\"GMV按月趋势和订单数\": [\"GMV\", \"trend\", \"order\"], \"卖家排行前20\": [\"seller\", \"rank\"], \"品类GMV占比分布\": [\"GMV\", \"category\"], \"总用户数是多少？\": [\"user\"], \"每日下单用户数趋势\": [\"trend\", \"user\", \"order\"], \"那前三名呢\": [\"rank\"]}"
+        },
+        {
+          "seed": "42",
+          "exit_code": 0,
+          "keywords": "{\"GMV按月趋势和订单数\": [\"GMV\", \"order\", \"trend\"], \"卖家排行前20\": [\"seller\", \"rank\"], \"品类GMV占比分布\": [\"category\", \"GMV\"], \"总用户数是多少？\": [\"user\"], \"每日下单用户数趋势\": [\"order\", \"trend\", \"user\"], \"那前三名呢\": [\"rank\"]}"
+        },
+        {
+          "seed": "12345",
+          "exit_code": 0,
+          "keywords": "{\"GMV按月趋势和订单数\": [\"trend\", \"order\", \"GMV\"], \"卖家排行前20\": [\"seller\", \"rank\"], \"品类GMV占比分布\": [\"GMV\", \"category\"], \"总用户数是多少？\": [\"user\"], \"每日下单用户数趋势\": [\"user\", \"order\", \"trend\"], \"那前三名呢\": [\"rank\"]}"
+        },
+        {
+          "seed": "random",
+          "exit_code": 0,
+          "keywords": "{\"GMV按月趋势和订单数\": [\"order\", \"trend\", \"GMV\"], \"卖家排行前20\": [\"seller\", \"rank\"], \"品类GMV占比分布\": [\"category\", \"GMV\"], \"总用户数是多少？\": [\"user\"], \"每日下单用户数趋势\": [\"user\", \"order\", \"trend\"], \"那前三名呢\": [\"rank\"]}"
+        }
+      ]
+    },
+    {
+      "name": "A_preserve_final_backtick",
+      "passed": false,
+      "detail": {
+        "input": "SELECT total_gmv FROM `datamind_ads`.`ads_gmv_overview`",
+        "output": "SELECT total_gmv FROM `datamind_ads`.`ads_gmv_overview",
+        "isolated": true
+      }
+    },
+    {
+      "name": "C_total_users_semantic_priority",
+      "passed": false,
+      "detail": {
+        "keywords": [
+          "user"
+        ],
+        "isolated": true
+      }
+    },
+    {
+      "name": "C_partial_failure_not_all_failure",
+      "passed": false,
+      "detail": {
+        "exception_type": "RuntimeError",
+        "message": "Schema 检索接口调用失败：关键词'broken' 请求异常: 'NoneType' object is not iterable"
+      }
+    },
+    {
+      "name": "D_unsupported_not_placeholder",
+      "passed": false,
+      "detail": {
+        "sql": "SELECT '未找到相关数据' AS message",
+        "category": null,
+        "isolated": true
+      }
+    },
+    {
+      "name": "E_top3_not_global_pie",
+      "passed": false,
+      "detail": {
+        "chart": {
+          "type": "pie",
+          "name": "category_english",
+          "value": "gmv_ratio"
+        },
+        "global_ratio_sum": 25.27,
+        "isolated": true
+      }
+    },
+    {
+      "name": "E_seller_single_metric_with_unit",
+      "passed": false,
+      "detail": {
+        "chart": {
+          "type": "bar",
+          "x": "seller_id",
+          "y": [
+            "total_gmv",
+            "total_orders"
+          ]
+        },
+        "isolated": true
+      }
+    },
+    {
+      "name": "F_invalid_request_rejected_0",
+      "passed": false,
+      "detail": {
+        "isolated_request_model": true
+      }
+    },
+    {
+      "name": "F_invalid_request_rejected_1",
+      "passed": false,
+      "detail": {
+        "isolated_request_model": true
+      }
+    },
+    {
+      "name": "F_invalid_request_rejected_2",
+      "passed": false,
+      "detail": {
+        "isolated_request_model": true
+      }
+    },
+    {
+      "name": "F_invalid_request_rejected_3",
+      "passed": false,
+      "detail": {
+        "isolated_request_model": true
+      }
+    },
+    {
+      "name": "G_full_payload_redaction",
+      "passed": false,
+      "detail": {
+        "result": {
+          "answer": "***",
+          "response_type": "text",
+          "chart_config": {
+            "v": "synthetic-review-secret"
+          },
+          "sql": "SELECT 'synthetic-review-secret'",
+          "rows": [
+            {
+              "v": "synthetic-review-secret"
+            }
+          ],
+          "row_count": 1,
+          "result_truncated": false,
+          "error_category": null
+        },
+        "synthetic_only": true,
+        "isolated": true
+      }
+    },
+    {
+      "name": "G_unexpected_error_generic",
+      "passed": false,
+      "detail": {
+        "http": 500,
+        "body": {
+          "code": 500,
+          "message": "Agent 执行失败：synthetic-internal-detail",
+          "data": null
+        },
+        "isolated": true
+      }
+    },
+    {
+      "name": "code_stable_since_snapshot",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "H_special_character_url_roundtrip",
+      "passed": true,
+      "detail": {
+        "synthetic_only": true
+      }
+    },
+    {
+      "name": "C_http_200_business_500_rejected",
+      "passed": false,
+      "detail": {
+        "schema_context": "未找到相关数据表。"
+      }
+    }
+  ],
+  "metrics": {
+    "overview": {
+      "http": null,
+      "row_count": 1,
+      "database": {
+        "total_gmv": 15735527.03,
+        "total_orders": 98207,
+        "avg_order_value": 160.23,
+        "total_customers": 94990,
+        "data_period_start": "2016-09-04",
+        "data_period_end": "2018-09-03"
+      },
+      "api": null
+    },
+    "trend": {
+      "http": null,
+      "row_count": 25,
+      "database": [
+        {
+          "year_month": "2016-09",
+          "monthly_gmv": 279.69,
+          "monthly_orders": 2,
+          "mom_growth_rate": null
+        },
+        {
+          "year_month": "2016-10",
+          "monthly_gmv": 51354.52,
+          "monthly_orders": 293,
+          "mom_growth_rate": 18261.23
+        },
+        {
+          "year_month": "2016-11",
+          "monthly_gmv": 0.0,
+          "monthly_orders": 0,
+          "mom_growth_rate": -100.0
+        },
+        {
+          "year_month": "2016-12",
+          "monthly_gmv": 19.62,
+          "monthly_orders": 1,
+          "mom_growth_rate": null
+        },
+        {
+          "year_month": "2017-01",
+          "monthly_gmv": 136943.46,
+          "monthly_orders": 787,
+          "mom_growth_rate": 697878.9
+        },
+        {
+          "year_month": "2017-02",
+          "monthly_gmv": 283561.69,
+          "monthly_orders": 1718,
+          "mom_growth_rate": 107.06
+        },
+        {
+          "year_month": "2017-03",
+          "monthly_gmv": 425617.96,
+          "monthly_orders": 2617,
+          "mom_growth_rate": 50.1
+        },
+        {
+          "year_month": "2017-04",
+          "monthly_gmv": 405848.61,
+          "monthly_orders": 2377,
+          "mom_growth_rate": -4.64
+        },
+        {
+          "year_month": "2017-05",
+          "monthly_gmv": 582710.83,
+          "monthly_orders": 3640,
+          "mom_growth_rate": 43.58
+        },
+        {
+          "year_month": "2017-06",
+          "monthly_gmv": 499652.24,
+          "monthly_orders": 3205,
+          "mom_growth_rate": -14.25
+        },
+        {
+          "year_month": "2017-07",
+          "monthly_gmv": 578753.73,
+          "monthly_orders": 3946,
+          "mom_growth_rate": 15.83
+        },
+        {
+          "year_month": "2017-08",
+          "monthly_gmv": 661903.52,
+          "monthly_orders": 4272,
+          "mom_growth_rate": 14.37
+        },
+        {
+          "year_month": "2017-09",
+          "monthly_gmv": 717102.72,
+          "monthly_orders": 4227,
+          "mom_growth_rate": 8.34
+        },
+        {
+          "year_month": "2017-10",
+          "monthly_gmv": 764756.03,
+          "monthly_orders": 4547,
+          "mom_growth_rate": 6.65
+        },
+        {
+          "year_month": "2017-11",
+          "monthly_gmv": 1172191.68,
+          "monthly_orders": 7423,
+          "mom_growth_rate": 53.28
+        },
+        {
+          "year_month": "2017-12",
+          "monthly_gmv": 861526.77,
+          "monthly_orders": 5620,
+          "mom_growth_rate": -26.5
+        },
+        {
+          "year_month": "2018-01",
+          "monthly_gmv": 1101920.01,
+          "monthly_orders": 7187,
+          "mom_growth_rate": 27.9
+        },
+        {
+          "year_month": "2018-02",
+          "monthly_gmv": 979486.16,
+          "monthly_orders": 6625,
+          "mom_growth_rate": -11.11
+        },
+        {
+          "year_month": "2018-03",
+          "monthly_gmv": 1152656.99,
+          "monthly_orders": 7168,
+          "mom_growth_rate": 17.68
+        },
+        {
+          "year_month": "2018-04",
+          "monthly_gmv": 1156248.89,
+          "monthly_orders": 6919,
+          "mom_growth_rate": 0.31
+        },
+        {
+          "year_month": "2018-05",
+          "monthly_gmv": 1145686.46,
+          "monthly_orders": 6833,
+          "mom_growth_rate": -0.91
+        },
+        {
+          "year_month": "2018-06",
+          "monthly_gmv": 1020381.9,
+          "monthly_orders": 6145,
+          "mom_growth_rate": -10.94
+        },
+        {
+          "year_month": "2018-07",
+          "monthly_gmv": 1039783.58,
+          "monthly_orders": 6233,
+          "mom_growth_rate": 1.9
+        },
+        {
+          "year_month": "2018-08",
+          "monthly_gmv": 996973.51,
+          "monthly_orders": 6421,
+          "mom_growth_rate": -4.12
+        },
+        {
+          "year_month": "2018-09",
+          "monthly_gmv": 166.46,
+          "monthly_orders": 1,
+          "mom_growth_rate": -99.98
+        }
+      ],
+      "api": null
+    },
+    "category-rank": {
+      "http": null,
+      "row_count": 72,
+      "database": [
+        {
+          "rank": 1,
+          "category_english": "health_beauty",
+          "total_gmv": 1437665.78,
+          "total_orders": 8800,
+          "gmv_ratio": 9.14
+        },
+        {
+          "rank": 2,
+          "category_english": "watches_gifts",
+          "total_gmv": 1298292.47,
+          "total_orders": 5604,
+          "gmv_ratio": 8.25
+        },
+        {
+          "rank": 3,
+          "category_english": "bed_bath_table",
+          "total_gmv": 1240386.13,
+          "total_orders": 9399,
+          "gmv_ratio": 7.88
+        },
+        {
+          "rank": 4,
+          "category_english": "sports_leisure",
+          "total_gmv": 1147244.63,
+          "total_orders": 7673,
+          "gmv_ratio": 7.29
+        },
+        {
+          "rank": 5,
+          "category_english": "computers_accessories",
+          "total_gmv": 1050941.58,
+          "total_orders": 6654,
+          "gmv_ratio": 6.68
+        },
+        {
+          "rank": 6,
+          "category_english": "furniture_decor",
+          "total_gmv": 899626.04,
+          "total_orders": 6425,
+          "gmv_ratio": 5.72
+        },
+        {
+          "rank": 7,
+          "category_english": "housewares",
+          "total_gmv": 772035.14,
+          "total_orders": 5847,
+          "gmv_ratio": 4.91
+        },
+        {
+          "rank": 8,
+          "category_english": "cool_stuff",
+          "total_gmv": 704086.24,
+          "total_orders": 3616,
+          "gmv_ratio": 4.47
+        },
+        {
+          "rank": 9,
+          "category_english": "auto",
+          "total_gmv": 678606.64,
+          "total_orders": 3872,
+          "gmv_ratio": 4.31
+        },
+        {
+          "rank": 10,
+          "category_english": "garden_tools",
+          "total_gmv": 579525.2,
+          "total_orders": 3505,
+          "gmv_ratio": 3.68
+        },
+        {
+          "rank": 11,
+          "category_english": "toys",
+          "total_gmv": 556783.29,
+          "total_orders": 3855,
+          "gmv_ratio": 3.54
+        },
+        {
+          "rank": 12,
+          "category_english": "baby",
+          "total_gmv": 478320.0,
+          "total_orders": 2868,
+          "gmv_ratio": 3.04
+        },
+        {
+          "rank": 13,
+          "category_english": "perfumery",
+          "total_gmv": 450580.47,
+          "total_orders": 3146,
+          "gmv_ratio": 2.86
+        },
+        {
+          "rank": 14,
+          "category_english": "telephony",
+          "total_gmv": 393306.02,
+          "total_orders": 4183,
+          "gmv_ratio": 2.5
+        },
+        {
+          "rank": 15,
+          "category_english": "office_furniture",
+          "total_gmv": 342073.02,
+          "total_orders": 1272,
+          "gmv_ratio": 2.17
+        },
+        {
+          "rank": 16,
+          "category_english": "stationery",
+          "total_gmv": 276152.18,
+          "total_orders": 2299,
+          "gmv_ratio": 1.75
+        },
+        {
+          "rank": 17,
+          "category_english": "pet_shop",
+          "total_gmv": 253176.96,
+          "total_orders": 1706,
+          "gmv_ratio": 1.61
+        },
+        {
+          "rank": 18,
+          "category_english": "computers",
+          "total_gmv": 232799.43,
+          "total_orders": 181,
+          "gmv_ratio": 1.48
+        },
+        {
+          "rank": 19,
+          "category_english": "unknown",
+          "total_gmv": 212182.44,
+          "total_orders": 1457,
+          "gmv_ratio": 1.35
+        },
+        {
+          "rank": 20,
+          "category_english": "musical_instruments",
+          "total_gmv": 206021.32,
+          "total_orders": 620,
+          "gmv_ratio": 1.31
+        },
+        {
+          "rank": 21,
+          "category_english": "small_appliances",
+          "total_gmv": 203731.5,
+          "total_orders": 622,
+          "gmv_ratio": 1.29
+        },
+        {
+          "rank": 22,
+          "category_english": "electronics",
+          "total_gmv": 203416.77,
+          "total_orders": 2543,
+          "gmv_ratio": 1.29
+        },
+        {
+          "rank": 23,
+          "category_english": "fashion_bags_accessories",
+          "total_gmv": 182934.76,
+          "total_orders": 1858,
+          "gmv_ratio": 1.16
+        },
+        {
+          "rank": 24,
+          "category_english": "consoles_games",
+          "total_gmv": 174639.6,
+          "total_orders": 1054,
+          "gmv_ratio": 1.11
+        },
+        {
+          "rank": 25,
+          "category_english": "luggage_accessories",
+          "total_gmv": 170504.09,
+          "total_orders": 1030,
+          "gmv_ratio": 1.08
+        },
+        {
+          "rank": 26,
+          "category_english": "construction_tools_construction",
+          "total_gmv": 165179.69,
+          "total_orders": 746,
+          "gmv_ratio": 1.05
+        },
+        {
+          "rank": 27,
+          "category_english": "home_appliances_2",
+          "total_gmv": 121055.52,
+          "total_orders": 231,
+          "gmv_ratio": 0.77
+        },
+        {
+          "rank": 28,
+          "category_english": "home_construction",
+          "total_gmv": 96833.62,
+          "total_orders": 489,
+          "gmv_ratio": 0.62
+        },
+        {
+          "rank": 29,
+          "category_english": "home_appliances",
+          "total_gmv": 94771.3,
+          "total_orders": 762,
+          "gmv_ratio": 0.6
+        },
+        {
+          "rank": 30,
+          "category_english": "furniture_living_room",
+          "total_gmv": 86557.3,
+          "total_orders": 420,
+          "gmv_ratio": 0.55
+        },
+        {
+          "rank": 31,
+          "category_english": "agro_industry_and_commerce",
+          "total_gmv": 78374.07,
+          "total_orders": 182,
+          "gmv_ratio": 0.5
+        },
+        {
+          "rank": 32,
+          "category_english": "home_confort",
+          "total_gmv": 67073.27,
+          "total_orders": 397,
+          "gmv_ratio": 0.43
+        },
+        {
+          "rank": 33,
+          "category_english": "fixed_telephony",
+          "total_gmv": 62414.05,
+          "total_orders": 214,
+          "gmv_ratio": 0.4
+        },
+        {
+          "rank": 34,
+          "category_english": "air_conditioning",
+          "total_gmv": 61436.57,
+          "total_orders": 251,
+          "gmv_ratio": 0.39
+        },
+        {
+          "rank": 35,
+          "category_english": "kitchen_dining_laundry_garden_furniture",
+          "total_gmv": 57905.76,
+          "total_orders": 246,
+          "gmv_ratio": 0.37
+        },
+        {
+          "rank": 36,
+          "category_english": "audio",
+          "total_gmv": 56371.26,
+          "total_orders": 349,
+          "gmv_ratio": 0.36
+        },
+        {
+          "rank": 37,
+          "category_english": "books_general_interest",
+          "total_gmv": 54658.69,
+          "total_orders": 505,
+          "gmv_ratio": 0.35
+        },
+        {
+          "rank": 38,
+          "category_english": "small_appliances_home_oven_and_coffee",
+          "total_gmv": 50193.57,
+          "total_orders": 75,
+          "gmv_ratio": 0.32
+        },
+        {
+          "rank": 39,
+          "category_english": "industry_commerce_and_business",
+          "total_gmv": 47554.29,
+          "total_orders": 235,
+          "gmv_ratio": 0.3
+        },
+        {
+          "rank": 40,
+          "category_english": "construction_tools_lights",
+          "total_gmv": 47511.18,
+          "total_orders": 243,
+          "gmv_ratio": 0.3
+        },
+        {
+          "rank": 41,
+          "category_english": "construction_tools_safety",
+          "total_gmv": 43420.59,
+          "total_orders": 165,
+          "gmv_ratio": 0.28
+        },
+        {
+          "rank": 42,
+          "category_english": "food",
+          "total_gmv": 36496.78,
+          "total_orders": 449,
+          "gmv_ratio": 0.23
+        },
+        {
+          "rank": 43,
+          "category_english": "market_place",
+          "total_gmv": 33694.53,
+          "total_orders": 279,
+          "gmv_ratio": 0.21
+        },
+        {
+          "rank": 44,
+          "category_english": "costruction_tools_garden",
+          "total_gmv": 30781.89,
+          "total_orders": 192,
+          "gmv_ratio": 0.2
+        },
+        {
+          "rank": 45,
+          "category_english": "fashion_shoes",
+          "total_gmv": 28248.41,
+          "total_orders": 238,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 46,
+          "category_english": "art",
+          "total_gmv": 28196.21,
+          "total_orders": 201,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 47,
+          "category_english": "drinks",
+          "total_gmv": 28100.75,
+          "total_orders": 296,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 48,
+          "category_english": "signaling_and_security",
+          "total_gmv": 28017.05,
+          "total_orders": 140,
+          "gmv_ratio": 0.18
+        },
+        {
+          "rank": 49,
+          "category_english": "furniture_bedroom",
+          "total_gmv": 24661.01,
+          "total_orders": 95,
+          "gmv_ratio": 0.16
+        },
+        {
+          "rank": 50,
+          "category_english": "books_technical",
+          "total_gmv": 23379.12,
+          "total_orders": 260,
+          "gmv_ratio": 0.15
+        },
+        {
+          "rank": 51,
+          "category_english": "food_drink",
+          "total_gmv": 19608.1,
+          "total_orders": 225,
+          "gmv_ratio": 0.12
+        },
+        {
+          "rank": 52,
+          "category_english": "costruction_tools_tools",
+          "total_gmv": 17934.17,
+          "total_orders": 97,
+          "gmv_ratio": 0.11
+        },
+        {
+          "rank": 53,
+          "category_english": "fashion_male_clothing",
+          "total_gmv": 12893.45,
+          "total_orders": 111,
+          "gmv_ratio": 0.08
+        },
+        {
+          "rank": 54,
+          "category_english": "christmas_supplies",
+          "total_gmv": 12009.19,
+          "total_orders": 127,
+          "gmv_ratio": 0.08
+        },
+        {
+          "rank": 55,
+          "category_english": "fashion_underwear_beach",
+          "total_gmv": 11457.74,
+          "total_orders": 121,
+          "gmv_ratio": 0.07
+        },
+        {
+          "rank": 56,
+          "category_english": "tablets_printing_image",
+          "total_gmv": 8754.61,
+          "total_orders": 79,
+          "gmv_ratio": 0.06
+        },
+        {
+          "rank": 57,
+          "category_english": "cine_photo",
+          "total_gmv": 8189.66,
+          "total_orders": 65,
+          "gmv_ratio": 0.05
+        },
+        {
+          "rank": 58,
+          "category_english": "music",
+          "total_gmv": 6724.86,
+          "total_orders": 38,
+          "gmv_ratio": 0.04
+        },
+        {
+          "rank": 59,
+          "category_english": "furniture_mattress_and_upholstery",
+          "total_gmv": 5998.54,
+          "total_orders": 38,
+          "gmv_ratio": 0.04
+        },
+        {
+          "rank": 60,
+          "category_english": "dvds_blu_ray",
+          "total_gmv": 5804.37,
+          "total_orders": 57,
+          "gmv_ratio": 0.04
+        },
+        {
+          "rank": 61,
+          "category_english": "books_imported",
+          "total_gmv": 5409.7,
+          "total_orders": 53,
+          "gmv_ratio": 0.03
+        },
+        {
+          "rank": 62,
+          "category_english": "party_supplies",
+          "total_gmv": 5313.15,
+          "total_orders": 39,
+          "gmv_ratio": 0.03
+        },
+        {
+          "rank": 63,
+          "category_english": "fashio_female_clothing",
+          "total_gmv": 3425.39,
+          "total_orders": 39,
+          "gmv_ratio": 0.02
+        },
+        {
+          "rank": 64,
+          "category_english": "fashion_sport",
+          "total_gmv": 2697.64,
+          "total_orders": 27,
+          "gmv_ratio": 0.02
+        },
+        {
+          "rank": 65,
+          "category_english": "la_cuisine",
+          "total_gmv": 2388.54,
+          "total_orders": 13,
+          "gmv_ratio": 0.02
+        },
+        {
+          "rank": 66,
+          "category_english": "arts_and_craftmanship",
+          "total_gmv": 2184.14,
+          "total_orders": 23,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 67,
+          "category_english": "diapers_and_hygiene",
+          "total_gmv": 2101.25,
+          "total_orders": 26,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 68,
+          "category_english": "flowers",
+          "total_gmv": 1598.91,
+          "total_orders": 29,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 69,
+          "category_english": "home_comfort_2",
+          "total_gmv": 1170.58,
+          "total_orders": 24,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 70,
+          "category_english": "cds_dvds_musicals",
+          "total_gmv": 954.99,
+          "total_orders": 12,
+          "gmv_ratio": 0.01
+        },
+        {
+          "rank": 71,
+          "category_english": "fashion_childrens_clothes",
+          "total_gmv": 665.36,
+          "total_orders": 8,
+          "gmv_ratio": 0.0
+        },
+        {
+          "rank": 72,
+          "category_english": "security_and_services",
+          "total_gmv": 324.51,
+          "total_orders": 2,
+          "gmv_ratio": 0.0
+        }
+      ],
+      "api": null
+    },
+    "top-sellers": {
+      "http": null,
+      "row_count": 20,
+      "database": [
+        {
+          "rank": 1,
+          "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+          "seller_city": "guariba",
+          "seller_state": "SP",
+          "total_gmv": 249393.44,
+          "total_orders": 1131
+        },
+        {
+          "rank": 2,
+          "seller_id": "7c67e1448b00f6e969d365cea6b010ab",
+          "seller_city": "itaquaquecetuba",
+          "seller_state": "SP",
+          "total_gmv": 239536.44,
+          "total_orders": 982
+        },
+        {
+          "rank": 3,
+          "seller_id": "53243585a1d6dc2643021fd1853d8905",
+          "seller_city": "lauro de freitas",
+          "seller_state": "BA",
+          "total_gmv": 235856.68,
+          "total_orders": 358
+        },
+        {
+          "rank": 4,
+          "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+          "seller_city": "ibitinga",
+          "seller_state": "SP",
+          "total_gmv": 235359.3,
+          "total_orders": 1804
+        },
+        {
+          "rank": 5,
+          "seller_id": "fa1c13f2614d7b5c4749cbc52fecda94",
+          "seller_city": "sumare",
+          "seller_state": "SP",
+          "total_gmv": 202861.67,
+          "total_orders": 584
+        },
+        {
+          "rank": 6,
+          "seller_id": "da8622b14eb17ae2831f4ac5b9dab84a",
+          "seller_city": "piracicaba",
+          "seller_state": "SP",
+          "total_gmv": 185192.32,
+          "total_orders": 1314
+        },
+        {
+          "rank": 7,
+          "seller_id": "7e93a43ef30c4f03f38b393420bc753a",
+          "seller_city": "barueri",
+          "seller_state": "SP",
+          "total_gmv": 178838.42,
+          "total_orders": 332
+        },
+        {
+          "rank": 8,
+          "seller_id": "1025f0e2d44d7041d6cf58b6550e0bfa",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 172860.69,
+          "total_orders": 915
+        },
+        {
+          "rank": 9,
+          "seller_id": "7a67c85e85bb2ce8582c35f2203ad736",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 162607.24,
+          "total_orders": 1159
+        },
+        {
+          "rank": 10,
+          "seller_id": "955fee9216a65b617aa5c0531780ce60",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 160582.9,
+          "total_orders": 1286
+        },
+        {
+          "rank": 11,
+          "seller_id": "6560211a19b47992c3666cc44a7e94c0",
+          "seller_city": "sao paulo",
+          "seller_state": "SP",
+          "total_gmv": 150522.02,
+          "total_orders": 1847
+        },
+        {
+          "rank": 12,
+          "seller_id": "1f50f920176fa81dab994f9023523100",
+          "seller_city": "sao jose do rio preto",
+          "seller_state": "SP",
+          "total_gmv": 142037.48,
+          "total_orders": 1403
+        },
+        {
+          "rank": 13,
+          "seller_id": "46dc3b2cc0980fb8ec44634e21d2718e",
+          "seller_city": "rio de janeiro",
+          "seller_state": "RJ",
+          "total_gmv": 138919.78,
+          "total_orders": 518
+        },
+        {
+          "rank": 14,
+          "seller_id": "a1043bafd471dff536d0c462352beb48",
+          "seller_city": "ilicinea",
+          "seller_state": "MG",
+          "total_gmv": 133195.8,
+          "total_orders": 715
+        },
+        {
+          "rank": 15,
+          "seller_id": "cc419e0650a3c5ba77189a1882b7556a",
+          "seller_city": "santo andre",
+          "seller_state": "SP",
+          "total_gmv": 129169.95,
+          "total_orders": 1697
+        },
+        {
+          "rank": 16,
+          "seller_id": "620c87c171fb2a6dd6e8bb4dec959fc6",
+          "seller_city": "petropolis",
+          "seller_state": "RJ",
+          "total_gmv": 127674.78,
+          "total_orders": 732
+        },
+        {
+          "rank": 17,
+          "seller_id": "5dceca129747e92ff8ef7a997dc4f8ca",
+          "seller_city": "santa barbara d´oeste",
+          "seller_state": "SP",
+          "total_gmv": 125737.68,
+          "total_orders": 324
+        },
+        {
+          "rank": 18,
+          "seller_id": "7d13fca15225358621be4086e1eb0964",
+          "seller_city": "ribeirao preto",
+          "seller_state": "SP",
+          "total_gmv": 122261.02,
+          "total_orders": 565
+        },
+        {
+          "rank": 19,
+          "seller_id": "3d871de0142ce09b7081e2b9d1733cb1",
+          "seller_city": "campo limpo paulista",
+          "seller_state": "SP",
+          "total_gmv": 116835.8,
+          "total_orders": 1076
+        },
+        {
+          "rank": 20,
+          "seller_id": "edb1ef5e36e0c8cd84eb3c9b003e486d",
+          "seller_city": "teresopolis",
+          "seller_state": "RJ",
+          "total_gmv": 83189.65,
+          "total_orders": 166
+        }
+      ],
+      "api": null
+    }
+  },
+  "live": [],
+  "code_snapshot_start": {
+    "agent\\config.py": {
+      "sha256": "ebd99c9cd533a809879c75085f02545f57f18f5a8ffa5cd5e839ccf5cc71afa4",
+      "mtime": "2026-11-17T19:27:50.519321"
+    },
+    "agent\\graph.py": {
+      "sha256": "609bb838a3d1aaf11f47f98474f414cf43ad728447e072325b2ca0228074db42",
+      "mtime": "2026-11-17T19:27:50.525162"
+    },
+    "agent\\llm.py": {
+      "sha256": "03a53f99cb4e5ce6676bff04f5bbcafa72c9356d78a12a35faf8da1056502360",
+      "mtime": "2026-11-17T18:56:43.094019"
+    },
+    "agent\\redaction.py": {
+      "sha256": "a0ed22827c0b6f75892b40dfcc1069e9bb4a31ec5675f430508d9113215799b2",
+      "mtime": "2026-11-17T18:59:02.277932"
+    },
+    "agent\\sql_guard.py": {
+      "sha256": "25bb46ba51f78e000ebb6d4cbe3b5b7d41ceeda7364b5bc7921f011bf903ef32",
+      "mtime": "2026-11-17T18:56:56.387193"
+    },
+    "agent\\state.py": {
+      "sha256": "bb90d108324638fa44008a5b5062ae031f8f3cadcc9692ab69112e26b4116e5b",
+      "mtime": "2026-11-17T19:27:50.520165"
+    },
+    "agent\\test_concentrated.py": {
+      "sha256": "91f735a90c12dc7b06ab6b5577c9e46b3dc3d54a04c3f31005ae03474de27cb3",
+      "mtime": "2026-11-17T18:55:32.130230"
+    },
+    "agent\\test_fixes.py": {
+      "sha256": "88ff4e3707a3ddd1c07e9b72fa1b0247cfe7c70fb2ab97ae5951e4b8fb844d31",
+      "mtime": "2026-11-17T19:03:22.847034"
+    },
+    "agent\\test_remediation.py": {
+      "sha256": "5878b1d937b6383de570bfee99d72c25c902166adbb8427768f4a9e0889f694f",
+      "mtime": "2026-11-17T19:03:22.885311"
+    },
+    "agent\\__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime": "2026-11-16T13:59:46.927440"
+    },
+    "agent\\nodes\\intent.py": {
+      "sha256": "b5e2dbefcb602f0b813804a53ab2c5dd59037a97a969f28e12c771d619512344",
+      "mtime": "2026-11-17T17:59:31.721288"
+    },
+    "agent\\nodes\\response.py": {
+      "sha256": "a5426133e01f0707ccb9a777efdb9bd35d480de266d88f610e72357f83a4b9dd",
+      "mtime": "2026-11-17T19:27:50.524474"
+    },
+    "agent\\nodes\\schema_retrieval.py": {
+      "sha256": "e801ced28603281ff75eef85c4398ea30dfbbda69d621d9faae07047fe27a28a",
+      "mtime": "2026-11-17T19:27:50.521207"
+    },
+    "agent\\nodes\\sql_execution.py": {
+      "sha256": "35879cfcc5586916ff937358a1d71ded66a8a09723e35f0f45acba706a49191c",
+      "mtime": "2026-11-17T19:27:50.523783"
+    },
+    "agent\\nodes\\sql_generation.py": {
+      "sha256": "02a4a9b83ad3bc588d20dc9b895a7a41843c818abbc6b8994d6cbf8bf0fdff50",
+      "mtime": "2026-11-17T19:27:50.522168"
+    },
+    "agent\\nodes\\__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime": "2026-11-16T13:58:36.645703"
+    },
+    "backend\\data_dictionary.py": {
+      "sha256": "6c9946aaa987952a261bc47de3620e2a0ced279f505905a70c69e280476f9f13",
+      "mtime": "2026-11-17T19:01:38.382817"
+    },
+    "backend\\main.py": {
+      "sha256": "2a596595ecf14c631a8160b127f67ca6c271253ad4d5f2bbc8d235f2354c6957",
+      "mtime": "2026-11-17T19:27:50.526364"
+    },
+    "backend\\test_chat_router.py": {
+      "sha256": "dc8c031a8a3435625193b2407e844a671231582fc4c647eb682671cd7161ddc8",
+      "mtime": "2026-11-17T18:02:49.544561"
+    },
+    "backend\\test_chat_validation.py": {
+      "sha256": "7d3453c3cdabbda5e07c523906ab82df0dfc37023a10f85ce117d727f34540a5",
+      "mtime": "2026-11-17T18:55:32.169059"
+    },
+    "backend\\api\\chat.py": {
+      "sha256": "6417b71ab451c61dd15f2bcf60498d31a0f6ed8b74d3f340c49a33ff788eda1a",
+      "mtime": "2026-11-17T19:27:50.526364"
+    },
+    "backend\\api\\metrics.py": {
+      "sha256": "418da0f20246862956b80ab8749350bf15aa17cb7a8697e6eb48ef7a3f6d1458",
+      "mtime": "2026-11-16T14:22:24.527286"
+    },
+    "backend\\api\\schema_search.py": {
+      "sha256": "57f23bc91619605434f1e361c23e653587c835071ff1b6964794bc88b3340cc5",
+      "mtime": "2026-11-16T13:14:44.713976"
+    },
+    "backend\\api\\__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime": "2026-11-16T13:15:02.048631"
+    },
+    "backend\\db\\connection.py": {
+      "sha256": "c9a9a9b6ef1c87d06807ff5699b653614f71a41a3bc0b3521e47a669d30f7114",
+      "mtime": "2026-11-17T18:56:43.061781"
+    },
+    "backend\\db\\__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime": "2026-11-16T13:15:02.042250"
+    },
+    "backend\\models\\schemas.py": {
+      "sha256": "b84ee00aeffb7603fd1f431f666abab9643da98d6d51ec030f4b4f296c705561",
+      "mtime": "2026-11-16T13:14:28.166593"
+    },
+    "backend\\models\\__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime": "2026-11-16T13:15:02.046862"
+    },
+    "etl\\run_all.py": {
+      "sha256": "75d69c4470d854942a6fa3dbd9dd976544b8325f20d64b01cc7dc3e57df32343",
+      "mtime": "2026-11-16T13:47:59.695070"
+    },
+    "etl\\ads\\build_ads.py": {
+      "sha256": "2ad4bb2b844004347779f7dde9f27c56236a6c21dde0b929bb9a7b95f5fcd0e8",
+      "mtime": "2026-11-16T13:07:36.105000"
+    },
+    "etl\\dwd\\build_dwd.py": {
+      "sha256": "a2feec8f7e5746f2413a425651f52a3bd39d60f2c6a3509e2861901ea7243d8c",
+      "mtime": "2026-11-16T13:07:36.143000"
+    },
+    "etl\\dws\\build_dws.py": {
+      "sha256": "2dbd00199721d06bd86874fd383f563f3bf51a842c3a6b80ebc1d7b7721add25",
+      "mtime": "2026-11-16T13:07:36.105000"
+    },
+    "etl\\ods\\load_ods.py": {
+      "sha256": "412fb4cce4887efd4cff26006f6866e9be2cce963a73ac1dc113c8c4b5483848",
+      "mtime": "2026-11-16T13:07:36.089000"
+    }
+  },
+  "database": {
+    "account": "datamind_ro@localhost",
+    "version": "8.4.11",
+    "ro": 1,
+    "timeout_ms": 15000
+  },
+  "grants": [
+    "GRANT USAGE ON *.* TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_category_rank` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_gmv_overview` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_gmv_trend` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_ads`.`ads_top_sellers` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_dws`.`dws_category_summary` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_dws`.`dws_daily_active_users` TO `datamind_ro`@`localhost`",
+    "GRANT SELECT ON `datamind_dws`.`dws_daily_trade` TO `datamind_ro`@`localhost`"
+  ],
+  "daily_users": {
+    "daily_sum": 97277.0,
+    "days": 614
+  },
+  "versions": {
+    "pyspark": "3.5.3",
+    "langgraph": "1.2.22",
+    "langchain": "1.5.0",
+    "openai": "2.54.0",
+    "pymysql": "1.2.4",
+    "httpx": "0.28.1",
+    "sqlglot": "30.32.0",
+    "python-dotenv": "1.2.4",
+    "fastapi": "0.162.0",
+    "uvicorn": "0.54.0",
+    "sqlalchemy": "2.1.6",
+    "aiomysql": "0.3.2",
+    "pydantic": "2.14.1",
+    "cryptography": "50.0.2"
+  },
+  "test_runs_latest": [
+    {
+      "file": "agent/test_fixes.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\DataMind\\agent\\test_fixes.py\", line 31, in <module>\n    from agent.nodes.response import _decide_response_type\n  File \"D:\\DataMind\\agent\\nodes\\response.py\", line 16, in <module>\n    from agent.llm import chat\n  File \"D:\\DataMind\\agent\\llm.py\", line 8, in <module>\n    from agent.config import (\nImportError: cannot import name 'LLM_CONNECT_TIMEOUT' from 'agent.config' (D:\\DataMind\\agent\\config.py)\n"
+    },
+    {
+      "file": "agent/test_remediation.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\DataMind\\agent\\test_remediation.py\", line 22, in <module>\n    from agent.nodes import response as response_module\n  File \"D:\\DataMind\\agent\\nodes\\response.py\", line 16, in <module>\n    from agent.llm import chat\n  File \"D:\\DataMind\\agent\\llm.py\", line 8, in <module>\n    from agent.config import (\nImportError: cannot import name 'LLM_CONNECT_TIMEOUT' from 'agent.config' (D:\\DataMind\\agent\\config.py)\n"
+    },
+    {
+      "file": "agent/test_concentrated.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\DataMind\\agent\\test_concentrated.py\", line 14, in <module>\n    from agent.nodes.response import _decide_response_type\n  File \"D:\\DataMind\\agent\\nodes\\response.py\", line 16, in <module>\n    from agent.llm import chat\n  File \"D:\\DataMind\\agent\\llm.py\", line 8, in <module>\n    from agent.config import (\nImportError: cannot import name 'LLM_CONNECT_TIMEOUT' from 'agent.config' (D:\\DataMind\\agent\\config.py)\n"
+    },
+    {
+      "file": "backend/test_chat_router.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\DataMind\\backend\\test_chat_router.py\", line 31, in <module>\n    import main  # noqa: E402  backend/main.py\n    ^^^^^^^^^^^\n  File \"D:\\DataMind\\backend\\main.py\", line 25, in <module>\n    from api.chat import router as chat_router\n  File \"D:\\DataMind\\backend\\api\\chat.py\", line 25, in <module>\n    from agent.graph import agent_graph\n  File \"D:\\DataMind\\backend\\api\\..\\..\\agent\\graph.py\", line 9, in <module>\n    from agent.nodes.intent import intent_node\n  File \"D:\\DataMind\\backend\\api\\..\\..\\agent\\nodes\\intent.py\", line 7, in <module>\n    from agent.llm import chat\n  File \"D:\\DataMind\\backend\\api\\..\\..\\agent\\llm.py\", line 8, in <module>\n    from agent.config import (\nImportError: cannot import name 'LLM_CONNECT_TIMEOUT' from 'agent.config' (D:\\DataMind\\backend\\api\\..\\..\\agent\\config.py)\n"
+    },
+    {
+      "file": "backend/test_chat_validation.py",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\DataMind\\backend\\test_chat_validation.py\", line 17, in <module>\n    import main\n  File \"D:\\DataMind\\backend\\main.py\", line 25, in <module>\n    from api.chat import router as chat_router\n  File \"D:\\DataMind\\backend\\api\\chat.py\", line 25, in <module>\n    from agent.graph import agent_graph\n  File \"D:\\DataMind\\backend\\api\\..\\..\\agent\\graph.py\", line 9, in <module>\n    from agent.nodes.intent import intent_node\n  File \"D:\\DataMind\\backend\\api\\..\\..\\agent\\nodes\\intent.py\", line 7, in <module>\n    from agent.llm import chat\n  File \"D:\\DataMind\\backend\\api\\..\\..\\agent\\llm.py\", line 8, in <module>\n    from agent.config import (\nImportError: cannot import name 'LLM_CONNECT_TIMEOUT' from 'agent.config' (D:\\DataMind\\backend\\api\\..\\..\\agent\\config.py)\n"
+    }
+  ],
+  "code_snapshot_end": {
+    "agent\\config.py": {
+      "sha256": "ebd99c9cd533a809879c75085f02545f57f18f5a8ffa5cd5e839ccf5cc71afa4",
+      "mtime": "2026-11-17T19:27:50.519321"
+    },
+    "agent\\graph.py": {
+      "sha256": "609bb838a3d1aaf11f47f98474f414cf43ad728447e072325b2ca0228074db42",
+      "mtime": "2026-11-17T19:27:50.525162"
+    },
+    "agent\\llm.py": {
+      "sha256": "03a53f99cb4e5ce6676bff04f5bbcafa72c9356d78a12a35faf8da1056502360",
+      "mtime": "2026-11-17T18:56:43.094019"
+    },
+    "agent\\redaction.py": {
+      "sha256": "a0ed22827c0b6f75892b40dfcc1069e9bb4a31ec5675f430508d9113215799b2",
+      "mtime": "2026-11-17T18:59:02.277932"
+    },
+    "agent\\sql_guard.py": {
+      "sha256": "25bb46ba51f78e000ebb6d4cbe3b5b7d41ceeda7364b5bc7921f011bf903ef32",
+      "mtime": "2026-11-17T18:56:56.387193"
+    },
+    "agent\\state.py": {
+      "sha256": "bb90d108324638fa44008a5b5062ae031f8f3cadcc9692ab69112e26b4116e5b",
+      "mtime": "2026-11-17T19:27:50.520165"
+    },
+    "agent\\test_concentrated.py": {
+      "sha256": "91f735a90c12dc7b06ab6b5577c9e46b3dc3d54a04c3f31005ae03474de27cb3",
+      "mtime": "2026-11-17T18:55:32.130230"
+    },
+    "agent\\test_fixes.py": {
+      "sha256": "88ff4e3707a3ddd1c07e9b72fa1b0247cfe7c70fb2ab97ae5951e4b8fb844d31",
+      "mtime": "2026-11-17T19:03:22.847034"
+    },
+    "agent\\test_remediation.py": {
+      "sha256": "5878b1d937b6383de570bfee99d72c25c902166adbb8427768f4a9e0889f694f",
+      "mtime": "2026-11-17T19:03:22.885311"
+    },
+    "agent\\__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime": "2026-11-16T13:59:46.927440"
+    },
+    "agent\\nodes\\intent.py": {
+      "sha256": "b5e2dbefcb602f0b813804a53ab2c5dd59037a97a969f28e12c771d619512344",
+      "mtime": "2026-11-17T17:59:31.721288"
+    },
+    "agent\\nodes\\response.py": {
+      "sha256": "a5426133e01f0707ccb9a777efdb9bd35d480de266d88f610e72357f83a4b9dd",
+      "mtime": "2026-11-17T19:27:50.524474"
+    },
+    "agent\\nodes\\schema_retrieval.py": {
+      "sha256": "e801ced28603281ff75eef85c4398ea30dfbbda69d621d9faae07047fe27a28a",
+      "mtime": "2026-11-17T19:27:50.521207"
+    },
+    "agent\\nodes\\sql_execution.py": {
+      "sha256": "35879cfcc5586916ff937358a1d71ded66a8a09723e35f0f45acba706a49191c",
+      "mtime": "2026-11-17T19:27:50.523783"
+    },
+    "agent\\nodes\\sql_generation.py": {
+      "sha256": "02a4a9b83ad3bc588d20dc9b895a7a41843c818abbc6b8994d6cbf8bf0fdff50",
+      "mtime": "2026-11-17T19:27:50.522168"
+    },
+    "agent\\nodes\\__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime": "2026-11-16T13:58:36.645703"
+    },
+    "backend\\data_dictionary.py": {
+      "sha256": "6c9946aaa987952a261bc47de3620e2a0ced279f505905a70c69e280476f9f13",
+      "mtime": "2026-11-17T19:01:38.382817"
+    },
+    "backend\\main.py": {
+      "sha256": "2a596595ecf14c631a8160b127f67ca6c271253ad4d5f2bbc8d235f2354c6957",
+      "mtime": "2026-11-17T19:27:50.526364"
+    },
+    "backend\\test_chat_router.py": {
+      "sha256": "dc8c031a8a3435625193b2407e844a671231582fc4c647eb682671cd7161ddc8",
+      "mtime": "2026-11-17T18:02:49.544561"
+    },
+    "backend\\test_chat_validation.py": {
+      "sha256": "7d3453c3cdabbda5e07c523906ab82df0dfc37023a10f85ce117d727f34540a5",
+      "mtime": "2026-11-17T18:55:32.169059"
+    },
+    "backend\\api\\chat.py": {
+      "sha256": "6417b71ab451c61dd15f2bcf60498d31a0f6ed8b74d3f340c49a33ff788eda1a",
+      "mtime": "2026-11-17T19:27:50.526364"
+    },
+    "backend\\api\\metrics.py": {
+      "sha256": "418da0f20246862956b80ab8749350bf15aa17cb7a8697e6eb48ef7a3f6d1458",
+      "mtime": "2026-11-16T14:22:24.527286"
+    },
+    "backend\\api\\schema_search.py": {
+      "sha256": "57f23bc91619605434f1e361c23e653587c835071ff1b6964794bc88b3340cc5",
+      "mtime": "2026-11-16T13:14:44.713976"
+    },
+    "backend\\api\\__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime": "2026-11-16T13:15:02.048631"
+    },
+    "backend\\db\\connection.py": {
+      "sha256": "c9a9a9b6ef1c87d06807ff5699b653614f71a41a3bc0b3521e47a669d30f7114",
+      "mtime": "2026-11-17T18:56:43.061781"
+    },
+    "backend\\db\\__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime": "2026-11-16T13:15:02.042250"
+    },
+    "backend\\models\\schemas.py": {
+      "sha256": "b84ee00aeffb7603fd1f431f666abab9643da98d6d51ec030f4b4f296c705561",
+      "mtime": "2026-11-16T13:14:28.166593"
+    },
+    "backend\\models\\__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime": "2026-11-16T13:15:02.046862"
+    },
+    "etl\\run_all.py": {
+      "sha256": "75d69c4470d854942a6fa3dbd9dd976544b8325f20d64b01cc7dc3e57df32343",
+      "mtime": "2026-11-16T13:47:59.695070"
+    },
+    "etl\\ads\\build_ads.py": {
+      "sha256": "2ad4bb2b844004347779f7dde9f27c56236a6c21dde0b929bb9a7b95f5fcd0e8",
+      "mtime": "2026-11-16T13:07:36.105000"
+    },
+    "etl\\dwd\\build_dwd.py": {
+      "sha256": "a2feec8f7e5746f2413a425651f52a3bd39d60f2c6a3509e2861901ea7243d8c",
+      "mtime": "2026-11-16T13:07:36.143000"
+    },
+    "etl\\dws\\build_dws.py": {
+      "sha256": "2dbd00199721d06bd86874fd383f563f3bf51a842c3a6b80ebc1d7b7721add25",
+      "mtime": "2026-11-16T13:07:36.105000"
+    },
+    "etl\\ods\\load_ods.py": {
+      "sha256": "412fb4cce4887efd4cff26006f6866e9be2cce963a73ac1dc113c8c4b5483848",
+      "mtime": "2026-11-16T13:07:36.089000"
+    }
+  },
+  "live_skipped_reason": "Current backend HTTP requests timed out; fresh imports fail because agent.config lacks LLM timeout/retry constants. No current real LLM end-to-end success claimed.",
+  "finished_at": "2026-11-17T19:32:40.081850",
+  "counts": {
+    "total": 62,
+    "passed": 29,
+    "failed": 33
+  }
+}
